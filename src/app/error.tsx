@@ -25,6 +25,11 @@ export default function GlobalError({ error, reset }: ErrorBoundaryType) {
       <h1>
         Oops! Something went wrong here
       </h1>
+      {error.message && (
+        <p>
+          {error.message}
+        </p>
+      )}
       <button onClick={handleReset}>
         Try again
       </button>
