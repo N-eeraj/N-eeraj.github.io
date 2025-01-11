@@ -1,3 +1,4 @@
+import { MDXRemote } from "next-mdx-remote/rsc"
 import NpmPackage from "@utils/npm"
 import GithubRepo from "@utils/github"
 
@@ -19,10 +20,14 @@ async function RandomPackagePage() {
     open_issues_count,
   } = await githubRepo.getDetails()
   const languages = await githubRepo.getLanguages()
+  const readme = await githubRepo.readme()
 
   return (
     <>
       <div>
+        <div className="prose dark:prose-invert prose-neutral prose-code:before:hidden prose-code:after:hidden">
+          <MDXRemote source={readme} />
+        </div>
         <div>
           {npmPackage.name}
         </div>
