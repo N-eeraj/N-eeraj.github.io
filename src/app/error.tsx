@@ -8,7 +8,7 @@ interface ErrorBoundaryType {
   reset: () => void
 }
 
-export default function GlobalError({ error, reset }: ErrorBoundaryType) {
+export default function RootErrorBoundary({ error, reset }: ErrorBoundaryType) {
   const router = useRouter()
 
   const handleReset = () => {

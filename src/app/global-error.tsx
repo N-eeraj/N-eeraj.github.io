@@ -5,7 +5,7 @@ interface ErrorBoundaryType {
   reset: () => void
 }
 
-export default function GlobalError({ error }: ErrorBoundaryType) {
+export default function GlobalErrorBoundary({ error }: ErrorBoundaryType) {
   console.error(error)
 
   return (

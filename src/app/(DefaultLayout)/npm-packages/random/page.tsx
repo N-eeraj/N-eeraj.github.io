@@ -1,4 +1,5 @@
-import { MDXRemote } from "next-mdx-remote/rsc"
+import Readme from "@components/Readme"
+
 import NpmPackage from "@utils/npm"
 import GithubRepo from "@utils/github"
 
@@ -25,9 +26,7 @@ async function RandomPackagePage() {
   return (
     <>
       <div>
-        <div className="prose dark:prose-invert prose-neutral prose-code:before:hidden prose-code:after:hidden">
-          <MDXRemote source={readme} />
-        </div>
+        <Readme file={readme} />
         <div>
           {npmPackage.name}
         </div>
