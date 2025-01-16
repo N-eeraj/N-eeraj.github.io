@@ -3,10 +3,7 @@
 import { startTransition } from "react"
 import { useRouter } from "next/navigation"
 
-interface ErrorBoundaryType {
-  error: Error
-  reset: () => void
-}
+import { ErrorBoundaryType } from "@customTypes/error"
 
 export default function RootErrorBoundary({ error, reset }: ErrorBoundaryType) {
   const router = useRouter()

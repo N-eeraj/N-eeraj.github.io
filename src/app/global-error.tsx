@@ -1,9 +1,6 @@
 "use client"
 
-interface ErrorBoundaryType {
-  error: Error
-  reset: () => void
-}
+import { ErrorBoundaryType } from "@customTypes/error"
 
 export default function GlobalErrorBoundary({ error }: ErrorBoundaryType) {
   console.error(error)

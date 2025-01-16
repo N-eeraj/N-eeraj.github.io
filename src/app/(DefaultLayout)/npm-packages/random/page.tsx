@@ -21,6 +21,7 @@ async function RandomPackagePage() {
     open_issues_count,
   } = await githubRepo.getDetails()
   const languages = await githubRepo.getLanguages()
+
   const readme = await githubRepo.readme()
 
   return (

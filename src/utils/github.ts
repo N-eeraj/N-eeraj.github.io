@@ -31,6 +31,7 @@ export default class GithubRepo {
   async readme() {
     const response = await fetch(`${GITHUB_USER_CONTENT_BASE_URL}/${GITHUB_USERNAME}/${this.name}/refs/heads/main/README.md`)
     const data = await response.text()
-    return data
+    const replaceRelativeUrl = data.replaceAll("](./", `](${GITHUB_USER_CONTENT_BASE_URL}/${GITHUB_USERNAME}/${this.name}/refs/heads/main/`)
+    return replaceRelativeUrl
   }
 }
