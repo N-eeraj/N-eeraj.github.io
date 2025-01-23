@@ -7,6 +7,14 @@ import {
   GITHUB_API_BASE_URL,
 } from "@constants/enVariables"
 
+import languageColors from "@data/github/colors.json"
+
+import { z } from "zod"
+
+type Language = keyof typeof languageColors
+
+const languageColorSchema = z.object(Object.fromEntries(Object.keys(languageColors).map(lang => ([lang, z.number().optional()]))) as Record<Language, z.ZodOptional<z.ZodNumber>>)
+
 export default class GithubRepo {
   name: string
   url: string
@@ -25,13 +33,24 @@ export default class GithubRepo {
   async getLanguages() {
     const response = await fetch(`${GITHUB_API_BASE_URL}/repos/${GITHUB_USERNAME}/${this.name}/languages`)
     const data = await response.json()
-    return data
+    const safeData = languageColorSchema.parse(data)
+
+    const total = Object.values(safeData).reduce((sum: number, value: number) => sum += value, 0)
+
+    const languages = Object.entries(safeData)
+      .map(([language, value]) => ({
+        language,
+        hexCode: languageColors[language as Language],
+        percentage: Math.round(value * 100 / total),
+      }))
+      .sort((a, b) => b.percentage - a.percentage)
+    return languages
   }
 
   async readme() {
     const response = await fetch(`${GITHUB_USER_CONTENT_BASE_URL}/${GITHUB_USERNAME}/${this.name}/refs/heads/main/README.md`)
     const data = await response.text()
-    const replaceRelativeUrl = data.replaceAll("](./", `](${GITHUB_USER_CONTENT_BASE_URL}/${GITHUB_USERNAME}/${this.name}/refs/heads/main/`)
+    const replaceRelativeUrl = data.replaceAll("](./", `](${GITHUB_BASE_URL}/${GITHUB_USERNAME}/${this.name}/blob/main/`)
     return replaceRelativeUrl
   }
 }
