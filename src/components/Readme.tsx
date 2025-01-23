@@ -1,6 +1,10 @@
 import { MDXRemote } from "next-mdx-remote/rsc"
+import type { MDXRemoteProps } from "next-mdx-remote/rsc"
 
-function Readme({ file }: { file: string }) {
+function Readme({ file, components }: {
+  file: string
+  components?: Readonly<MDXRemoteProps["components"]>
+}) {
   return (
     <div className="prose dark:prose-invert prose-neutral prose-code:before:hidden prose-code:after:hidden">
       <MDXRemote
@@ -12,7 +16,8 @@ function Readme({ file }: { file: string }) {
               target="_blank">
               {children}
             </a>
-          )
+          ),
+          ...components
         }} />
     </div>
   )

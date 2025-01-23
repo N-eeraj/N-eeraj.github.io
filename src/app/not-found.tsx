@@ -5,10 +5,10 @@ function RootNotFound() {
   return (
     <main>
       <h1>
-        Oops! Looks like you're lost
+        Oops! Looks like you&apos;re lost
       </h1>
       <span>
-        Let's get you back home
+        Let&apos;s get you back home
       </span>
       <Link href="/">
         <Button variant="link">

@@ -9,11 +9,9 @@ import {
 
 import languageColors from "@data/github/colors.json"
 
-import { z } from "zod"
-
-type Language = keyof typeof languageColors
-
-const languageColorSchema = z.object(Object.fromEntries(Object.keys(languageColors).map(lang => ([lang, z.number().optional()]))) as Record<Language, z.ZodOptional<z.ZodNumber>>)
+import languageColorSchema, {
+  type Language,
+} from "@schema/github/languages"
 
 export default class GithubRepo {
   name: string

@@ -25,9 +25,10 @@
       "@components/*": ["./src/components/*"],
       "@hooks/*": ["./src/hooks/*"],
       "@utils/*": ["./src/utils/*"],
+      "@schema/*": ["./src/schema/*"],
       "@constants/*": ["./src/constants/*"],
       "@customTypes/*": ["./src/types/*"],
-      "@data/*": ["./src/assets/data/*"]
+      "@data/*": ["./src/assets/data/*"],
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
