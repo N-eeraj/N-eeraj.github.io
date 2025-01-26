@@ -1,10 +1,10 @@
 import { PropsWithChildren } from "react"
-import PackagesNavbar from "~/src/components/Packages/Navbar"
+import Navbar from "./components/Navbar"
 
 function layout({ children }: PropsWithChildren) {
   return (
     <>
-      <PackagesNavbar />
+      <Navbar />
       <main className="px-3 py-4">
         {children}
       </main>

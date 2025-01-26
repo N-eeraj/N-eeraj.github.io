@@ -1,10 +1,14 @@
 import Readme from "@components/Readme"
 
-import NpmPackage from "@utils/npm"
+import NpmPackage from "../npm"
 import GithubRepo from "@utils/github"
 
 const npmPackage = new NpmPackage("@n-eeraj/random")
 const githubRepo = new GithubRepo("random")
+
+export const metadata = {
+  title: "Random | npm package"
+}
 
 async function RandomPackagePage() {
   const {
