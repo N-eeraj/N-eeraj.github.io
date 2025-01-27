@@ -1,7 +1,7 @@
 import Readme from "@components/Readme"
 import Languages from "@components/Github/Languages"
 
-import NpmPackage from "../npm"
+import NpmPackage from "@utils/npm"
 import GithubRepo from "@utils/github"
 
 const npmPackage = new NpmPackage("@n-eeraj/random")
