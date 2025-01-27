@@ -1,4 +1,5 @@
 import Readme from "@components/Readme"
+import Languages from "@components/Github/Languages"
 
 import NpmPackage from "../npm"
 import GithubRepo from "@utils/github"
@@ -24,13 +25,12 @@ async function RandomPackagePage() {
     stargazers_count,
     open_issues_count,
   } = await githubRepo.getDetails()
-  const languages = await githubRepo.getLanguages()
 
   const readme = await githubRepo.readme()
 
   return (
     <>
-      <div>
+      <div className="flex flex-col gap-y-1">
         <Readme file={readme} />
         <div>
           {npmPackage.name}
@@ -76,37 +76,7 @@ async function RandomPackagePage() {
           {weeklyDownloads}
         </div>
         <div>
-          <strong>
-            languages:
-          </strong>
-          <ul className="flex w-32 h-2 rounded-full overflow-hidden">
-            {languages.map(({ language, hexCode, percentage }) => (
-              <li
-                key={language}
-                className="h-full"
-                style={{
-                  backgroundColor: hexCode,
-                  width: `${percentage}%`,
-                }} />
-            ))}
-          </ul>
-          <ul>
-            {languages.map(({ language, hexCode, percentage }) => (
-              <li
-                key={language}
-                className="flex items-center gap-x-2">
-                <div
-                  className="size-2 rounded-full"
-                  style={{ backgroundColor: hexCode }} />
-                <span>
-                  {language}
-                </span>
-                <span className="opacity-60">
-                  {percentage}%
-                </span>
-              </li>
-            ))}
-          </ul>
+          <Languages github={githubRepo} />
         </div>
         <div>
           <strong>

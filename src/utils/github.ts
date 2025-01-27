@@ -12,6 +12,16 @@ import languageColors from "@data/github/colors.json"
 import languageColorSchema, {
   type Language,
 } from "@schema/github/languages"
+import { GithubLanguageResponse } from "@customTypes/github"
+
+export interface Github {
+  name: string
+  url: string
+  getDetails: () => Promise<any>
+  getLanguages: () => Promise<GithubLanguageResponse>
+  readme: () => Promise<string>
+}
+
 
 export default class GithubRepo {
   name: string
