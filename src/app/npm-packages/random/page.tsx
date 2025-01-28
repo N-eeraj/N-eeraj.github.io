@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 import Readme from "@components/Readme"
 import Languages from "@components/Github/Languages"
 
@@ -30,28 +32,61 @@ async function RandomPackagePage() {
 
   return (
     <>
-      <div className="flex flex-col gap-y-1">
-        <Readme file={readme} />
-        <div>
-          {npmPackage.name}
-        </div>
-        <div>
-          {npmPackage.url}
-        </div>
-        <div>
-          {githubRepo.url}
-        </div>
-        <div>
-          <strong>
-            Keywords
-          </strong>
-          <ul>
-            {(keywords as string[]).map((keyword, index) => (
-              <li key={index}>
-                {keyword}
-              </li>
-            ))}
+      <h2 className="mt-3 md:mt-6 px-3 md:px-5 text-3xl font-semibold">
+        Random
+      </h2>
+      <section className="grid md:grid-cols-[60%_40%] gap-x-4 gap-y-2 mt-2 px-3 md:px-5">
+        <article>
+          {description}
+        </article>
+        <section className="md:order-1">
+          <ul className="flex">
+            <li>lorem</li>
+            <li>lorem</li>
+            <li>lorem</li>
+            <li>lorem</li>
           </ul>
+          <Readme file={readme} />
+        </section>
+
+        <aside className="md:row-span-2 p-1 md:p-2 space-y-1">
+          <div>
+            <Link
+              href={npmPackage.url}
+              target="_blank">
+              <strong>
+                {npmPackage.name}
+              </strong>
+            </Link>
+          </div>
+          <div className="space-x-1">
+            <strong>
+              GitHub:
+            </strong>
+            <span>
+              {githubRepo.url}
+            </span>
+          </div>
+          <div className="mt-1 p-2 bg-foreground/10 gap-y-1 rounded">
+            <strong>
+              Keywords
+            </strong>
+            <ul>
+              {(keywords as string[]).map((keyword, index) => (
+                <li key={index}>
+                  {keyword}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </aside>
+        {/* <Readme file={readme} />
+        <div>
+          
+        </div>
+        <div>
+        </div>
+        <div>
         </div>
         <div>
           Last Updated:
@@ -67,7 +102,7 @@ async function RandomPackagePage() {
           <strong>
             Description
           </strong>
-          {description}
+          
         </div>
         <div>
           <strong>
@@ -101,8 +136,8 @@ async function RandomPackagePage() {
             language:
           </strong>
           {language}
-        </div>
-      </div>
+        </div> */}
+      </section>
     </>
   )
 }
