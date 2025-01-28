@@ -1,3 +1,5 @@
+import githubRepoDetailsSchema from "@schema/github/repoDetails"
+
 export interface GithubLanguage {
   language: string;
   hexCode: string;
@@ -5,3 +7,5 @@ export interface GithubLanguage {
 }
 
 export type GithubLanguageResponse = Array<GithubLanguage>
+
+export type GithubRepoDetails = z.infer<githubRepoDetailsSchema>

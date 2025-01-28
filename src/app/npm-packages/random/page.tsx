@@ -1,13 +1,13 @@
 import Link from "next/link"
 
 import Readme from "@components/Readme"
+import GithubFeats from "@components/Github/Feats"
 import Languages from "@components/Github/Languages"
 
 import NpmPackage from "@utils/npm"
 import GithubRepo from "@utils/github"
 
 import { Icon } from "@iconify/react"
-import { Star } from "lucide-react"
 
 const npmPackage = new NpmPackage("@n-eeraj/random")
 const githubRepo = new GithubRepo("random")
@@ -18,18 +18,12 @@ export const metadata = {
 
 async function RandomPackagePage() {
   const {
-    time,
     keywords,
     description,
     ...packageData
   } = await npmPackage.getDetails()
   const weeklyDownloads = await npmPackage.getWeeklyDownloads()
-  const {
-    forks,
-    language,
-    stargazers_count,
-    open_issues_count,
-  } = await githubRepo.getDetails()
+  const githubRepoDetails = await githubRepo.getDetails()
 
   const readme = await githubRepo.readme()
 
@@ -72,22 +66,12 @@ async function RandomPackagePage() {
                 icon="mdi:github"
                 fontSize={24} />
               <strong>
-                {githubRepo.repoName}
+                {githubRepoDetails.full_name}
               </strong>
             </Link>
           </div>
 
-          <div className="flex items-center gap-x-3">
-            <Star size={18} />
-            <div className="flex items-center space-x-1">
-              <span>
-                Star
-              </span>
-              <div className="grid place-content-center size-6 bg-foreground/10 text-sm rounded-full">
-                {stargazers_count}
-              </div>
-            </div>
-          </div>
+          <GithubFeats {...githubRepoDetails} />
 
           <Languages github={githubRepo} />
 
@@ -106,52 +90,35 @@ async function RandomPackagePage() {
             </ul>
           </div>
 
-          <div className="space-x-1.5">
-            <strong>
-              Version:
-            </strong>
-            <span>
-              {packageData["dist-tags"].latest}
-            </span>
-          </div>
+          <ul className="space-y-1.5">
+            <li className="space-x-1.5">
+              <strong>
+                Version:
+              </strong>
+              <span>
+                {packageData["dist-tags"].latest}
+              </span>
+            </li>
 
-          <div className="space-x-1.5">
-            <strong>
-              Last Publish:
-            </strong>
-            <span>
-              {time.modified}
-            </span>
-          </div>
+            <li className="space-x-1.5">
+              <strong>
+                Last Publish:
+              </strong>
+              <span>
+                {packageData.time.modified}
+              </span>
+            </li>
 
-          <div className="space-x-1.5">
-            <strong>
-              Weekly Downloads:
-            </strong>
-            <span>
-              {weeklyDownloads}
-            </span>
-          </div>
+            <li className="space-x-1.5">
+              <strong>
+                Weekly Downloads:
+              </strong>
+              <span>
+                {weeklyDownloads}
+              </span>
+            </li>
+          </ul>
         </aside>
-        {/*
-        <div>
-          <strong>
-            forks:
-          </strong>
-          {forks}
-        </div>
-        <div>
-          <strong>
-            open_issues_count:
-          </strong>
-          {open_issues_count}
-        </div>
-        <div>
-          <strong>
-            language:
-          </strong>
-          {language}
-        </div> */}
       </section>
     </>
   )

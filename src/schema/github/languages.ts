@@ -1,6 +1,5 @@
-import languageColors from "@data/github/colors.json"
-
 import { z } from "zod"
+import languageColors from "@data/github/colors.json"
 
 export type Language = keyof typeof languageColors
 

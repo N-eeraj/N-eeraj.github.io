@@ -12,6 +12,7 @@ import languageColors from "@data/github/colors.json"
 import languageColorSchema, {
   type Language,
 } from "@schema/github/languages"
+import githubRepoDetailsSchema from "@schema/github/repoDetails"
 import { GithubLanguageResponse } from "@customTypes/github"
 
 export interface Github {
@@ -32,16 +33,11 @@ export default class GithubRepo {
     this.url = `${GITHUB_BASE_URL}/${GITHUB_USERNAME}/${repoName}`
   }
 
-  
-  public get repoName() : string {
-    return `${GITHUB_USERNAME}/${this.name}`
-  }
-  
-
   async getDetails() {
     const response = await fetch(`${GITHUB_API_BASE_URL}/repos/${GITHUB_USERNAME}/${this.name}`)
     const data = await response.json()
-    return data
+    const safeData = githubRepoDetailsSchema.parse(data)
+    return safeData
   }
 
   async getLanguages() {
