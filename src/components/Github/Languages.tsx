@@ -5,7 +5,10 @@ async function Languages({ github }: { github: Github }) {
 
   return (
     <div className="flex flex-col gap-y-2">
-      <ul className="flex w-32 h-2 rounded-full overflow-hidden">
+      <strong>
+        Languages
+      </strong>
+      <ul className="flex w-full max-w-64 h-2 rounded-full overflow-hidden">
         {languages.map(({ language, hexCode, percentage }) => (
           <li
             key={language}
@@ -16,7 +19,7 @@ async function Languages({ github }: { github: Github }) {
             }} />
         ))}
       </ul>
-      <ul>
+      <ul className="flex flex-wrap gap-x-4 gap-y-2">
         {languages.map(({ language, hexCode, percentage }) => (
           <li
             key={language}

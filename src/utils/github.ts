@@ -32,6 +32,12 @@ export default class GithubRepo {
     this.url = `${GITHUB_BASE_URL}/${GITHUB_USERNAME}/${repoName}`
   }
 
+  
+  public get repoName() : string {
+    return `${GITHUB_USERNAME}/${this.name}`
+  }
+  
+
   async getDetails() {
     const response = await fetch(`${GITHUB_API_BASE_URL}/repos/${GITHUB_USERNAME}/${this.name}`)
     const data = await response.json()
