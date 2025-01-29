@@ -1,3 +1,4 @@
+import { z } from "zod"
 import githubRepoDetailsSchema from "@schema/github/repoDetails"
 
 export interface GithubLanguage {
@@ -8,4 +9,4 @@ export interface GithubLanguage {
 
 export type GithubLanguageResponse = Array<GithubLanguage>
 
-export type GithubRepoDetails = z.infer<githubRepoDetailsSchema>
+export type GithubRepoDetails = z.infer<typeof githubRepoDetailsSchema>

@@ -13,12 +13,15 @@ import languageColorSchema, {
   type Language,
 } from "@schema/github/languages"
 import githubRepoDetailsSchema from "@schema/github/repoDetails"
-import type { GithubLanguageResponse } from "@customTypes/github"
+import type {
+  GithubRepoDetails,
+  GithubLanguageResponse,
+} from "@customTypes/github"
 
 export interface Github {
   name: string
   url: string
-  getDetails: () => Promise<any>
+  getDetails: () => Promise<GithubRepoDetails>
   getLanguages: () => Promise<GithubLanguageResponse>
   readme: () => Promise<string>
 }

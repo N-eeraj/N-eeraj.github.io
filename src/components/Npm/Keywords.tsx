@@ -1,4 +1,4 @@
-function Keywords({ keywords }: { keywords: string[] }) {
+function Keywords({ keywords = [] }: { keywords: string[] }) {
   return (
     <div className="mt-1 px-3 py-2 bg-foreground/10 space-y-1 rounded">
       <strong>
