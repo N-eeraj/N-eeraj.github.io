@@ -3,7 +3,7 @@ import {
   GitFork,
   CircleDot,
 } from "lucide-react"
-import { GithubRepoDetails } from "@customTypes/github"
+import type { GithubRepoDetails } from "@customTypes/github"
 
 function GithubFeats({ stargazers_count, forks, open_issues }: GithubRepoDetails) {
   const githubFeats = [

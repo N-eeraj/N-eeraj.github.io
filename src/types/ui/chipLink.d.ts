@@ -6,4 +6,5 @@ import type {
 export default interface ChipLinkProps extends AnchorHTMLAttributes<HTMLAnchorElement>, PropsWithChildren {
   href: string
   icon?: string
+  iconSize?: number
 }

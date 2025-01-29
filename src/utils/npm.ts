@@ -1,3 +1,4 @@
+import npmDetailsSchema from "@schema/npm"
 import { NPM_BASE_URL } from "@constants/code"
 import {
   NPM_PACKAGE_API_URL,
@@ -16,7 +17,8 @@ export default class NpmPackage {
   async getDetails() {
     const response = await fetch(`${NPM_PACKAGE_API_URL}/${this.name}`)
     const data = await response.json()
-    return data
+    const safeData = npmDetailsSchema.parse(data)
+    return safeData
   }
 
   async getWeeklyDownloads() {

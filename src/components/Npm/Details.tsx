@@ -1,7 +1,7 @@
 import { formatDistanceToNow } from "date-fns"
-import { useState } from "react"
+import type { NpmDetails } from "@customTypes/npm"
 
-async function NpmDetails({ package: npmPackage, ...packageData }) {
+async function NpmDetails({ package: npmPackage, ...packageData }: NpmDetails) {
   const weeklyDownloads = await npmPackage.getWeeklyDownloads()
   const lastPublish = formatDistanceToNow(new Date(packageData.time.modified), { addSuffix: true })
 

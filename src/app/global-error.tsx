@@ -1,6 +1,6 @@
 "use client"
 
-import { ErrorBoundaryType } from "@customTypes/error"
+import type { ErrorBoundaryType } from "@customTypes/error"
 
 export default function GlobalErrorBoundary({ error }: ErrorBoundaryType) {
   console.error(error)

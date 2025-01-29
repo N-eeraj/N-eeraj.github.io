@@ -13,7 +13,7 @@ import languageColorSchema, {
   type Language,
 } from "@schema/github/languages"
 import githubRepoDetailsSchema from "@schema/github/repoDetails"
-import { GithubLanguageResponse } from "@customTypes/github"
+import type { GithubLanguageResponse } from "@customTypes/github"
 
 export interface Github {
   name: string
@@ -51,7 +51,7 @@ export default class GithubRepo {
       .map(([language, value]) => ({
         language,
         hexCode: languageColors[language as Language],
-        percentage: Math.round(value * 100 / total),
+        percentage: Number((value * 100 / total).toFixed(1)),
       }))
       .sort((a, b) => b.percentage - a.percentage)
     return languages
