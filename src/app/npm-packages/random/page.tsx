@@ -1,13 +1,12 @@
-import Link from "next/link"
-
 import Readme from "@components/Readme"
 import GithubFeats from "@components/Github/Feats"
 import Languages from "@components/Github/Languages"
+import ChipLink from "@components/Base/ChipLink"
 
 import NpmPackage from "@utils/npm"
 import GithubRepo from "@utils/github"
 
-import { Icon } from "@iconify/react"
+import NpmDetails from "@components/Npm/Details"
 
 const npmPackage = new NpmPackage("@n-eeraj/random")
 const githubRepo = new GithubRepo("random")
@@ -22,7 +21,6 @@ async function RandomPackagePage() {
     description,
     ...packageData
   } = await npmPackage.getDetails()
-  const weeklyDownloads = await npmPackage.getWeeklyDownloads()
   const githubRepoDetails = await githubRepo.getDetails()
 
   const readme = await githubRepo.readme()
@@ -48,27 +46,17 @@ async function RandomPackagePage() {
 
         <aside className="md:row-span-2 p-1 md:p-2 space-y-4">
           <div className="flex flex-col md:flex-row gap-x-4 gap-y-2">
-            <Link
+            <ChipLink
               href={npmPackage.url}
-              target="_blank"
-              className="flex items-center gap-x-1.5 p-1 hover:bg-foreground/10 rounded duration-300">
-              <Icon icon="logos:npm" />
-              <strong>
-                {npmPackage.name}
-              </strong>
-            </Link>
+              icon="logos:npm">
+              {npmPackage.name}
+            </ChipLink>
 
-            <Link
+            <ChipLink
               href={githubRepo.url}
-              target="_blank"
-              className="flex items-center gap-x-1.5 p-1 hover:bg-foreground/10 rounded duration-300">
-              <Icon
-                icon="mdi:github"
-                fontSize={24} />
-              <strong>
-                {githubRepoDetails.full_name}
-              </strong>
-            </Link>
+              icon="mdi:github">
+              {githubRepoDetails.full_name}
+            </ChipLink>
           </div>
 
           <GithubFeats {...githubRepoDetails} />
@@ -90,34 +78,9 @@ async function RandomPackagePage() {
             </ul>
           </div>
 
-          <ul className="space-y-1.5">
-            <li className="space-x-1.5">
-              <strong>
-                Version:
-              </strong>
-              <span>
-                {packageData["dist-tags"].latest}
-              </span>
-            </li>
-
-            <li className="space-x-1.5">
-              <strong>
-                Last Publish:
-              </strong>
-              <span>
-                {packageData.time.modified}
-              </span>
-            </li>
-
-            <li className="space-x-1.5">
-              <strong>
-                Weekly Downloads:
-              </strong>
-              <span>
-                {weeklyDownloads}
-              </span>
-            </li>
-          </ul>
+          <NpmDetails
+            package={npmPackage}
+            {...packageData} />
         </aside>
       </section>
     </>
