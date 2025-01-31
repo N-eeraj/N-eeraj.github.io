@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from "react"
 import type { Metadata } from "next"
 import ThemeProvider from "@components/Theme/Provider"
+import { Toaster } from "@components/ui/sonner"
 import "@/globals.css"
 
 export const metadata: Metadata = {
@@ -16,6 +17,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
       <body>
         <ThemeProvider>
           {children}
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

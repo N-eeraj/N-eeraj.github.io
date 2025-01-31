@@ -1,32 +1,20 @@
 "use client"
 
-import { useRef } from "react"
 import CodeBlock from "@components/Base/CodeBlock"
+import useNpmInstall from "@hooks/npm/useNpmInstall"
+
 import {
   Files,
   ChevronRight,
 } from "lucide-react"
 
-const clearSelection = () => {
-  const selection = window.getSelection()
-  selection?.removeAllRanges()
-}
-
 function Install({ package: packageName }: { package: string }) {
-  const installCodeRef = useRef<HTMLElement>(null)
-
-  const handleCopyMouseEnter = () => {
-    if (!installCodeRef.current) return
-    const range = document.createRange()
-    range.selectNodeContents(installCodeRef.current)
-    const selection = window.getSelection()
-    selection?.removeAllRanges()
-    selection?.addRange(range)
-  }
-
-  const handleCopyInstallCommand = () => {
-    navigator.clipboard.writeText(installCodeRef.current?.textContent ?? "")
-  }
+  const {
+    installCodeRef,
+    clearSelection,
+    handleCopyMouseEnter,
+    handleCopyInstallCommand,
+  } = useNpmInstall(packageName)
 
   return (
     <div className="space-y-3">

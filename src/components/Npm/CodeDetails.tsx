@@ -17,7 +17,7 @@ async function CodeDetails({ npmPackage, packageData, githubRepo }: NpmCodeDetai
         <ChipLink
           href={npmPackage.url}
           icon="logos:npm"
-          iconSize={20}>
+          iconSize={18}>
           {npmPackage.name}
         </ChipLink>
 
