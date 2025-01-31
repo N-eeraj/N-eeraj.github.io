@@ -10,7 +10,7 @@ async function CodeDetails({ npmPackage, packageData, githubRepo }: NpmCodeDetai
   const githubRepoDetails = await githubRepo.getDetails()
 
   return (
-    <aside className="sticky top-0 md:row-span-2 h-fit p-1 md:p-2 space-y-4">
+    <aside className="sticky top-14 md:row-span-2 h-fit p-1 md:p-2 space-y-4">
       <Install package={npmPackage.name} />
 
       <div className="flex flex-col md:flex-row flex-wrap gap-x-4 gap-y-2">

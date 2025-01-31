@@ -30,18 +30,13 @@ async function RandomPackagePage() {
       <h2 className="mt-3 md:mt-6 px-3 md:px-5 text-3xl font-semibold">
         Random
       </h2>
-      <section className="grid md:grid-cols-[60%_35%] justify-between gap-x-4 gap-y-3 mt-2 px-3 md:px-5">
+      <section className="grid md:grid-cols-[2fr_minmax(420px,1fr)] md:grid-rows-[auto_1fr] justify-between md:gap-x-6 lg:gap-x-12 gap-y-3 mt-2 px-3 md:px-5">
         <article>
-          {packageData.description}
+          {/* {packageData.description} */}
         </article>
         <section className="md:order-1">
-          <ul className="flex">
-            <li>lorem</li>
-            <li>lorem</li>
-            <li>lorem</li>
-            <li>lorem</li>
-          </ul>
-          <Readme file={readme} />
+          {/* {readme} */}
+          {/* <Readme file={readme} /> */}
         </section>
 
         <CodeDetails {...codeDetails} />
