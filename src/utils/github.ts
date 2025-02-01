@@ -60,9 +60,14 @@ export default class GithubRepo {
     return languages
   }
 
-  async readme() {
-    const response = await fetch(`${GITHUB_USER_CONTENT_BASE_URL}/${GITHUB_USERNAME}/${this.name}/refs/heads/main/README.md`)
+  static async getFile(repoName: string, path: string) {
+    const response = await fetch(`${GITHUB_USER_CONTENT_BASE_URL}/${GITHUB_USERNAME}/${repoName}/refs/heads/main/${path}`)
     const data = await response.text()
+    return data
+  }
+
+  async readme() {
+    const data = await GithubRepo.getFile(this.name, "README.md")
     const replaceRelativeUrl = data.replaceAll("](./", `](${GITHUB_BASE_URL}/${GITHUB_USERNAME}/${this.name}/blob/main/`)
     return replaceRelativeUrl
   }
