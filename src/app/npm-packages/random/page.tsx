@@ -30,15 +30,14 @@ async function RandomPackagePage({ searchParams }: PageProps) {
       <h2 className="mt-3 md:mt-6 px-3 md:px-5 text-3xl font-semibold">
         Random
       </h2>
-      <section className="grid md:grid-cols-[2fr_minmax(420px,1fr)] md:grid-rows-[auto_1fr] justify-between md:gap-x-6 lg:gap-x-12 gap-y-3 md:gap-y-6 mt-2 px-3 md:px-5">
+      <section className="grid lg:grid-cols-[2fr_minmax(420px,1fr)] md:grid-rows-[auto_1fr] justify-between md:gap-x-6 lg:gap-x-12 gap-y-3 md:gap-y-6 mt-2 px-3 md:px-5">
         <article>
           {packageData.description}
         </article>
-        {tab && (
-          <Docs
-            tab={tab}
-            className="md:order-1" />
-        )}
+        <Docs
+          repo={githubRepo.name}
+          tab={tab ?? "booleanUuid"}
+          className="lg:order-1" />
 
         <CodeDetails {...codeDetails} />
       </section>

@@ -1,19 +1,41 @@
+"use client"
+
+import {
+  useRouter,
+  usePathname,
+  useSearchParams,
+} from "next/navigation"
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
+} from "@components/ui/select"
+import clsx from "clsx"
 import { RANDOM_DOCS } from "@constants/npmPackages/random"
-import { DocsProps } from "@customTypes/npm/packages/random"
+import {
+  RandomDocLabel,
+  DocsSelectProps,
+} from "@customTypes/npm/packages/random"
 
-function DocSelect({ tab }: DocsProps) {
-  const { label: currentTab } = RANDOM_DOCS[tab]
+function DocSelect({ currentTab, className }: DocsSelectProps) {
+  const router = useRouter()
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+
+  const handleChange = (tab: RandomDocLabel) => {
+    const params = new URLSearchParams(searchParams.toString())
+    params.set("tab", tab)
+    router.replace(`${pathname}?${params.toString()}`)
+  }
 
   return (
-    <Select>
-      <SelectTrigger className="w-[180px]">
+    <Select onValueChange={handleChange}>
+      <SelectTrigger className={clsx(
+        "w-[180px]",
+        className,
+      )}>
         <SelectValue placeholder={currentTab} />
       </SelectTrigger>
       <SelectContent>
