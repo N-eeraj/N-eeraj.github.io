@@ -69,4 +69,7 @@ body {
   body {
     @apply bg-background text-foreground overflow-x-hidden;
   }
+  ::selection {
+    @apply bg-primary/75 text-background;
+  }
 }
