@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { CONTACTS } from "@constants/home"
 
 function Contact() {
   return (
@@ -7,37 +8,16 @@ function Contact() {
         Contact
       </h3>
       <ul className="flex justify-between">
-        <li>
-          <Link
-            href="tel:+918157882474"
-            className="text-primary">
-            Phone
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="https://github.com/N-eeraj"
-            target="_blank"
-            className="text-primary">
-            Github
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="https://www.linkedin.com/in/n-eeraj"
-            target="_blank"
-            className="text-primary">
-            LinkedIn
-          </Link>
-        </li>
-        <li>
-          <Link
-            href="mailto:neeraj7rajeena@gmail.com"
-            target="_blank"
-            className="text-primary">
-            Email
-          </Link>
-        </li>
+        {CONTACTS.map(({ label, link }) => (
+          <li key={label}>
+            <Link
+              href={link}
+              target="_blank"
+              className="text-primary">
+              {label}
+            </Link>
+          </li>
+        ))}
       </ul>
     </section>
   )

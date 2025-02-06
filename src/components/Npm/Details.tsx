@@ -25,14 +25,16 @@ async function NpmDetails({ package: npmPackage, ...packageData }: NpmDetails) {
         </span>
       </li>
 
-      <li className="space-x-1.5">
-        <strong>
-          Weekly Downloads:
-        </strong>
-        <span>
-          {weeklyDownloads}
-        </span>
-      </li>
+      {!!weeklyDownloads && (
+        <li className="space-x-1.5">
+          <strong>
+            Weekly Downloads:
+          </strong>
+          <span>
+            {weeklyDownloads}
+          </span>
+        </li>
+      )}
     </ul>
   )
 }
