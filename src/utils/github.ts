@@ -1,18 +1,16 @@
-import {
-  GITHUB_BASE_URL,
-  GITHUB_USER_CONTENT_BASE_URL,
-} from "@constants/code"
-import {
-  GITHUB_USERNAME,
-  GITHUB_API_BASE_URL,
-} from "@constants/enVariables"
-
-import languageColors from "@data/github/colors.json"
-
 import languageColorSchema, {
   type Language,
 } from "@schema/github/languages"
 import githubRepoDetailsSchema from "@schema/github/repoDetails"
+
+import {
+  GITHUB_BASE_URL,
+  GITHUB_USER_CONTENT_BASE_URL,
+} from "@constants/code"
+import { GITHUB_USERNAME } from "@constants/enVariables"
+import { GITHUB_API_BASE_URL } from "@constants/urls"
+
+import languageColors from "@data/github/colors.json"
 import type {
   GithubRepoDetails,
   GithubLanguageResponse,
