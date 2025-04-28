@@ -1,7 +1,7 @@
 import ThemeToggle from "@components/Theme/Toggle"
 import NavbarLink from "@components/Layout/Navbar/Link"
 
-function PackagesNavbar() {
+function Navbar() {
   return (
     <nav className="sticky top-0 flex justify-between items-center px-3 py-2 md:py-4 bg-background border-b z-10">
       <NavbarLink />
@@ -10,4 +10,4 @@ function PackagesNavbar() {
   )
 }
 
-export default PackagesNavbar
+export default Navbar

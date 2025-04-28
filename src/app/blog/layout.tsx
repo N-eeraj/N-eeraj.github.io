@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react"
 import Navbar from "@components/Layout/Navbar"
 
-function NpmLayout({ children }: PropsWithChildren) {
+function BlogLayout({ children }: PropsWithChildren) {
   return (
     <>
       <Navbar />
@@ -12,4 +12,4 @@ function NpmLayout({ children }: PropsWithChildren) {
   )
 }
 
-export default NpmLayout
+export default BlogLayout

@@ -3,9 +3,9 @@ import type { Metadata } from "next"
 import ThemeProvider from "@components/Theme/Provider"
 import { Toaster } from "@components/ui/sonner"
 
-import "@/tailwind.css"
-import "@/style.css"
-import "@/variables.css"
+import "@styles/tailwind.css"
+import "@styles/global.css"
+import "@styles/variables.css"
 
 export const metadata: Metadata = {
   title: "Neeraj",

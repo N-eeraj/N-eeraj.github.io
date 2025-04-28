@@ -1,7 +1,7 @@
 import { PropsWithChildren } from "react"
 import Navbar from "@components/Layout/Navbar"
 
-function layout({ children }: PropsWithChildren) {
+function DefaultLayout({ children }: PropsWithChildren) {
   return (
     <>
       <Navbar />
@@ -10,4 +10,4 @@ function layout({ children }: PropsWithChildren) {
   )
 }
 
-export default layout
+export default DefaultLayout
