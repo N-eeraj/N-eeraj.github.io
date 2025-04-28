@@ -1,35 +1,39 @@
 export const WORKS = [
   {
-    link: "https://github.com/N-eeraj/pokemon-black-crystal",
     title: "Pokémon Black Crystal",
+    link: "https://github.com/N-eeraj/pokemon-black-crystal",
   },
   {
-    link: "https://github.com/N-eeraj/instagram-clone",
     title: "Instagram Clone",
+    link: "https://github.com/N-eeraj/instagram-clone",
   },
   {
-    link: "https://github.com/N-eeraj/pexels-vault",
     title: "Pexels Vault",
+    link: "https://github.com/N-eeraj/pexels-vault",
   },
   {
-    link: "https://ezacorporate.com/",
     title: "EZA",
+    link: "https://ezacorporate.com/",
   },
   {
-    link: "https://github.com/N-eeraj/nuxt-packages",
     title: "Nuxt Packages",
+    link: "https://github.com/N-eeraj/nuxt-packages",
   },
   {
-    link: "https://fuwad-design.netlify.app/",
     title: "Designer Portfolio",
+    link: "https://fuwad-design.netlify.app/",
   },
   {
-    link: "https://github.com/N-eeraj/tftf",
     title: "TFTF",
+    link: "https://github.com/N-eeraj/tftf",
   },
   {
-    link: "https://github.com/N-eeraj/budgetify",
+    title: "Express Blog",
+    link: "https://github.com/N-eeraj/express-blog",
+  },
+  {
     title: "Budgetify",
+    link: "https://github.com/N-eeraj/budgetify",
   },
 ] as const
 

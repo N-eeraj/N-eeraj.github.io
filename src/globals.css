@@ -43,6 +43,21 @@
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 2px);
   --radius-sm: calc(var(--radius) - 4px);
+
+  --animate-linear-loader: linear-loader 3s ease-in-out infinite;
+  @keyframes linear-loader {
+    0% {
+      width: 5%;
+      transform: translateX(-100%);
+    }
+    50% {
+      width: 50%;
+    }
+    100% {
+      width: 5%;
+      transform: translateX(100vw);
+    }
+  }
 }
 
 @layer base {
