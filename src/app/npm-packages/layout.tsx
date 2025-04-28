@@ -5,7 +5,7 @@ function NpmLayout({ children }: PropsWithChildren) {
   return (
     <>
       <Navbar />
-      <main className="max-w-[1470px] h-[calc(100vh-70px)] mx-auto pb-6 md:pb-10 overflow-y-auto">
+      <main className="relative max-w-[1470px] h-[calc(100vh-70px)] mx-auto pb-6 md:pb-10 overflow-y-auto">
         {children}
       </main>
     </>
