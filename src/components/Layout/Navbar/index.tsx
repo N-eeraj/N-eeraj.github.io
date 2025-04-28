@@ -1,5 +1,5 @@
 import ThemeToggle from "@components/Theme/Toggle"
-import NavbarLink from "@components/Layout/Packages/Navbar/Link"
+import NavbarLink from "@components/Layout/Navbar/Link"
 
 function PackagesNavbar() {
   return (

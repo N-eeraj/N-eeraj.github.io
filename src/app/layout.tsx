@@ -2,7 +2,10 @@ import type { PropsWithChildren } from "react"
 import type { Metadata } from "next"
 import ThemeProvider from "@components/Theme/Provider"
 import { Toaster } from "@components/ui/sonner"
-import "@/globals.css"
+
+import "@/tailwind.css"
+import "@/style.css"
+import "@/variables.css"
 
 export const metadata: Metadata = {
   title: "Neeraj",
