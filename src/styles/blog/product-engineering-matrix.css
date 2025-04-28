@@ -1,0 +1,27 @@
+.matrix {
+  --background: 160, 50%, 2%;
+  --foreground: 133, 13%, 74%;
+  --card: 160, 50%, 2%;
+  --card-foreground: 133, 13%, 74%;
+  --popover: 160, 50%, 2%;
+  --popover-foreground: 133, 13%, 74%;
+  --primary: 110 50% 51%;
+  --primary-foreground: 0 0% 9%;
+  --secondary: 120 50% 30%;
+  --secondary-foreground: 133, 13%, 74%;
+  --muted: 0 0% 10%;
+  --muted-foreground: 0 0% 80%;
+  --accent: 120 100% 35%;
+  --accent-foreground: 133, 13%, 74%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 133, 13%, 74%;
+  --border: 120 100% 25%;
+  --input: 0 0% 10%;
+  --ring: 120 100% 70%;
+
+  * {
+    transition-property: background-color, color, border-color, box-shadow, fill, stroke;
+    transition-duration: 1s;
+    transition-timing-function: ease-in;
+  }
+}

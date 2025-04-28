@@ -20,6 +20,9 @@
   button {
     @apply cursor-pointer;
   }
+  input {
+    @apply accent-accent;
+  }
   ::selection {
     @apply bg-primary/75 text-background;
   }

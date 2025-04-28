@@ -1,4 +1,6 @@
 import { Metadata } from "next"
+import MatrixTheme from "./components/MatrixTheme"
+import "@styles/blog/product-engineering-matrix.css"
 
 export const metadata: Metadata = {
   title: "The Product Engineering Matrix | Blogs",
@@ -8,9 +10,13 @@ export const metadata: Metadata = {
 function BlogsHome() {
   return (
     <>
-      <h1>
+      <MatrixTheme />
+      <h1 className="text-primary text-3xl">
         The Product Engineering Matrix
       </h1>
+      <span>
+        I know "React"
+      </span>
     </>
   )
 }
