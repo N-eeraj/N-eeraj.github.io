@@ -1,5 +1,13 @@
 import { PropsWithChildren } from "react"
+import type { Metadata } from "next"
 import Navbar from "@components/Layout/Navbar"
+
+export const metadata: Metadata = {
+  title: {
+    template: "%s | Npm Package",
+    default: "Blogs",
+  },
+}
 
 function NpmLayout({ children }: PropsWithChildren) {
   return (

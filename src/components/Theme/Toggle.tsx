@@ -19,6 +19,7 @@ function ThemeToggle() {
     <Button
       variant="outline"
       className="size-9"
+      aria-label="theme-toggle-button"
       onClick={toggleTheme}>
       <Sun className="absolute hidden dark:block" />
       <Moon className="block dark:hidden" />

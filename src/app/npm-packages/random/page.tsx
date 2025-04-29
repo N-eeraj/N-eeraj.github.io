@@ -1,4 +1,4 @@
-import { Metadata } from "next"
+import type { Metadata } from "next"
 
 import CodeDetails from "@components/Npm/CodeDetails"
 import Docs from "./components/Docs"
@@ -12,7 +12,7 @@ const npmPackage = new NpmPackage("@n-eeraj/random")
 const githubRepo = new GithubRepo("random")
 
 export const metadata: Metadata = {
-  title: "Random | Npm Package",
+  title: "Random",
 }
 
 async function RandomPackagePage({ searchParams }: PageProps) {

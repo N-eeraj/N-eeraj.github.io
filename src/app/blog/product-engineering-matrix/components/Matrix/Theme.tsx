@@ -11,7 +11,7 @@ function MatrixTheme() {
     }
   }, [])
 
-  return (<></>)
+  return null
 }
 
 export default MatrixTheme

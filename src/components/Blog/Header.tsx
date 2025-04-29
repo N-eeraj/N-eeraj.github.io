@@ -2,14 +2,14 @@ import Image from "next/image"
 import { formatShortDate } from "@utils/dateFormat"
 import { BlogHeaderProps } from "@customTypes/blog"
 
-function BlogHeader({ title, subTitle, coverImage, date, readingTimeInMinutes }: BlogHeaderProps) {
+function BlogHeader({ title, subTitle, coverImage, date, readingTime }: BlogHeaderProps) {
   return (
     <header className="space-y-2 sm:space-y-4 mb-5 sm:mb-7">
       <h1 className="text-primary text-2xl sm:text-4xl font-bold leading-7 sm:leading-10 text-balance">
         {title}
       </h1>
       {subTitle && (
-        <h2 className="text-lg sm:text-xl">
+        <h2 className="text-lg sm:text-xl text-balance">
           {subTitle}
         </h2>
       )}
@@ -17,7 +17,7 @@ function BlogHeader({ title, subTitle, coverImage, date, readingTimeInMinutes }:
       {/* read time & publish date */}
       <div className="flex items-center gap-x-2">
         <span>
-          {readingTimeInMinutes} mins read
+          {readingTime} mins read
         </span>
         <span className="block size-0.5 bg-foreground" />
         <span>
@@ -33,7 +33,9 @@ function BlogHeader({ title, subTitle, coverImage, date, readingTimeInMinutes }:
             alt={coverImage.alt || `${title} blog cover image`}
             width={640}
             height={0}
-            className="w-full" />
+            priority
+            className="w-full"
+            style={{ height: "auto" }} />
           {coverImage.credit && (
             <figcaption className="text-sm text-center">
               {coverImage.credit}
