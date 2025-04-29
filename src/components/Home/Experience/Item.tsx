@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { Experience } from "@customTypes/home"
+import type { Experience } from "@customTypes/home"
 
 function ExperienceItem({ role, company, duration }: Experience) {
   return (

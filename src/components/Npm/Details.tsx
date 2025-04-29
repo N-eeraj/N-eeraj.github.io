@@ -1,5 +1,5 @@
 import { formatDistanceToNow } from "date-fns"
-import type { NpmDetails } from "@customTypes/npm"
+import type { NpmDetails } from "@customTypes/npmPackage"
 
 async function NpmDetails({ package: npmPackage, ...packageData }: NpmDetails) {
   const weeklyDownloads = await npmPackage.getWeeklyDownloads()

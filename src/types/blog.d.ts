@@ -1,4 +1,4 @@
-import { ReactNode } from "react"
+import type { ReactNode } from "react"
 import { DateYMD } from "@customTypes/utils"
 
 export interface CoverImage {

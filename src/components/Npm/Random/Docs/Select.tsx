@@ -5,19 +5,21 @@ import {
   usePathname,
   useSearchParams,
 } from "next/navigation"
+
 import {
   Select,
   SelectContent,
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "@components/ui/select"
+} from "@shadcn/select"
+
 import clsx from "clsx"
 import { RANDOM_DOCS } from "@constants/npmPackages/random"
 import {
   RandomDocLabel,
   DocsSelectProps,
-} from "@customTypes/npm/packages/random"
+} from "@customTypes/npmPackage/random"
 
 function DocSelect({ currentTab, className }: DocsSelectProps) {
   const router = useRouter()

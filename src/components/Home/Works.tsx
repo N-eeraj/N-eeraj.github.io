@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { WORKS } from "@constants/home"
+import WORKS from "@data/works.json"
 
 function Works() {
   return (

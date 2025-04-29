@@ -1,0 +1,18 @@
+[
+  {
+    "role": "Frontend Developer",
+    "company": {
+      "name": "IOCOD Infotech",
+      "website": "https://www.iocod.com/"
+    },
+    "duration": "May 2022 - Present"
+  },
+  {
+    "role": "Technical Staff",
+    "company": {
+      "name": "Nethram LLC",
+      "website": "https://www.nethram.com/"
+    },
+    "duration": "Aug 2021 - Apr 2022"
+  }
+]

@@ -5,12 +5,12 @@ import githubRepoDetailsSchema from "@schema/github/repoDetails"
 
 import {
   GITHUB_BASE_URL,
+  GITHUB_API_BASE_URL,
   GITHUB_USER_CONTENT_BASE_URL,
-} from "@constants/code"
+} from "@constants/urls/github"
 import { GITHUB_USERNAME } from "@constants/enVariables"
-import { GITHUB_API_BASE_URL } from "@constants/urls"
 
-import languageColors from "@data/github/colors.json"
+import LANGUAGE_COLORS from "@data/github/colors.json"
 import type {
   GithubRepoDetails,
   GithubLanguageResponse,
@@ -51,7 +51,7 @@ export default class GithubRepo {
     const languages = Object.entries(safeData)
       .map(([language, value]) => ({
         language,
-        hexCode: languageColors[language as Language],
+        hexCode: LANGUAGE_COLORS[language as Language],
         percentage: Number((value * 100 / total).toFixed(1)),
       }))
       .sort((a, b) => b.percentage - a.percentage)

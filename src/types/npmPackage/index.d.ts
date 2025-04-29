@@ -1,4 +1,4 @@
-import { z } from "zod"
+import type { z } from "zod"
 
 import npmDetailsSchema from "@schema/npm"
 import GithubRepo from "@utils/github"

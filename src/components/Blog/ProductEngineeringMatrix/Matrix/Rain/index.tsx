@@ -4,10 +4,11 @@ import {
   useRef,
   useEffect,
 } from "react"
+
 import {
   FONT_SIZE,
   MATRIX_CHARACTERS,
-} from "@constants/blog/matrix"
+} from "./constants"
 
 const drops: Array<number> = []
 

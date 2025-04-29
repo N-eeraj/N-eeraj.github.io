@@ -1,11 +1,12 @@
 import Link from "next/link"
+import { NAME } from "@constants/enVariables"
 
 function Header() {
   return (
     <header className="space-y-2">
       <h2 className="flex flex-wrap text-3xl md:text-4xl">
         <span className="whitespace-nowrap">
-          Hello, I'm Neeraj,&nbsp;
+          Hello, I'm {NAME},&nbsp;
         </span>
         <span className="">
           a developer based in India.

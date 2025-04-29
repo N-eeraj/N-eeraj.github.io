@@ -1,10 +1,10 @@
 import type { Metadata } from "next"
 
 import BlogHeader from "@components/Blog/Header"
-import MatrixTheme from "./components/Matrix/Theme"
-import MatrixRain from "./components/Matrix/Rain"
+import MatrixTheme from "@components/Blog/ProductEngineeringMatrix/Matrix/Theme"
+import MatrixRain from "@components/Blog/ProductEngineeringMatrix/Matrix/Rain"
 
-import "@styles/blog/product-engineering-matrix.css"
+import "./style.css"
 
 const BLOG_TITLE = "The Product Engineering Matrix"
 

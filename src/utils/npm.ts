@@ -1,9 +1,9 @@
 import npmDetailsSchema from "@schema/npm"
-import { NPM_BASE_URL } from "@constants/code"
 import {
+  NPM_BASE_URL,
   NPM_PACKAGE_API_URL,
   NPM_WEEKLY_DOWNLOADS_API_URL,
-} from "@constants/urls"
+} from "@constants/urls/npm"
 
 export default class NpmPackage {
   name: string

@@ -1,3 +1,3 @@
-import { EXPERIENCE } from "@constants/home"
+import EXPERIENCE from "@data/experience.json"
 
 export type Experience = typeof EXPERIENCE[number]

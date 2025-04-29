@@ -1,5 +1,5 @@
 import ExperienceItem from "@components/Home/Experience/Item"
-import { EXPERIENCE } from "@constants/home"
+import EXPERIENCE from "@data/experience.json"
 
 function Experience() {
   return (

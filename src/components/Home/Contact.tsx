@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { CONTACTS } from "@constants/home"
+import CONTACTS from "@constants/contact"
 
 function Contact() {
   return (

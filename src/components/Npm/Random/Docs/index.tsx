@@ -2,7 +2,7 @@ import Readme from "@components/Readme"
 import DocSelect from "./Select"
 
 import clsx from "clsx"
-import { DocsProps } from "@customTypes/npm/packages/random"
+import { DocsProps } from "@customTypes/npmPackage/random"
 import { RANDOM_DOCS } from "@constants/npmPackages/random"
 import GithubRepo from "@utils/github"
 

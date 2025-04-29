@@ -4,7 +4,7 @@ import Languages from "@components/Github/Languages"
 import ChipLink from "@components/Base/ChipLink"
 import Keywords from "@components/Npm/Keywords"
 import NpmDetails from "@components/Npm/Details"
-import { NpmCodeDetails } from "@customTypes/npm"
+import { NpmCodeDetails } from "@customTypes/npmPackage"
 
 async function CodeDetails({ npmPackage, packageData, githubRepo }: NpmCodeDetails) {
   const githubRepoDetails = await githubRepo.getDetails()
