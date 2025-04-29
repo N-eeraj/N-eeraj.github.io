@@ -18,10 +18,4 @@
   --border: 120 100% 25%;
   --input: 0 0% 10%;
   --ring: 120 100% 70%;
-
-  * {
-    transition-property: background-color, color, border-color, box-shadow, fill, stroke;
-    transition-duration: 1s;
-    transition-timing-function: ease-in;
-  }
 }

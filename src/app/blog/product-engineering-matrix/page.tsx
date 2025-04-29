@@ -1,6 +1,6 @@
 import { Metadata } from "next"
 import MatrixTheme from "./components/Matrix/Theme"
-import MatrixBackground from "./components/Matrix/Background"
+import MatrixRain from "./components/Matrix/Rain"
 import "@styles/blog/product-engineering-matrix.css"
 
 export const metadata: Metadata = {
@@ -10,16 +10,16 @@ export const metadata: Metadata = {
 
 function BlogsHome() {
   return (
-    <>
+    <main className="max-w-3xl mx-auto p-4 md:py-6 md:pb-10 overflow-y-auto">
       <MatrixTheme />
-      <MatrixBackground />
+      <MatrixRain />
       <h1 className="text-primary text-3xl">
         The Product Engineering Matrix
       </h1>
       <span>
         I know "React"
       </span>
-    </>
+    </main>
   )
 }
 

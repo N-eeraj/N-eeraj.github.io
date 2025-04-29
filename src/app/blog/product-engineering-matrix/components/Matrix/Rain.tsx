@@ -34,8 +34,13 @@ function MatrixBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
-    let interval: number
+    let interval: number, timeOut: number
     if (canvasRef.current) {
+      timeOut = window.setTimeout(
+        () => canvasRef.current && canvasRef.current.classList.replace("z-10", "-z-10"),
+        3200
+      )
+
       // configure canvas
       const ctx = canvasRef.current.getContext("2d")
       canvasRef.current.width = canvasRef.current.clientWidth
@@ -56,13 +61,16 @@ function MatrixBackground() {
       }
     }
 
-    return () => clearInterval(interval)
+    return () => {
+      clearTimeout(timeOut)
+      clearInterval(interval)
+    }
   }, [])
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed top-0 left-0 w-full h-full -z-10" />
+      className="fixed top-0 left-0 w-full h-full bg-black z-10" />
   )
 }
 
