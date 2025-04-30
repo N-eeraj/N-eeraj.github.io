@@ -34,7 +34,9 @@
       "@constants/*": ["./src/constants/*"],
       "@styles/*": ["./src/styles/*"],
       "@customTypes/*": ["./src/types/*"],
-      "@data/*": ["./src/assets/data/*"]
+      "@data/*": ["./src/assets/data/*"],
+      "@keywords/*": ["./src/assets/data/keywords/*"],
+      "@blog/*": ["./src/assets/data/blog/*"]
     }
   },
   "include": [

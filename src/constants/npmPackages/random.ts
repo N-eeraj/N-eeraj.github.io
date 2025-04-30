@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import keywords from "@data/keywords/npm-packages/random.json"
+import keywords from "@keywords/npm-packages/random.json"
 
 export const METADATA: Metadata = {
   title: "Random",

@@ -2,7 +2,7 @@ import Image from "next/image"
 import { formatShortDate } from "@utils/dateFormat"
 import { BlogHeaderProps } from "@customTypes/blog"
 
-function BlogHeader({ title, subTitle, coverImage, date, readingTime }: BlogHeaderProps) {
+function BlogHeader({ title, subTitle, coverImage, date, updateDate, readingTime }: BlogHeaderProps) {
   return (
     <header className="space-y-2 sm:space-y-4 mb-5 sm:mb-7">
       <h1 className="text-primary text-2xl sm:text-4xl font-bold leading-7 sm:leading-10 text-balance">
@@ -21,8 +21,16 @@ function BlogHeader({ title, subTitle, coverImage, date, readingTime }: BlogHead
         </span>
         <span className="block size-0.5 bg-foreground" />
         <span>
-          {formatShortDate(date)}
+          Published: {formatShortDate(date)}
         </span>
+        {updateDate && (
+          <>
+            <span className="block size-0.5 bg-foreground" />
+            <span>
+              Last Updated: {formatShortDate(updateDate)}
+            </span>
+          </>
+        )}
       </div>
 
       {/* cover image */}

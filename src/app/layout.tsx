@@ -22,6 +22,10 @@ export default function RootLayout({ children }: PropsWithChildren) {
     <html
       lang="en"
       suppressHydrationWarning>
+      <link
+        type="image/x-icon"
+        rel="icon"
+        href="/favicon.svg" />
       <body>
         <ThemeProvider>
           {children}

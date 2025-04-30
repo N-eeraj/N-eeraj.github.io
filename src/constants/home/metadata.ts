@@ -3,7 +3,7 @@ import {
   NAME,
   WEBSITE,
 } from "@constants/enVariables"
-import keywords from "@data/keywords/home.json"
+import keywords from "@keywords/home.json"
 
 const METADATA: Metadata = {
   title: NAME,

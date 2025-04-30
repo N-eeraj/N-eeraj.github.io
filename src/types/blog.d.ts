@@ -12,5 +12,6 @@ export interface BlogHeaderProps {
   subTitle?: string
   coverImage?: CoverImage
   date: DateYMD
+  updateDate?: DateYMD
   readingTime: number
 }
