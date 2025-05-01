@@ -5,7 +5,7 @@ import Navbar from "@components/Layout/Navbar"
 export const metadata: Metadata = {
   title: {
     template: "%s | Npm Package",
-    default: "Blogs",
+    default: "Npm Package",
   },
 }
 

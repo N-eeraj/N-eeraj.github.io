@@ -15,9 +15,6 @@ function BlogsHome() {
 
       <main className="max-w-2xl mx-auto p-4 sm:py-6 sm:pb-10 overflow-y-auto">
         <Header />
-        <p>
-          I know "React"
-        </p>
       </main>
     </>
   )

@@ -34,9 +34,11 @@ function drawRain(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
 function MatrixBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
-  useEffect(() => {
+  const animateCanvas = () => {
     let interval: number, timeOut: number
+
     if (canvasRef.current) {
+      // change from splash-screen to background
       timeOut = window.setTimeout(
         () => canvasRef.current && canvasRef.current.classList.replace("z-10", "-z-10"),
         3200
@@ -53,8 +55,8 @@ function MatrixBackground() {
         drops[i] = Math.ceil(canvasRef.current.height / FONT_SIZE) + 1
       }
 
-      // looping the animation
       if (ctx) {
+        // looping the animation
         interval = window.setInterval(
           () => canvasRef.current && drawRain(ctx, canvasRef.current),
           33
@@ -66,7 +68,9 @@ function MatrixBackground() {
       clearTimeout(timeOut)
       clearInterval(interval)
     }
-  }, [])
+  }
+
+  useEffect(animateCanvas, [])
 
   return (
     <canvas
