@@ -4,7 +4,7 @@ import type { Viewport } from "next"
 import ThemeProvider from "@components/Theme/Provider"
 import { Toaster } from "@shadcn/sonner"
 
-import METADATA from "@constants/home/metadata"
+import METADATA from "@metadata/global"
 
 import "@styles/tailwind.css"
 import "@styles/global.css"

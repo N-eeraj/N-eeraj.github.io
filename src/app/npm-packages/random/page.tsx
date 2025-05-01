@@ -6,10 +6,10 @@ import GithubRepo from "@utils/github"
 import PageProps from "@customTypes/npmPackage/random"
 
 import {
-  METADATA,
   GITHUB_REPO,
   NPM_PACKAGE_NAME,
 } from "@constants/npmPackages/random"
+import METADATA from "@metadata/npmPackages/random"
 
 const npmPackage = new NpmPackage(NPM_PACKAGE_NAME)
 const githubRepo = new GithubRepo(GITHUB_REPO)

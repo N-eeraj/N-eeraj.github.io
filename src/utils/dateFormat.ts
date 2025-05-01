@@ -1,4 +1,4 @@
-import { DateYMD } from "@customTypes/utils"
+import type { DateYMD } from "@customTypes/utils"
 
 export function formatShortDate(dateString: DateYMD) {
   const date = new Date(dateString)
