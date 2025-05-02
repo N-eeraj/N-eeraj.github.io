@@ -7,19 +7,23 @@ import {
 
 import {
   FONT_SIZE,
+  FONT_COLOR,
+  BACKGROUND_COLOR,
   MATRIX_CHARACTERS,
+  ANIMATION_INTERVAL,
+  SPLASH_SCREEN_DURATION,
 } from "./constants"
 
 const drops: Array<number> = []
 
 function drawRain(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
   // draw translucent background, results in fading of characters
-  ctx.fillStyle = "rgba(0, 0, 0, 0.1)"
+  ctx.fillStyle = BACKGROUND_COLOR
   ctx.fillRect(0, 0, canvas.width, canvas.height)
 
   for (let column = 0; column < drops.length; column++) {
     // draw random character
-    ctx.fillStyle = "rgba(0, 255, 0, 0.2)"
+    ctx.fillStyle = FONT_COLOR
     const randomCharacter = MATRIX_CHARACTERS[Math.floor(Math.random() * MATRIX_CHARACTERS.length)]
     ctx.fillText(randomCharacter, column * FONT_SIZE, drops[column] * FONT_SIZE)
 
@@ -41,7 +45,7 @@ function MatrixBackground() {
       // change from splash-screen to background
       timeOut = window.setTimeout(
         () => canvasRef.current && canvasRef.current.classList.replace("z-10", "-z-10"),
-        3200
+        SPLASH_SCREEN_DURATION
       )
 
       // configure canvas
@@ -59,7 +63,7 @@ function MatrixBackground() {
         // looping the animation
         interval = window.setInterval(
           () => canvasRef.current && drawRain(ctx, canvasRef.current),
-          33
+          ANIMATION_INTERVAL
         )
       }
     }

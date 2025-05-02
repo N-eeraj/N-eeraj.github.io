@@ -1,5 +1,11 @@
 export const FONT_SIZE = 10
 
+export const ANIMATION_INTERVAL = 33
+export const SPLASH_SCREEN_DURATION = 3200
+
+export const BACKGROUND_COLOR = "rgba(0, 0, 0, 0.1)"
+export const FONT_COLOR = "rgba(0, 255, 0, 0.2)"
+
 export const MATRIX_CHARACTERS = [
   // Uppercase English letters
   "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M",

@@ -1,8 +1,8 @@
 import CodeDetails from "@components/Npm/CodeDetails"
 import Docs from "@components/Npm/Random/Docs"
 
-import NpmPackage from "@utils/npm"
-import GithubRepo from "@utils/github"
+import NpmPackage from "@lib/Npm"
+import GithubRepo from "@lib/Github"
 import PageProps from "@customTypes/npmPackage/random"
 
 import {

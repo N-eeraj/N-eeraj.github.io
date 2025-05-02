@@ -1,4 +1,4 @@
-import { Github } from "@utils/github"
+import { Github } from "@lib/Github"
 
 async function Languages({ github }: { github: Github }) {
   const languages = await github.getLanguages()

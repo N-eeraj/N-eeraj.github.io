@@ -1,8 +1,8 @@
 import type { z } from "zod"
 
 import npmDetailsSchema from "@schema/npm"
-import GithubRepo from "@utils/github"
-import NpmPackage from "@utils/npm"
+import GithubRepo from "@lib/Github"
+import NpmPackage from "@lib/Npm"
 
 export type NpmPackageDetails = z.infer<typeof npmDetailsSchema>
 

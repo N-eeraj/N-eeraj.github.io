@@ -29,6 +29,7 @@
       "@components/*": ["./src/components/*"],
       "@shadcn/*": ["./src/components/ui/*"],
       "@hooks/*": ["./src/hooks/*"],
+      "@lib/*": ["./src/lib/*"],
       "@utils/*": ["./src/utils/*"],
       "@schema/*": ["./src/schema/*"],
       "@constants/*": ["./src/constants/*"],

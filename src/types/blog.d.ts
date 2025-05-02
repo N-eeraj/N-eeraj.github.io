@@ -7,6 +7,12 @@ export interface CoverImage {
   credit?: ReactNode
 }
 
+export interface BlogDetails {
+  title: string
+  description: string
+  coverImage: Pick<CoverImage, "src">
+}
+
 export interface BlogHeaderProps {
   title: string
   subTitle?: string
