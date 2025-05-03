@@ -1,6 +1,9 @@
 export const NPM_PACKAGE_NAME = "@n-eeraj/random"
 export const GITHUB_REPO = "random"
 
+export const PACKAGE_NAME = "Random"
+export const DESCRIPTION = "Random package is a flexible utility for generating random numbers, strings, and booleans in JavaScript/TypeScript with full control via parameters."
+
 export const RANDOM_DOCS = {
   booleanUuid: {
     label: "Boolean & UUID",

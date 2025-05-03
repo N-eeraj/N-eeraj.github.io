@@ -2,10 +2,13 @@ import Header from "@components/Blog/ProductEngineeringMatrix/Header"
 import MatrixTheme from "@components/Blog/ProductEngineeringMatrix/Matrix/Theme"
 import MatrixRain from "@components/Blog/ProductEngineeringMatrix/Matrix/Rain"
 
-import METADATA from "@metadata/blog/productEngineeringMatrix"
+import blog from "@blog/product-engineering-matrix.json"
+import keywords from "@keywords/blog/product-engineering-matrix.json"
+import { generateBlogMetadata } from "@utils/metadata"
+
 import "./style.css"
 
-export const metadata = METADATA
+export const metadata = generateBlogMetadata(blog, keywords)
 
 function BlogsHome() {
   return (

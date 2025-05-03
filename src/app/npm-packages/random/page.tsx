@@ -3,18 +3,22 @@ import Docs from "@components/Npm/Random/Docs"
 
 import NpmPackage from "@lib/Npm"
 import GithubRepo from "@lib/Github"
-import PageProps from "@customTypes/npmPackage/random"
+import { generateNpmPackageMetadata } from "@utils/metadata"
 
 import {
+  DESCRIPTION,
+  PACKAGE_NAME,
   GITHUB_REPO,
   NPM_PACKAGE_NAME,
 } from "@constants/npmPackages/random"
-import METADATA from "@metadata/npmPackages/random"
+
+import keywords from "@keywords/npm-packages/random.json"
+import type PageProps from "@customTypes/npmPackage/random"
 
 const npmPackage = new NpmPackage(NPM_PACKAGE_NAME)
 const githubRepo = new GithubRepo(GITHUB_REPO)
 
-export const metadata = METADATA
+export const metadata = generateNpmPackageMetadata(PACKAGE_NAME, DESCRIPTION, keywords)
 
 async function RandomPackagePage({ searchParams }: PageProps) {
   const packageData = await npmPackage.getDetails()
