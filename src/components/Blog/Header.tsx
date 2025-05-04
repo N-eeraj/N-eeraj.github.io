@@ -39,11 +39,13 @@ function BlogHeader({ title, subTitle, coverImage, date, updateDate, readingTime
           <Image
             src={coverImage.src}
             alt={coverImage.alt || `${title} blog cover image`}
+            quality={100}
             width={640}
             height={0}
             priority
-            className="w-full"
+            className="w-full h-auto"
             style={{ height: "auto" }} />
+
           {coverImage.credit && (
             <figcaption className="text-sm text-center">
               {coverImage.credit}

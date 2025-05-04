@@ -9,6 +9,7 @@ import {
   GITHUB_USER_CONTENT_BASE_URL,
 } from "@constants/urls/github"
 import { GITHUB_USERNAME } from "@constants/enVariables"
+import { REVALIDATE_DAILY } from "@constants/next"
 
 import LANGUAGE_COLORS from "@data/github/colors.json"
 import type {
@@ -35,14 +36,14 @@ export default class GithubRepo {
   }
 
   async getDetails() {
-    const response = await fetch(`${GITHUB_API_BASE_URL}/repos/${GITHUB_USERNAME}/${this.name}`)
+    const response = await fetch(`${GITHUB_API_BASE_URL}/repos/${GITHUB_USERNAME}/${this.name}`, REVALIDATE_DAILY)
     const data = await response.json()
     const safeData = githubRepoDetailsSchema.parse(data)
     return safeData
   }
 
   async getLanguages() {
-    const response = await fetch(`${GITHUB_API_BASE_URL}/repos/${GITHUB_USERNAME}/${this.name}/languages`)
+    const response = await fetch(`${GITHUB_API_BASE_URL}/repos/${GITHUB_USERNAME}/${this.name}/languages`, REVALIDATE_DAILY)
     const data = await response.json()
     const safeData = languageColorSchema.parse(data)
 
@@ -59,7 +60,7 @@ export default class GithubRepo {
   }
 
   static async getFile(repoName: string, path: string) {
-    const response = await fetch(`${GITHUB_USER_CONTENT_BASE_URL}/${GITHUB_USERNAME}/${repoName}/refs/heads/main/${path}`)
+    const response = await fetch(`${GITHUB_USER_CONTENT_BASE_URL}/${GITHUB_USERNAME}/${repoName}/refs/heads/main/${path}`, REVALIDATE_DAILY)
     const data = await response.text()
     return data
   }
