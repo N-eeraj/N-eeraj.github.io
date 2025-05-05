@@ -12,19 +12,6 @@ import { GITHUB_USERNAME } from "@constants/enVariables"
 import { REVALIDATE_DAILY } from "@constants/next"
 
 import LANGUAGE_COLORS from "@data/github/colors.json"
-import type {
-  GithubRepoDetails,
-  GithubLanguageResponse,
-} from "@customTypes/github"
-
-export interface Github {
-  name: string
-  url: string
-  getDetails: () => Promise<GithubRepoDetails>
-  getLanguages: () => Promise<GithubLanguageResponse>
-  readme: () => Promise<string>
-}
-
 
 export default class GithubRepo {
   name: string

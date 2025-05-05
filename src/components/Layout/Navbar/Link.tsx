@@ -16,7 +16,7 @@ function NavbarLink() {
         "after:absolute after:bottom-[3px] after:left-0 after:w-11/12 after:h-[3px] after:bg-foreground after:rounded-l-full after:duration-700 after:scale-x-0 after:origin-right",
         "hover:after:scale-100",
       )}>
-      <h1 className={geist.className}>
+      <h2 className={geist.className}>
         <span className={clsx(
           "relative group-hover:pr-4 duration-500",
           "after:absolute after:top-1/2 after:right-0 after:w-3 after:h-1 after:mx-0.5 after:bg-primary after:rounded-full after:scale-x-0 after:origin-right after:duration-500",
@@ -25,7 +25,7 @@ function NavbarLink() {
           N
         </span>
         eeraj
-      </h1>
+      </h2>
     </Link>
   )
 }

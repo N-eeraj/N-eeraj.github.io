@@ -32,13 +32,13 @@ async function RandomPackagePage({ searchParams }: PageProps) {
 
   return (
     <>
-      <h2 className="mt-3 md:mt-6 px-3 md:px-5 text-3xl font-semibold">
+      <h1 className="mt-3 md:mt-6 px-3 md:px-5 text-3xl font-semibold">
         Random
-      </h2>
-      <section className="grid lg:grid-cols-[2fr_minmax(420px,1fr)] md:grid-rows-[auto_1fr] justify-between md:gap-x-6 lg:gap-x-12 gap-y-3 md:gap-y-6 mt-2 px-3 md:px-5">
-        <article>
+      </h1>
+      <article className="grid lg:grid-cols-[2fr_minmax(420px,1fr)] md:grid-rows-[auto_1fr] justify-between md:gap-x-6 lg:gap-x-12 gap-y-3 md:gap-y-6 mt-2 px-3 md:px-5">
+        <p>
           {packageData.description}
-        </article>
+        </p>
 
         <Docs
           repo={githubRepo.name}
@@ -46,7 +46,7 @@ async function RandomPackagePage({ searchParams }: PageProps) {
           className="lg:order-1" />
 
         <CodeDetails {...codeDetails} />
-      </section>
+      </article>
     </>
   )
 }

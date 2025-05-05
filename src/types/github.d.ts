@@ -1,5 +1,17 @@
-import { z } from "zod"
 import githubRepoDetailsSchema from "@schema/github/repoDetails"
+import type { z } from "zod"
+import type {
+  GithubRepoDetails,
+  GithubLanguageResponse,
+} from "@customTypes/github"
+
+export default interface Github {
+  name: string
+  url: string
+  getDetails: () => Promise<GithubRepoDetails>
+  getLanguages: () => Promise<GithubLanguageResponse>
+  readme: () => Promise<string>
+}
 
 export interface GithubLanguage {
   language: string
