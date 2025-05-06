@@ -6,5 +6,14 @@
     "src": "/blog/product-engineering-matrix/cover.webp",
     "alt": "Morpheus offering a red pill for Go, Vue, and Flutter; and a blue pill for Node, React, and React Native."
   },
-  "date": "2025-04-29"
+  "date": "2025-04-29",
+  "introduction": {
+    "title": "Choosing Your Full-Stack Reality",
+    "paragraphs": {
+      "lead": "In software development, your stack defines your reality. Will you choose the comfort of mainstream tools and vast community support, or venture into a high-performance world built for speed and control?",
+      "bluePill": "Choose the blue pill, use one of the most popular stack offering unmatched community support powering countless production apps, with a rich ecosystem, and the convenience of JavaScript across the entire stack.",
+      "redPill": "Or take the red pill, escape the mainstream and choose a stack built for high-performance systems, speed, and scalability.",
+      "thesis": "Lets explore how each stack’s distinct strengths cater to different project needs, whether it’s the performance and control of the Red Stack or the convenience and community support of the Blue Stack."
+    }
+  }
 }
