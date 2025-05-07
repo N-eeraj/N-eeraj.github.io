@@ -1,6 +1,7 @@
-import { PropsWithChildren } from "react"
+import type { PropsWithChildren } from "react"
 import type { Metadata } from "next"
 import Navbar from "@components/Layout/Navbar"
+import "@styles/blog/index.css"
 
 export const metadata: Metadata = {
   title: {

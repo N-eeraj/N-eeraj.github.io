@@ -15,5 +15,28 @@
       "redPill": "Or take the red pill, escape the mainstream and choose a stack built for high-performance systems, speed, and scalability.",
       "thesis": "Lets explore how each stack’s distinct strengths cater to different project needs, whether it’s the performance and control of the Red Stack or the convenience and community support of the Blue Stack."
     }
+  },
+  "bluePill": {
+    "title": "Blue Pill: The Familiar Reality of Full-Stack JS"
+  },
+  "redPill": {
+    "title": "Red Pill: The Unconventional Road to Performance"
+  },
+  "comparison": {
+    "backend": {
+      "title": "Go vs Node"
+    },
+    "frontend": {
+      "title": "Vue vs React"
+    },
+    "mobile": {
+      "title": "Flutter vs React Native"
+    }
+  },
+  "conclusion": {
+    "title": "The Choice is Yours: Navigating the Full-Stack Reality"
+  },
+  "feedback": {
+    "title": "Which Reality Do You Choose?"
   }
 }
