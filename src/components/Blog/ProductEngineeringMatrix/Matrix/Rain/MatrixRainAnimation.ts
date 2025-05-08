@@ -30,8 +30,9 @@ export default class MatrixRainAnimation {
       // draw random character
       this.ctx.fillStyle = FONT_COLOR
       const randomCharacter = RandomList.choice(MATRIX_CHARACTERS)
-      this.ctx.fillText(randomCharacter, column * FONT_SIZE, this.drops[column] * FONT_SIZE)
-  
+      if (randomCharacter) {
+        this.ctx.fillText(randomCharacter, column * FONT_SIZE, this.drops[column] * FONT_SIZE)
+      }
       // update column-wise drop position
       this.drops[column]++
       if (this.drops[column] * FONT_SIZE > this.canvas.height && RandomNumber.float() > 0.95) {
