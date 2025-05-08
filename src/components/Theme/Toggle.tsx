@@ -1,19 +1,26 @@
 "use client"
 
+import { use } from "react"
 import { useTheme } from "next-themes"
+
 import { Button } from "@shadcn/button"
+import { LayoutContext } from "@context/Layout"
 import {
   Sun,
   Moon,
 } from "lucide-react"
 
 function ThemeToggle() {
+  const { hideThemeToggle } = use(LayoutContext)
+
   const {
     theme,
     setTheme,
   } = useTheme()
 
   const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark")
+
+  if (hideThemeToggle) return null
 
   return (
     <Button

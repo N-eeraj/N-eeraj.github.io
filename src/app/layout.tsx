@@ -2,6 +2,7 @@ import type { PropsWithChildren } from "react"
 import type { Viewport } from "next"
 
 import ThemeProvider from "@components/Theme/Provider"
+import LayoutContextProvider from "@context/Layout"
 import { Toaster } from "@shadcn/sonner"
 
 import METADATA from "@metadata/global"
@@ -28,7 +29,9 @@ export default function RootLayout({ children }: PropsWithChildren) {
         href="/favicon.svg" />
       <body>
         <ThemeProvider>
-          {children}
+          <LayoutContextProvider>
+            {children}
+          </LayoutContextProvider>
           <Toaster />
         </ThemeProvider>
       </body>
