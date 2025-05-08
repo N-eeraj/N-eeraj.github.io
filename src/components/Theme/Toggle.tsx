@@ -20,7 +20,7 @@ function ThemeToggle() {
 
   const toggleTheme = () => setTheme(theme === "dark" ? "light" : "dark")
 
-  if (hideThemeToggle) return null
+  if (hideThemeToggle) return
 
   return (
     <Button

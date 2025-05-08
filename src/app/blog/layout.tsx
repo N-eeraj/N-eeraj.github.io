@@ -1,6 +1,7 @@
 import type { PropsWithChildren } from "react"
 import type { Metadata } from "next"
 import Navbar from "@components/Layout/Navbar"
+import BlogLayoutWrapper from "@components/Blog/LayoutWrapper"
 import "@styles/blog/index.css"
 
 export const metadata: Metadata = {
@@ -12,10 +13,10 @@ export const metadata: Metadata = {
 
 function BlogLayout({ children }: PropsWithChildren) {
   return (
-    <>
+    <BlogLayoutWrapper>
       <Navbar />
       {children}
-    </>
+    </BlogLayoutWrapper>
   )
 }
 

@@ -6,7 +6,7 @@ import { DocsProps } from "@customTypes/npmPackage/random"
 import { RANDOM_DOCS } from "@constants/npmPackages/random"
 import GithubRepo from "@lib/Github"
 
-async function Docs({ repo, tab, className }: DocsProps) {   
+async function Docs({ repo, tab, className }: DocsProps) {
   const {
     label: currentTab,
     docPath,
