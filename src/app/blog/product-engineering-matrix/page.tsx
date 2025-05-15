@@ -27,7 +27,8 @@ function BlogsHome() {
 
       <main className="max-w-2xl mx-auto p-4 sm:py-6 sm:pb-10 overflow-y-auto">
         <Header />
-        <article className="space-y-6">
+
+        <article className="space-y-7">
           <Introduction />
           <BluePill />
           <RedPill />

@@ -1,24 +1,24 @@
 import blog from "@blog/product-engineering-matrix.json"
+import { parseMdLinks } from "@utils/mdParser"
+
+const {
+  title,
+  paragraphs,
+} = blog.introduction
 
 function Introduction() {
   return (
     <section>
       <h2 className="blog-sub-title">
-        {blog.introduction.title}
+        {title}
       </h2>
+
       <div className="mt-2 space-y-4 text-sm sm:text-base">
-        <p>
-          {blog.introduction.paragraphs.lead}
-        </p>
-        <p>
-          {blog.introduction.paragraphs.bluePill}
-        </p>
-        <p>
-          {blog.introduction.paragraphs.redPill}
-        </p>
-        <p>
-          {blog.introduction.paragraphs.thesis}
-        </p>
+        {paragraphs.map((content, index) => (
+          <p
+            key={index}
+            dangerouslySetInnerHTML={{ __html: parseMdLinks(content) }} />
+        ))}
       </div>
     </section>
   )
