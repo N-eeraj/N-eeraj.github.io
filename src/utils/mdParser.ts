@@ -1,4 +1,4 @@
-export function parseMdLinks(content: string) {
+export function parseMdLinks(content = "") {
   return content
     .replaceAll(
       /\[(.*?)\]\((.*?)\)/g,

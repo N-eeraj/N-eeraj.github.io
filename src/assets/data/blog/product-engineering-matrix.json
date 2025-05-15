@@ -6,7 +6,7 @@
     "src": "/blog/product-engineering-matrix/cover.webp",
     "alt": "Morpheus offering a red pill for Go, Vue, and Flutter; and a blue pill for Node, React, and React Native."
   },
-  "date": "2025-04-29",
+  "date": "2025-05-29",
   "introduction": {
     "title": "Choosing Your Full-Stack Reality",
     "paragraphs": [
@@ -24,7 +24,7 @@
         {
           "platform": "frontend",
           "title": "JavaScript for the browser",
-          "content": "Vanilla JavaScript was initially used for basic DOM manipulation to add interactivity. Developers then turned to libraries like [jQuery](https://jquery.com) to write less code and do more. As web apps grew complex, frameworks like [Angular](https://angular.dev) and [React](https://react.dev) introduced the SPA model. While great for apps, SPAs weren't ideal for websites. To address this, meta-frameworks like [Next.js](https://nextjs.org) (React) and [Nuxt.js](https://nuxt.com) (Vue) introduced SSG and SSR, enabling high-performance, SEO-friendly websites with modern JavaScript frameworks."
+          "content": "Vanilla JavaScript was initially used for basic DOM manipulation to add interactivity. Developers then turned to libraries like [jQuery](https://jquery.com) to write less code and do more. As web apps grew complex, frameworks like [Angular](https://angular.dev) and [React](https://react.dev) introduced the SPA model. While great for apps, SPAs weren't ideal for websites. To address this, meta-frameworks like [Next.js](https://nextjs.org) (React) and [Nuxt.js](https://nuxt.com) (Vue) introduced SSG and SSR, enabling high-performance, SEO-friendly websites with modern JavaScript frameworks. Among the many front-end frameworks, React has emerged as the most popular choice among developers."
         },
         {
           "platform": "backend",
@@ -37,11 +37,31 @@
           "content": "While SPAs offered an app-like experience, they were still confined to the browser. Enter [React Native](https://reactnative.dev) - it allowed developers to use JavaScript to create real, cross-platform mobile apps. Its rise was fueled by React’s popularity, enabling web developers to build native apps for iOS and Android using a single codebase."
         }
       ],
-      "ecoSystem": "JavaScript has a large, active community driving innovation and building tools. With [TypeScript](https://www.typescriptlang.org/), it’s become more robust and scalable with type safety, solidifying its role as a versatile full-stack language for all types of apps."
+      "ecoSystem": "JavaScript has a large, active community driving innovation and building tools. With [TypeScript](https://www.typescriptlang.org), it’s become more robust and scalable with type safety, solidifying its role as a versatile full-stack language for all types of apps."
     }
   },
   "redPill": {
-    "title": "Red Pill: The Unconventional Road to Performance"
+    "title": "Red Pill: The Unconventional Road to Performance",
+    "paragraphs": {
+      "introduction": "While JavaScript is incredibly versatile, using it for everything isn’t always the best choice, especially when performance and scalability are a concern. JavaScript excels in browser-based tasks but can struggle with CPU-intensive operations and heavy computations. Just because JavaScript can be used for nearly everything doesn’t mean it should be. It's essential to carefully evaluate whether it's the best tool for the job, particularly when performance and scalability are critical.",
+      "platforms": [
+        {
+          "platform": "backend",
+          "title": "The blazing fast Go",
+          "content": "[Go (Golang)](https://go.dev) stands out for its simplicity, performance, and strong support for concurrency. Its statically typed nature ensures robust error handling, while the language’s minimal syntax and type inference make it easy to work with. It excels in building scalable, high-performance applications, especially for backend systems, microservices, and cloud-native environments. The lightweight \"goroutines\" simplify concurrent programming, and the standard library is rich and versatile, covering everything from web servers to networking. Its static compilation leads to easy deployment and the growing ecosystem make it an ideal choice for modern software development."
+        },
+        {
+          "platform": "frontend",
+          "title": "Simple and powerful Vue.js",
+          "content": "[Vue](https://vuejs.org) offers a simple, intuitive approach with an exceptional developer experience (DX). With a design philosophy prioritizing ease of integration and flexibility, making it ideal for both beginners and experienced developers. Its clear syntax, excellent documentation, and smooth learning curve provide a refreshing alternative to React’s sometimes complex ecosystem. And [Nuxt.js](https://nuxt.com), the meta-framework for Vue, provides even more features like multiple rendering options, file-based routing, auto-imports and many more."
+        },
+        {
+          "platform": "mobile",
+          "title": "Fluid Flutter",
+          "content": "[Flutter](https://flutter.dev) a cross-platform mobile app development framework using the [Dart](https://dart.dev) programming language. Flutter comes with a large widget library and plugins maintained by Google and the Flutter developer community. Flutter apps can build beautiful customizable UIs with smooth animations at high framerate, while delivering excellent performance."
+        }
+      ]
+    }
   },
   "comparison": {
     "backend": {
