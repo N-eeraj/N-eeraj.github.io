@@ -58,14 +58,48 @@
         {
           "platform": "mobile",
           "title": "Fluid Flutter",
-          "content": "[Flutter](https://flutter.dev) a cross-platform mobile app development framework using the [Dart](https://dart.dev) programming language. Flutter comes with a large widget library and plugins maintained by Google and the Flutter developer community. Flutter apps can build beautiful customizable UIs with smooth animations at high framerate, while delivering excellent performance."
+          "content": "[Flutter](https://flutter.dev) is a cross-platform mobile app development framework that uses the Dart programming language. It includes a large widget library and a wide range of plugins maintained by Google and the Flutter developer community. Flutter apps feature beautiful, customizable UIs with smooth animations and high frame rates, while delivering excellent performance."
         }
       ]
     }
   },
   "comparison": {
     "backend": {
-      "title": "Go vs Node"
+      "title": "Go vs Node",
+      "introduction": "Both Go and Node.js are popular choices for backend development, but they differ significantly in their philosophies, performance characteristics, and ecosystems. Go, though relatively new, excels in raw speed, efficiency, and concurrency, making it ideal for performance-critical applications and microservices. In contrast, Node.js offers a battle-tested, event-driven architecture that enables rapid development, especially in real-time apps, with its asynchronous nature and vast npm ecosystem supporting quick iteration and delivery.",
+      "comparison": [
+        {
+          "title": "Learning Curve",
+          "content": "While Go has a simpler syntax than languages like C++ or Java, its learning curve is slightly steeper when compared to JavaScript. JavaScript is often easier for beginners to pick up, and even with TypeScript introducing static typing, it still remains more approachable for new developers."
+        },
+        {
+          "title": "Developer Experience (DX)",
+          "content": "If you have experience with client-side JavaScript, moving to Node.js is seamless and offers strong tooling for both synchronous and asynchronous programming. Developers from C++ or Java backgrounds may find Go more familiar due to its static typing, compiled nature, and focus on simplicity and performance. Go’s compilation step helps catch errors early, while TypeScript offers similar benefits but still compiles to JavaScript, running in a more dynamic environment."
+        },
+        {
+          "title": "Community & Ecosystem",
+          "content": "Node.js has a massive and mature community, offering abundant resources, libraries, tutorials, and strong tooling that make development faster and more accessible. Go, while backed by Google and supported by a rapidly growing and active community, hasn’t yet matched Node.js in scale. However, its ecosystem is expanding quickly, with excellent official documentation and increasing third-party support."
+        },
+        {
+          "title": "Libraries & Frameworks",
+          "content": "Need a specific feature? Chances are [npm](https://www.npmjs.com) has a package for it. Prefer JavaScript but not a fan of Node? You can try alternatives like [Deno](https://deno.com) or [Bun](https://bun.sh). Don’t like Express.js? Explore frameworks like [Fastify](https://fastify.dev), [Hono](https://hono.dev), or Nest.js. In contrast, Go offers fewer but more focused frameworks, such as [Gin](https://gin-gonic.com) and [Fiber](https://gofiber.io). While JavaScript’s wide range of choices is powerful, it can also lead to decision fatigue."
+        },
+        {
+          "title": "Performance",
+          "content": "This one’s pretty straightforward - Go is generally faster. While Node.js is efficient for non-blocking I/O and real-time applications, it tends to struggle with CPU-intensive tasks, which can lead to performance bottlenecks. Go, on the other hand, handles both CPU-heavy operations and concurrent tasks more gracefully, thanks to its compiled nature and lightweight goroutines. So if performance is a top priority, especially for backend services, Go has the upper hand."
+        },
+        {
+          "title": "Scalability",
+          "content": "Go scales well in larger projects due to its simplicity, static typing, and strong compile-time checks, making it easier to maintain and manage growing codebases. Node.js can handle scale too, but often needs more external tools and careful architecture. Overall, Go provides a cleaner path for building and maintaining large applications."
+        },
+        {
+          "title": "Opportunities",
+          "content": [
+            "With the rise of full-stack frameworks like MERN and MEAN, many companies opted to use Node.js for the backend, valuing the ability to hire developers who can work across both the frontend and backend. This trend made full-stack JavaScript developers highly desirable and led to a surge in demand. However, as the job market became saturated with such developers, it became harder for both employers and candidates to stand out or find the right fit.",
+            "In response, some companies are now turning to Go for building high-performance, scalable services. Although Go still has fewer job openings compared to Node.js as of now, this could shift as performance and scalability become bigger priorities. That said, Node.js isn’t going anywhere, startups still benefit from its rapid development speed, and larger systems are unlikely to migrate due to the cost and effort involved."
+          ]
+        }
+      ]
     },
     "frontend": {
       "title": "Vue vs React"
