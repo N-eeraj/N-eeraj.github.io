@@ -5,6 +5,7 @@ const {
   title,
   introduction,
   comparison,
+  conclusion,
 } = blog.comparison.backend
 
 function Backend() {
@@ -18,7 +19,7 @@ function Backend() {
         dangerouslySetInnerHTML={{ __html: parseMdLinks(introduction) }}
         className="mt-2 text-sm sm:text-base" />
 
-      <ul className="mt-4 space-y-3">
+      <ul className="my-4 space-y-3">
         {comparison.map(({ title, content }, index) => (
           <li
             key={index}
@@ -27,11 +28,13 @@ function Backend() {
               {title}
             </h3>
 
+            {/* single paragraph */}
             {typeof content === "string" && (
               <p
                 dangerouslySetInnerHTML={{ __html: parseMdLinks(content) }}
                 className="text-sm leading-normal text-foreground/90" />
             )}
+            {/* multi paragraph arrays */}
             {Array.isArray(content) && (
               <div className="space-y-1">
                 {content.map((paragraph, index) => (
@@ -45,6 +48,14 @@ function Backend() {
           </li>
         ))}
       </ul>
+
+      {conclusion.map(({ tech, reason }) => (
+        <p
+          key={tech}
+          dangerouslySetInnerHTML={{ __html: parseMdLinks(reason) }}
+          className="mt-2 text-sm sm:text-base" />
+      ))}
+      
     </section>
   )
 }
