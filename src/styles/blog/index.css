@@ -2,9 +2,40 @@
   .blog-sub-title {
     font-size: 20px;
     font-weight: 600;
+  }
 
-    @media (width >= 640px) {
+  .blog-content {
+    font-size: 14px;
+  }
+
+  .blog-section-sub-title {
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+
+  .blog-section-content {
+    font-size: 14px;
+    line-height: 1.5;
+    color: color-mix(in oklab, var(--color-foreground) 80%, transparent);
+  }
+
+
+  @media (width >= 640px) {
+    .blog-sub-title {
       font-size: 24px;
+    }
+
+    .blog-content {
+      font-size: 16px;
+    }
+
+    .blog-section-sub-title {
+      font-size: 20px;
+    }
+
+    .blog-section-content {
+      color: color-mix(in oklab, var(--color-foreground) 90%, transparent);
     }
   }
 }

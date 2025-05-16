@@ -17,19 +17,19 @@ function BluePill() {
         {title}
       </h2>
 
-      <div className="mt-2 space-y-4 text-sm sm:text-base">
+      <div className="mt-2 space-y-4 blog-content">
         <p dangerouslySetInnerHTML={{ __html: parseMdLinks(introduction) }} />
 
         {platforms.map(({ title, content, platform }) => (
           <div
             key={platform}
             className="space-y-0.5">
-            <h3 className="text-lg sm:text-xl font-medium">
+            <h3 className="blog-section-sub-title">
               {title}
             </h3>
             <p
               dangerouslySetInnerHTML={{ __html: parseMdLinks(content) }}
-              className="text-sm leading-normal text-foreground/90" />
+              className="blog-section-content" />
           </div>
         ))}
 

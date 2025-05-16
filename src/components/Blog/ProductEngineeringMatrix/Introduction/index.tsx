@@ -13,7 +13,7 @@ function Introduction() {
         {title}
       </h2>
 
-      <div className="mt-2 space-y-4 text-sm sm:text-base">
+      <div className="mt-2 space-y-4 blog-content">
         {paragraphs.map((content, index) => (
           <p
             key={index}
