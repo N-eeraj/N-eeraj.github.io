@@ -40,7 +40,6 @@ function Backend() {
           dangerouslySetInnerHTML={{ __html: parseMdLinks(reason) }}
           className="mt-2 blog-content" />
       ))}
-      
     </section>
   )
 }
