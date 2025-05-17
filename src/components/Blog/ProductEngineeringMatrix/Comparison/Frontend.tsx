@@ -26,7 +26,7 @@ function Frontend() {
         {comparison.map(({ title, content }, index) => (
           <li
             key={index}
-            className="space-y-0.5">
+            className="space-y-1">
             <h3 className="blog-section-sub-title">
               {title}
             </h3>

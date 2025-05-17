@@ -1,3 +1,4 @@
+import Image from "next/image"
 import blog from "@blog/product-engineering-matrix.json"
 import { parseMdLinks } from "@utils/mdParser"
 
@@ -16,16 +17,28 @@ function RedPill() {
         {title}
       </h2>
 
-      <div className="mt-2 space-y-4 blog-content">
+      <div className="mt-2 space-y-4 sm:space-y-6 blog-content">
         <p dangerouslySetInnerHTML={{ __html: parseMdLinks(introduction) }} />
 
-        {platforms.map(({ title, content, platform }) => (
+        {platforms.map(({ title, content, platform, image }) => (
           <div
             key={platform}
-            className="space-y-0.5">
+            className="space-y-1">
             <h3 className="blog-section-sub-title">
               {title}
             </h3>
+
+            {image && (
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={448}
+                height={0}
+                quality={100}
+                className="w-full max-w-md h-auto mx-auto my-2 sm:my-5"
+                style={{ height: "auto" }} />
+            )}
+
             <p
               dangerouslySetInnerHTML={{ __html: parseMdLinks(content) }}
               className="blog-section-content" />

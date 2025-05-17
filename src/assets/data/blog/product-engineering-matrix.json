@@ -38,6 +38,10 @@
         }
       ],
       "ecoSystem": "JavaScript has a large, active community driving innovation and building tools. With [TypeScript](https://www.typescriptlang.org), it’s become more robust and scalable with type safety, solidifying its role as a versatile full-stack language for all types of apps."
+    },
+    "image": {
+      "src": "/blog/product-engineering-matrix/section/blue-pill//javascript-libraries.svg",
+      "alt": "javascript libraries"
     }
   },
   "redPill": {
@@ -48,16 +52,28 @@
         {
           "platform": "backend",
           "title": "The blazing fast Go",
+          "image": {
+            "src": "/blog/product-engineering-matrix/section/red-pill/go.webp",
+            "alt": "golang"
+          },
           "content": "[Go (Golang)](https://go.dev) stands out for its simplicity, performance, and strong support for concurrency. Its statically typed nature ensures robust error handling, while the language’s minimal syntax and type inference make it easy to work with. It excels in building scalable, high-performance applications, especially for backend systems, microservices, and cloud-native environments. The lightweight \"goroutines\" simplify concurrent programming, and the standard library is rich and versatile, covering everything from web servers to networking. Its static compilation leads to easy deployment and the growing ecosystem make it an ideal choice for modern software development."
         },
         {
           "platform": "frontend",
           "title": "Simple and powerful Vue.js",
+          "image": {
+            "src": "/blog/product-engineering-matrix/section/red-pill/vue-mastery.webp",
+            "alt": "vue image from vue mastery"
+          },
           "content": "[Vue](https://vuejs.org) offers a simple, intuitive approach with an exceptional developer experience (DX). With a design philosophy prioritizing ease of integration and flexibility, making it ideal for both beginners and experienced developers. Its clear syntax, excellent documentation, and smooth learning curve provide a refreshing alternative to React’s sometimes complex ecosystem. And [Nuxt.js](https://nuxt.com), the meta-framework for Vue, provides even more features like multiple rendering options, file-based routing, auto-imports and many more."
         },
         {
           "platform": "mobile",
           "title": "Fluid Flutter",
+          "image": {
+            "src": "/blog/product-engineering-matrix/section/red-pill/flutter.gif",
+            "alt": "flutter mascot waving"
+          },
           "content": "[Flutter](https://flutter.dev) is a cross-platform mobile app development framework that uses the Dart programming language. It includes a large widget library and a wide range of plugins maintained by Google and the Flutter developer community. Flutter apps feature beautiful, customizable UIs with smooth animations and high frame rates, while delivering excellent performance."
         }
       ]
