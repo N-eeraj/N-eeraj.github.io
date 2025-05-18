@@ -41,7 +41,7 @@
     },
     "image": {
       "src": "/blog/product-engineering-matrix/section/blue-pill//javascript-libraries.svg",
-      "alt": "javascript libraries"
+      "alt": "Collage of 21 JavaScript libraries, frameworks, and runtimes including React, Vue, Angular, Node.js, TypeScript, and others commonly used in modern web development."
     }
   },
   "redPill": {
@@ -54,7 +54,7 @@
           "title": "The blazing fast Go",
           "image": {
             "src": "/blog/product-engineering-matrix/section/red-pill/go.webp",
-            "alt": "golang"
+            "alt": "go Gopher riding the Go programming language logo"
           },
           "content": "[Go (Golang)](https://go.dev) stands out for its simplicity, performance, and strong support for concurrency. Its statically typed nature ensures robust error handling, while the language’s minimal syntax and type inference make it easy to work with. It excels in building scalable, high-performance applications, especially for backend systems, microservices, and cloud-native environments. The lightweight \"goroutines\" simplify concurrent programming, and the standard library is rich and versatile, covering everything from web servers to networking. Its static compilation leads to easy deployment and the growing ecosystem make it an ideal choice for modern software development."
         },
@@ -63,16 +63,16 @@
           "title": "Simple and powerful Vue.js",
           "image": {
             "src": "/blog/product-engineering-matrix/section/red-pill/vue-mastery.webp",
-            "alt": "vue image from vue mastery"
+            "alt": "Visual representation of popular tools in the Vue.js ecosystem."
           },
-          "content": "[Vue](https://vuejs.org) offers a simple, intuitive approach with an exceptional developer experience (DX). With a design philosophy prioritizing ease of integration and flexibility, making it ideal for both beginners and experienced developers. Its clear syntax, excellent documentation, and smooth learning curve provide a refreshing alternative to React’s sometimes complex ecosystem. And [Nuxt.js](https://nuxt.com), the meta-framework for Vue, provides even more features like multiple rendering options, file-based routing, auto-imports and many more."
+          "content": "[Vue](https://vuejs.org) offers a simple, intuitive approach with excellent developer experience. Its clear syntax, great documentation, and smooth learning curve make it ideal for both beginners and pros. Compared to React’s complexity, Vue is more approachable, and while [Svelte](https://svelte.dev) ships less JavaScript and is highly performant, Vue’s richer ecosystem offers more flexibility and broader support. And [Nuxt.js](https://nuxt.com), the meta-framework for Vue, provides even more features like multiple rendering options, file-based routing, auto-imports and many more."
         },
         {
           "platform": "mobile",
           "title": "Fluid Flutter",
           "image": {
             "src": "/blog/product-engineering-matrix/section/red-pill/flutter.gif",
-            "alt": "flutter mascot waving"
+            "alt": "Flutter mascot waving hello"
           },
           "content": "[Flutter](https://flutter.dev) is a cross-platform mobile app development framework that uses the Dart programming language. It includes a large widget library and a wide range of plugins maintained by Google and the Flutter developer community. Flutter apps feature beautiful, customizable UIs with smooth animations and high frame rates, while delivering excellent performance."
         }
@@ -82,6 +82,10 @@
   "comparison": {
     "backend": {
       "title": "Go vs Node",
+      "image": {
+        "src": "/blog/product-engineering-matrix/section/comparison/go-vs-node.svg",
+        "alt": "Go vs Node image"
+      },
       "introduction": "Both Go and Node.js are popular choices for backend development, but they differ significantly in their philosophies, performance characteristics, and ecosystems. Go, though relatively new, excels in raw speed, efficiency, and concurrency, making it ideal for performance-critical applications and microservices. In contrast, Node.js offers a battle-tested, event-driven architecture that enables rapid development, especially in real-time apps, with its asynchronous nature and vast npm ecosystem supporting quick iteration and delivery.",
       "comparison": [
         {
@@ -129,6 +133,10 @@
     },
     "frontend": {
       "title": "Vue vs React",
+      "image": {
+        "src": "/blog/product-engineering-matrix/section/comparison/vue-vs-react.svg",
+        "alt": "Vue vs React image"
+      },
       "introduction": {
         "hook": "Browser: the realm where JavaScript reigns supreme, but the true battle is fought among the many JavaScript libraries, frameworks, and meta-frameworks. In this arena, React dominates due to its vast ecosystem, widespread adoption, and a community that continues to push it forward. Yet, Vue.js is quietly gaining ground, captivating developers with its simplicity, intuitive API, and exceptional developer experience (DX). While React offers flexibility and power, Vue stands out for its ease of use and streamlined approach, making it a compelling choice for those who prefer a more lightweight, approachable solution.",
         "react": "React is a popular JavaScript library developed by [Facebook](https://opensource.fb.com/projects/react) for building user interfaces, especially single-page applications. It introduced a component-based architecture and the virtual DOM, enabling efficient updates and better performance. React’s declarative syntax makes UI development more predictable and easier to manage.",
@@ -173,6 +181,10 @@
     },
     "mobile": {
       "title": "Flutter vs React Native",
+      "image": {
+        "src": "/blog/product-engineering-matrix/section/comparison/flutter-vs-react-native.svg",
+        "alt": "Flutter vs React Native image"
+      },
       "introduction": "Flutter and React Native are powerful cross-platform frameworks that let developers build high-quality apps for both Android and iOS using a single codebase. This unified approach significantly reduces development time and cost compared to traditional native development, which requires separate codebases for each platform.",
       "comparison": [
         {
