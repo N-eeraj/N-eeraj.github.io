@@ -21,3 +21,10 @@ export interface BlogHeaderProps {
   updateDate?: DateYMD
   readingTime: number
 }
+
+export interface TextBlockProps {
+  content: string | Array<string>
+  containerClassName?: string
+  className?: string
+}
+

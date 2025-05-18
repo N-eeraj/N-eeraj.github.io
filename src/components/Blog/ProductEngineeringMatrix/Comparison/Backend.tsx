@@ -1,5 +1,4 @@
-import Image from "next/image"
-import TextBlock from "@components/Blog/TextBlock"
+import ComparisonBlock from "@components/Blog/ProductEngineeringMatrix/Comparison"
 import blog from "@blog/product-engineering-matrix.json"
 import { parseMdLinks } from "@utils/mdParser"
 
@@ -22,30 +21,9 @@ function Backend() {
         dangerouslySetInnerHTML={{ __html: parseMdLinks(introduction) }}
         className="mt-2 blog-content" />
 
-      {image && (
-        <Image
-          src={image.src}
-          alt={image.alt}
-          width={448}
-          height={0}
-          quality={100}
-          className="w-full max-w-md h-auto mx-auto my-2 sm:my-5"
-          style={{ height: "auto" }} />
-      )}
-
-      <ul className="my-4 space-y-3">
-        {comparison.map(({ title, content }, index) => (
-          <li
-            key={index}
-            className="space-y-1">
-            <h3 className="blog-section-sub-title">
-              {title}
-            </h3>
-
-            <TextBlock content={content} />
-          </li>
-        ))}
-      </ul>
+      <ComparisonBlock
+        image={image}
+        comparison={comparison} />
 
       {conclusion.map(({ tech, reason }) => (
         <p

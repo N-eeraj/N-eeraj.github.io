@@ -1,11 +1,6 @@
 import { parseMdLinks } from "@utils/mdParser"
 import clsx from "clsx"
-
-interface TextBlockProps {
-  content: string | Array<string>
-  containerClassName?: string
-  className?: string
-}
+import type { TextBlockProps } from "@customTypes/blog"
 
 function TextBlock({ content, className, containerClassName }: TextBlockProps) {
   // single paragraph

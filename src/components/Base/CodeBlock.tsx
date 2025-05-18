@@ -1,12 +1,4 @@
-import {
-  RefObject,
-  HTMLAttributes,
-  PropsWithChildren,
-} from "react"
-
-interface CodeBlockProps extends HTMLAttributes<HTMLElement>, PropsWithChildren {
-  ref?: RefObject<HTMLElement | null>
-}
+import type { CodeBlockProps } from "@customTypes/ui/codeBlock"
 
 function CodeBlock({ children, ...props }: CodeBlockProps) {
   return (
