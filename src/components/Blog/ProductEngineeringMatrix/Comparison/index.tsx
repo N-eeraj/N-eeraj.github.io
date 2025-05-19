@@ -25,7 +25,9 @@ function ComparisonBlock({ image, comparison }: ComparisonBlockProps) {
               {title}
             </h3>
 
-            <TextBlock content={content} />
+            <TextBlock
+              content={content}
+              className="blog-section-content" />
           </li>
         ))}
       </ul>

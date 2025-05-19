@@ -1,6 +1,6 @@
 import Image from "next/image"
+import TextBlock from "@components/Blog/TextBlock"
 import blog from "@blog/product-engineering-matrix.json"
-import { parseMdLinks } from "@utils/mdParser"
 
 const {
   title,
@@ -20,7 +20,7 @@ function BluePill() {
       </h2>
 
       <div className="mt-2 space-y-4 blog-content">
-        <p dangerouslySetInnerHTML={{ __html: parseMdLinks(introduction) }} />
+        <TextBlock content={introduction} />
 
         {platforms.map(({ title, content, platform }) => (
           <div
@@ -29,8 +29,8 @@ function BluePill() {
             <h3 className="blog-section-sub-title">
               {title}
             </h3>
-            <p
-              dangerouslySetInnerHTML={{ __html: parseMdLinks(content) }}
+            <TextBlock
+              content={content}
               className="blog-section-content" />
           </div>
         ))}
@@ -43,7 +43,7 @@ function BluePill() {
           className="w-full h-auto my-6 sm:my-8"
           style={{ height: "auto" }} />
 
-        <p dangerouslySetInnerHTML={{ __html: parseMdLinks(ecoSystem) }} />
+        <TextBlock content={ecoSystem} />
       </div>
     </section>
   )

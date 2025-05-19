@@ -1,6 +1,6 @@
 import ComparisonBlock from "@components/Blog/ProductEngineeringMatrix/Comparison"
+import TextBlock from "@components/Blog/TextBlock"
 import blog from "@blog/product-engineering-matrix.json"
-import { parseMdLinks } from "@utils/mdParser"
 
 const {
   title,
@@ -17,9 +17,9 @@ function Frontend() {
       </h2>
 
       {Object.entries(introduction).map(([key, content]) => (
-        <p
+        <TextBlock
           key={key}
-          dangerouslySetInnerHTML={{ __html: parseMdLinks(content) }}
+          content={content}
           className="mt-2 blog-content" />
       ))}
 

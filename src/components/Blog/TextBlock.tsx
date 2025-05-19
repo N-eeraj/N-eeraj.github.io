@@ -1,4 +1,4 @@
-import { parseMdLinks } from "@utils/mdParser"
+import MarkDownText from "@components/Base/MarkDownText"
 import clsx from "clsx"
 import type { TextBlockProps } from "@customTypes/blog"
 
@@ -6,12 +6,9 @@ function TextBlock({ content, className, containerClassName }: TextBlockProps) {
   // single paragraph
   if (typeof content === "string") {
     return (
-      <p
-        dangerouslySetInnerHTML={{ __html: parseMdLinks(content) }}
-        className={clsx(
-          "blog-section-content",
-          className,
-        )} />
+      <MarkDownText
+        content={content}
+        className={className} />
     )
   }
 
@@ -24,13 +21,10 @@ function TextBlock({ content, className, containerClassName }: TextBlockProps) {
           containerClassName,
         )}>
         {content.map((paragraph, index) => (
-          <p
+          <MarkDownText
             key={index}
-            dangerouslySetInnerHTML={{ __html: parseMdLinks(paragraph) }}
-            className={clsx(
-              "blog-section-content",
-              className,
-            )} />
+            content={paragraph}
+            className={className} />
         ))}
       </div>
     )

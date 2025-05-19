@@ -1,5 +1,5 @@
+import TextBlock from "@components/Blog/TextBlock"
 import blog from "@blog/product-engineering-matrix.json"
-import { parseMdLinks } from "@utils/mdParser"
 
 const {
   title,
@@ -15,9 +15,9 @@ function Introduction() {
 
       <div className="mt-2 space-y-4 blog-content">
         {paragraphs.map((content, index) => (
-          <p
+          <TextBlock
             key={index}
-            dangerouslySetInnerHTML={{ __html: parseMdLinks(content) }} />
+            content={content} />
         ))}
       </div>
     </section>

@@ -1,6 +1,6 @@
 import ComparisonBlock from "@components/Blog/ProductEngineeringMatrix/Comparison"
+import TextBlock from "@components/Blog/TextBlock"
 import blog from "@blog/product-engineering-matrix.json"
-import { parseMdLinks } from "@utils/mdParser"
 
 const {
   title,
@@ -17,8 +17,8 @@ function Backend() {
         {title}
       </h2>
 
-      <p
-        dangerouslySetInnerHTML={{ __html: parseMdLinks(introduction) }}
+      <TextBlock
+        content={introduction}
         className="mt-2 blog-content" />
 
       <ComparisonBlock
@@ -26,9 +26,9 @@ function Backend() {
         comparison={comparison} />
 
       {conclusion.map(({ tech, reason }) => (
-        <p
+        <TextBlock
           key={tech}
-          dangerouslySetInnerHTML={{ __html: parseMdLinks(reason) }}
+          content={reason}
           className="mt-2 blog-content" />
       ))}
     </section>

@@ -1,6 +1,6 @@
 import Image from "next/image"
+import TextBlock from "@components/Blog/TextBlock"
 import blog from "@blog/product-engineering-matrix.json"
-import { parseMdLinks } from "@utils/mdParser"
 
 const {
   title,
@@ -20,9 +20,9 @@ function Conclusion() {
       </h2>
 
       <div className="mt-2 space-y-4 blog-content">
-        <p dangerouslySetInnerHTML={{ __html: parseMdLinks(thesis) }} />
-        <p dangerouslySetInnerHTML={{ __html: parseMdLinks(redPill) }} />
-        <p dangerouslySetInnerHTML={{ __html: parseMdLinks(bluePill) }} />
+        <TextBlock content={thesis}/>
+        <TextBlock content={redPill}/>
+        <TextBlock content={bluePill}/>
 
 
         <Image
@@ -32,7 +32,7 @@ function Conclusion() {
           height={0}
           className="w-full max-w-md h-auto mx-auto my-2 sm:my-5"
           style={{ height: "auto" }} />
-        <p dangerouslySetInnerHTML={{ __html: parseMdLinks(alternatives.content) }} />
+        <TextBlock content={alternatives.content}/>
       </div>
     </section>
   )

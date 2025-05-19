@@ -1,6 +1,6 @@
 import Image from "next/image"
+import TextBlock from "@components/Blog/TextBlock"
 import blog from "@blog/product-engineering-matrix.json"
-import { parseMdLinks } from "@utils/mdParser"
 
 const {
   title,
@@ -18,7 +18,7 @@ function RedPill() {
       </h2>
 
       <div className="mt-2 space-y-4 sm:space-y-6 blog-content">
-        <p dangerouslySetInnerHTML={{ __html: parseMdLinks(introduction) }} />
+        <TextBlock content={introduction} />
 
         {platforms.map(({ title, content, platform, image }) => (
           <div
@@ -39,8 +39,8 @@ function RedPill() {
                 style={{ height: "auto" }} />
             )}
 
-            <p
-              dangerouslySetInnerHTML={{ __html: parseMdLinks(content) }}
+            <TextBlock
+              content={content}
               className="blog-section-content" />
           </div>
         ))}
