@@ -3,6 +3,7 @@ import type { Viewport } from "next"
 
 import ThemeProvider from "@components/Theme/Provider"
 import LayoutContextProvider from "@context/Layout"
+import AuthContextProvider from "@context/Auth"
 import { Toaster } from "@shadcn/sonner"
 
 import METADATA from "@metadata/global"
@@ -27,11 +28,14 @@ export default function RootLayout({ children }: PropsWithChildren) {
         type="image/x-icon"
         rel="icon"
         href="/favicon.svg" />
+
       <body>
         <ThemeProvider>
-          <LayoutContextProvider>
-            {children}
-          </LayoutContextProvider>
+          <AuthContextProvider>
+            <LayoutContextProvider>
+              {children}
+            </LayoutContextProvider>
+          </AuthContextProvider>
           <Toaster />
         </ThemeProvider>
       </body>
