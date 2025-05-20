@@ -1,4 +1,4 @@
-import type { PropsWithChildren } from "react"
+import type { PropsWithChildren, ReactNode } from "react"
 import type { Viewport } from "next"
 
 import ThemeProvider from "@components/Theme/Provider"
@@ -19,7 +19,7 @@ export const viewport: Viewport = {
   width: "device-width",
 }
 
-export default function RootLayout({ children }: PropsWithChildren) {
+export default function RootLayout({ children, modal }: PropsWithChildren & { modal?: ReactNode }) {
   return (
     <html
       lang="en"
@@ -35,6 +35,7 @@ export default function RootLayout({ children }: PropsWithChildren) {
             <LayoutContextProvider>
               {children}
             </LayoutContextProvider>
+            {modal}
           </AuthContextProvider>
           <Toaster />
         </ThemeProvider>

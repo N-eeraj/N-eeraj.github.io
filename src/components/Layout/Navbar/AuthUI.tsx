@@ -1,6 +1,9 @@
 "use client"
 
 import { use } from "react"
+import Link from "next/link"
+import { Button } from "@shadcn/button"
+
 import { LayoutContext } from "@context/Layout"
 import { AuthContext } from "@context/Auth"
 
@@ -23,10 +26,11 @@ function AuthUI() {
   }
 
   return (
-    <>
-    {user}
-      Login
-    </>
+    <Link href="/login">
+      <Button variant="ghost">
+        Login
+      </Button>
+    </Link>
   )
 }
 
