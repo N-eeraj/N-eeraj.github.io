@@ -1,0 +1,6 @@
+export { default as Header } from "./Header"
+export { default as Works } from "./Works"
+export { default as Experience } from "./Experience"
+export { default as Blogs } from "./Blogs"
+export { default as NpmPackages } from "./NpmPackages"
+export { default as Contact } from "./Contact"

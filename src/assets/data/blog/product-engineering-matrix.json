@@ -232,9 +232,9 @@
       "alternatives": {
         "image": {
           "src": "/blog/product-engineering-matrix/section/conclusion/alternates.svg",
-          "alt": "Collage of logos; Laravel, Django, Angular, Svelte, Kotlin, Swift."
+          "alt": "Collage of logos; Kotlin, Swift, NativeScript, Xamarin, Laravel, Django, Rocket, .Net, Angular, Svelte, Solid, Astro."
         },
-        "content": "These aren't the only available development libraries/frameworks. For the backend, [Laravel](https://laravel.com) and [Django](https://www.djangoproject.com) provide well-established, mature solutions. Angular continues to power many enterprise web apps, while Svelte, as mentioned earlier, offers top-tier performance in the front-end space. As for native apps, you can opt for fully native development with [Kotlin for Android](https://developer.android.com/kotlin) and [Swift for iOS](https://developer.apple.com/swift) to achieve the maximum performance. As engineers, it's important to stay adaptable-experiment with different tools and focus on what best solves the problem, rather than fixating on one solution."
+        "content": "These aren’t the only frameworks and libraries out there. For backend development, [Laravel](https://laravel.com) and [Django](https://www.djangoproject.com) are both solid, mature options. On the frontend, Angular still powers many enterprise apps, while Svelte stands out for its exceptional performance. For native apps, [Kotlin for Android](https://developer.android.com/kotlin) and [Swift for iOS](https://developer.apple.com/swift) offer the best performance. There are plenty of other frameworks and technologies available, each with its own strengths depending on your project’s needs. As engineers, it’s crucial to stay flexible-experiment with different tools and focus on what solves the problem, rather than getting stuck on one solution."
       }
     }
   },

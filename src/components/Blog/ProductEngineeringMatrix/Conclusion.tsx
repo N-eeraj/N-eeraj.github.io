@@ -1,6 +1,6 @@
 import Image from "next/image"
 import TextBlock from "@components/Blog/TextBlock"
-import blog from "@blog/product-engineering-matrix.json"
+import blog from "@blogData/product-engineering-matrix.json"
 
 const {
   title,
@@ -28,9 +28,9 @@ function Conclusion() {
         <Image
           src={alternatives.image.src}
           alt={alternatives.image.alt}
-          width={448}
+          width={64}
           height={0}
-          className="w-full max-w-md h-auto mx-auto my-2 sm:my-5"
+          className="w-full h-auto mx-auto my-2 sm:my-5"
           style={{ height: "auto" }} />
         <TextBlock content={alternatives.content}/>
       </div>

@@ -1,17 +1,18 @@
-import MatrixTheme from "@components/Blog/ProductEngineeringMatrix/Matrix/Theme"
-import MatrixRain from "@components/Blog/ProductEngineeringMatrix/Matrix/Rain"
+import {
+  MatrixTheme,
+  MatrixRain,
+  Header,
+  Introduction,
+  BluePill,
+  RedPill,
+  Backend,
+  Frontend,
+  Mobile,
+  Conclusion,
+  Feedback,
+} from "@components/Blog/ProductEngineeringMatrix"
 
-import Header from "@components/Blog/ProductEngineeringMatrix/Header"
-import Introduction from "@components/Blog/ProductEngineeringMatrix/Introduction"
-import BluePill from "@components/Blog/ProductEngineeringMatrix/Introduction/BluePill"
-import RedPill from "@components/Blog/ProductEngineeringMatrix/Introduction/RedPill"
-import Backend from "@components/Blog/ProductEngineeringMatrix/Comparison/Backend"
-import Frontend from "@components/Blog/ProductEngineeringMatrix/Comparison/Frontend"
-import Mobile from "@components/Blog/ProductEngineeringMatrix/Comparison/Mobile"
-import Conclusion from "@components/Blog/ProductEngineeringMatrix/Conclusion"
-import Feedback from "@components/Blog/ProductEngineeringMatrix/Feedback"
-
-import blog from "@blog/product-engineering-matrix.json"
+import blog from "@blogData/product-engineering-matrix.json"
 import keywords from "@keywords/blog/product-engineering-matrix.json"
 import { generateBlogMetadata } from "@utils/metadata"
 

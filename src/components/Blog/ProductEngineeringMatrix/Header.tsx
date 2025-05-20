@@ -1,5 +1,5 @@
 import BlogHeader from "@components/Blog/Header"
-import blog from "@blog/product-engineering-matrix.json"
+import blog from "@blogData/product-engineering-matrix.json"
 import type { DateYMD } from "@customTypes/utils"
 
 function Header() {

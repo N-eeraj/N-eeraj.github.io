@@ -38,7 +38,7 @@
       "@customTypes/*": ["./src/types/*"],
       "@data/*": ["./src/assets/data/*"],
       "@keywords/*": ["./src/assets/data/keywords/*"],
-      "@blog/*": ["./src/assets/data/blog/*"],
+      "@blogData/*": ["./src/assets/data/blog/*"],
       "@metadata/*": ["./src/constants/metadata/*"]
     }
   },

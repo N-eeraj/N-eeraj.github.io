@@ -1,5 +1,5 @@
 import TextBlock from "@components/Blog/TextBlock"
-import blog from "@blog/product-engineering-matrix.json"
+import blog from "@blogData/product-engineering-matrix.json"
 
 const {
   title,
