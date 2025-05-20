@@ -8,7 +8,7 @@ function Header() {
       title={blog.title}
       subTitle={blog.subTitle}
       date={blog.date as DateYMD}
-      readingTime={10}
+      readingTime={blog.readingTime}
       coverImage={blog.coverImage} />
   )
 }
