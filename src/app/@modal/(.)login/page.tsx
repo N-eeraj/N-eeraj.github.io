@@ -28,11 +28,11 @@ function Login() {
       <DialogOverlay className="backdrop-blur-sm" />
       <DialogContent
         aria-describedby={undefined}
-        className="[&>button]:focus:ring-0">
+        className="w-11/12 !max-w-md p-0 border-0 [&>button]:hidden">
         <DialogTitle className="hidden">
           Login
         </DialogTitle>
-        <LoginForm />
+        <LoginForm className="w-full" />
       </DialogContent>
     </Dialog>
   )
