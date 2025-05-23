@@ -1,17 +1,27 @@
 "use client"
 
-import useLogin from "@hooks/user/useLogin"
+import useSignUp from "@hooks/user/useSignUp"
 
 import { Input } from "@shadcn/input"
 import { Label } from "@shadcn/label"
 import { Button } from "@shadcn/button"
 
-function LoginForm() {
-  useLogin()
+function SignUpForm() {
+  useSignUp()
 
   return (
     <form>
       <div className="flex flex-col gap-6">
+        <div className="grid gap-2">
+          <Label htmlFor="name">
+            Name
+          </Label>
+          <Input
+            id="name"
+            placeholder="John Doe"
+            className="placeholder:text-muted-foreground/50"
+            required />
+        </div>
         <div className="grid gap-2">
           <Label htmlFor="email">
             Email
@@ -44,4 +54,4 @@ function LoginForm() {
   )
 }
 
-export default LoginForm
+export default SignUpForm
