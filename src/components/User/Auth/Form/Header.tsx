@@ -4,15 +4,23 @@ import {
   CardTitle,
 } from "@shadcn/card"
 
-function AuthFormHeader() {
+import type { AuthFormHeaderProps } from "@customTypes/auth/form"
+
+function AuthFormHeader({ title, description }: AuthFormHeaderProps) {
+  if (!(title || description)) return
+
   return (
     <CardHeader>
-      <CardTitle className="text-2xl">
-        Login
-      </CardTitle>
-      <CardDescription className="text-muted-foreground/80">
-        Enter your email below to login to your account
-      </CardDescription>
+      {title && (
+        <CardTitle className="text-2xl">
+          {title}
+        </CardTitle>
+      )}
+      {description && (
+        <CardDescription className="text-muted-foreground/80">
+          {description}
+        </CardDescription>
+      )}
     </CardHeader>
   )
 }

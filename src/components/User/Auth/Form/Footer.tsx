@@ -1,21 +1,28 @@
 import Link from "next/link"
 import { Button } from "@shadcn/button"
 import { CardFooter } from "@shadcn/card"
+import type { AuthFormFooterProps } from "@customTypes/auth/form"
 
-function AuthFormFooter() {
+function AuthFormFooter({ footerText, segue }: AuthFormFooterProps) {
+  if (!(footerText || segue)) return
+
   return (
-    <CardFooter className="justify-center mt-2">
-      <small>
-        Don&apos;t have an account?&nbsp;
-      </small>
-      <Link href="/sign-up">
-        <Button
-          variant="link"
-          type="button"
-          className="px-0">
-          Sign up
-        </Button>
-      </Link>
+    <CardFooter className="justify-center gap-x-1 mt-2">
+      {footerText && (
+        <small>
+          {footerText}
+        </small>
+      )}
+      {segue && (
+        <Link href={segue.link}>
+          <Button
+            variant="link"
+            type="button"
+            className="px-0">
+            {segue.text}
+          </Button>
+        </Link>
+      )}
     </CardFooter>
   )
 }

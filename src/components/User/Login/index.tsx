@@ -1,12 +1,19 @@
 import UserAuthForm from "@components/User/Auth/Form"
 import Form from "./Form"
-import clsx from "clsx"
 
 import type { PropsWithClassName } from "@customTypes/ui"
 
 function LoginForm({ className }: PropsWithClassName) {
   return (
-    <UserAuthForm className={clsx("flex flex-col gap-6", className)}>
+    <UserAuthForm
+      title="Login"
+      description="Enter your email below to login to your account"
+      footerText="Don't have an account?"
+      segue={{
+        link: "/sign-up",
+        text: "Sign Up",
+      }}
+      className={className}>
       <Form />
     </UserAuthForm>
   )
