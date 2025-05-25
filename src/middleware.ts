@@ -1,17 +1,15 @@
 import { NextResponse } from "next/server"
 import type { NextRequest } from "next/server"
 
-const publicApiRoutes = [
-  "/api/login",
-  "/api/sign-up",
+const privateApiRoutes = [
+  "/logout",
 ]
 
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
-  if (!publicApiRoutes.includes(pathname)) {
+  if (privateApiRoutes.includes(pathname.replace("/api", ""))) {
     const token = request.cookies.get("auth-token")
-
     if (!token) {
       return NextResponse.json({
         error: "Unauthorized",
