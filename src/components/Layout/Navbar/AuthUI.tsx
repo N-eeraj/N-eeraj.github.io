@@ -26,7 +26,9 @@ function AuthUI() {
   }
 
   return (
-    <Link href="/login">
+    <Link
+      href="/login"
+      scroll={false}>
       <Button variant="ghost">
         Login
       </Button>
