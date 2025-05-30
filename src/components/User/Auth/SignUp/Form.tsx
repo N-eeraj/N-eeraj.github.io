@@ -1,10 +1,8 @@
 "use client"
 
-import useSignUp from "@hooks/user/useSignUp"
-
-import { Input } from "@shadcn/input"
-import { Label } from "@shadcn/label"
+import BaseInput from "@components/Base/Input"
 import { Button } from "@shadcn/button"
+import useSignUp from "@hooks/user/useSignUp"
 
 function SignUpForm() {
   useSignUp()
@@ -13,32 +11,23 @@ function SignUpForm() {
     <form>
       <div className="flex flex-col gap-6">
         <div className="grid gap-2">
-          <Label htmlFor="name">
-            Name
-          </Label>
-          <Input
-            id="name"
+          <BaseInput
+            label="Name"
             placeholder="John Doe"
             className="placeholder:text-muted-foreground/50"
             required />
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="email">
-            Email
-          </Label>
-          <Input
-            id="email"
+          <BaseInput
+            label="Email"
             type="email"
             placeholder="johndoe@email.com"
             className="placeholder:text-muted-foreground/50"
             required />
         </div>
         <div className="grid gap-2">
-          <Label htmlFor="password">
-            Password
-            </Label>
-          <Input
-            id="password"
+          <BaseInput
+            label="Password"
             type="password"
             placeholder="Enter your password"
             className="placeholder:text-muted-foreground/50"
