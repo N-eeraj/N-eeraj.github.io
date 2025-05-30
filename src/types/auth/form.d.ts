@@ -11,7 +11,16 @@ export interface AuthFormFooterProps {
   segue?: {
     link: string
     text: string
+    replace?: true
   }
 }
 
-export type AuthFormProps = PropsWithClassName & PropsWithChildren & AuthFormHeaderProps & AuthFormFooterProps
+export type BaseAuthFormProps = PropsWithClassName & PropsWithChildren & AuthFormHeaderProps & AuthFormFooterProps
+
+export interface AuthFormProps extends PropsWithClassName {
+  replace?: true
+}
+
+export interface ModalProps extends PropsWithChildren {
+  modalPath: string
+}

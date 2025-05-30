@@ -12,7 +12,7 @@ import {
   DialogOverlay,
 } from "@shadcn/dialog"
 import usePreventScroll from "@hooks/usePreventScroll"
-import { ModalProps } from "@customTypes/auth/modal"
+import { ModalProps } from "@customTypes/auth/form"
 
 function AuthModal({ modalPath, children }: ModalProps) {
   const router = useRouter()

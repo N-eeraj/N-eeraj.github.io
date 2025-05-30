@@ -4,7 +4,9 @@ import AuthModal from "@components/User/Auth/Modal"
 function SignUp() {
   return (
     <AuthModal modalPath="/sign-up">
-      <SignUpForm className="w-full" />
+      <SignUpForm
+        replace
+        className="w-full" />
     </AuthModal>
   )
 }

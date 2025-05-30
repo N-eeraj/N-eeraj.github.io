@@ -17,7 +17,7 @@ function AuthFormFooter({ footerText, segue }: AuthFormFooterProps) {
         <Link
           href={segue.link}
           scroll={false}
-          replace>
+          replace={segue.replace}>
           <Button
             variant="link"
             type="button"

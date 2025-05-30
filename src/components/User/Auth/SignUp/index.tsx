@@ -1,9 +1,8 @@
 import UserAuthForm from "@components/User/Auth/Form"
 import Form from "./Form"
+import type { AuthFormProps } from "@customTypes/auth/form"
 
-import type { PropsWithClassName } from "@customTypes/ui"
-
-function SignUpForm({ className }: PropsWithClassName) {
+function SignUpForm({ replace, className }: AuthFormProps) {
   return (
     <UserAuthForm
       title="Sign up"
@@ -12,6 +11,7 @@ function SignUpForm({ className }: PropsWithClassName) {
       segue={{
         link: "/login",
         text: "Login",
+        replace,
       }}
       className={className}>
       <Form />

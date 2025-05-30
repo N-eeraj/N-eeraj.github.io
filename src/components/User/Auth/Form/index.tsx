@@ -6,9 +6,9 @@ import {
   CardContent,
 } from "@shadcn/card"
 import clsx from "clsx"
-import type { AuthFormProps } from "@customTypes/auth/form"
+import type { BaseAuthFormProps } from "@customTypes/auth/form"
 
-function UserAuthForm({ title, description, footerText, segue, children, className }: AuthFormProps) {
+function UserAuthForm({ title, description, footerText, segue, children, className }: BaseAuthFormProps) {
   return (
     <Card className={clsx("flex flex-col gap-6", className)}>
       <Header
