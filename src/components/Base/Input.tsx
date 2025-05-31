@@ -7,7 +7,7 @@ import { Input } from "@shadcn/input"
 import { Label } from "@shadcn/label"
 import type { InputProps } from "@customTypes/ui/input"
 
-function BaseInput({ label, ...props }: InputProps) {
+function BaseInput({ label, error, ...props }: InputProps) {
   const id = useId()
 
   return (
@@ -20,6 +20,11 @@ function BaseInput({ label, ...props }: InputProps) {
       <Input
         id={id}
         {...props} />
+      {error && (
+        <small className="text-destructive">
+          {error.message}
+        </small>
+      )}
     </div>
   )
 }

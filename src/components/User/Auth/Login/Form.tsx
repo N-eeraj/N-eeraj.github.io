@@ -4,27 +4,46 @@ import BaseInput from "@components/Base/Input"
 import { Button } from "@shadcn/button"
 import useLogin from "@hooks/user/useLogin"
 
+import { useForm } from "react-hook-form"
+import { zodResolver } from "@hookform/resolvers/zod"
+import { loginFormSchema } from "@schema/user/auth"
+import type { z } from "zod"
+
 function LoginForm() {
   useLogin()
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    resolver: zodResolver(loginFormSchema),
+  })
+
+  const onSubmit = ({ email, password }: z.infer<typeof loginFormSchema>) => {
+    console.log({
+      email, password
+    })
+  }
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(onSubmit)}>
       <div className="flex flex-col gap-6">
         <div className="grid gap-2">
           <BaseInput
+            {...register("email")}
+            error={errors.email}
             label="Email"
-            type="email"
             placeholder="johndoe@email.com"
-            className="placeholder:text-muted-foreground/50"
-            required />
+            className="placeholder:text-muted-foreground/50" />
         </div>
         <div className="grid gap-2">
           <BaseInput
+            {...register("password")}
+            error={errors.password}
             label="Password"
             type="password"
             placeholder="Enter your password"
-            className="placeholder:text-muted-foreground/50"
-            required />
+            className="placeholder:text-muted-foreground/50" />
         </div>
         <Button
           type="submit"
