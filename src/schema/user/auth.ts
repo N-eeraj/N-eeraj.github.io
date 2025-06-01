@@ -11,7 +11,7 @@ export const loginFormSchema = z.object({
 export const signUpFormSchema = z.object({
   name: z.string({ message: "Please fill this field" })
     .nonempty("Please fill this field")
-    .min(2, "Please enter at least characters"),
+    .min(2, "Please enter at least 2 characters"),
   email: z.string({ message: "Please fill this field" })
     .nonempty("Please fill this field")
     .email("Please enter a valid email"),
