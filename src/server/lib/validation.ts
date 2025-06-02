@@ -9,7 +9,7 @@ export async function validateRequest<T extends ZodRawShape>(request: Request, s
 
   try {
     body = await request.json()
-  } catch (error) {
+  } catch {
     return [
       null,
       NextResponse.json({
