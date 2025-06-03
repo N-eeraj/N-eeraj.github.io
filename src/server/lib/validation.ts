@@ -8,16 +8,14 @@ export async function validateRequest<T extends ZodRawShape>(request: Request, s
   let body
 
   try {
-    body = await request.json()
+    const contentType = request.headers.get("content-type") || ""
+    if (contentType.includes("multipart/form-data")) {
+      body = Object.fromEntries(await request.formData())
+    } else {
+      body = await request.json()
+    }
   } catch {
-    return [
-      null,
-      NextResponse.json({
-        error: "Malformed JSON"
-      }, {
-        status: 400,
-      })
-    ]
+    body = {}
   }
 
   const {
@@ -36,7 +34,7 @@ export async function validateRequest<T extends ZodRawShape>(request: Request, s
     return [
       null,
       NextResponse.json({
-        errors: error.formErrors,
+        errors: error.formErrors.fieldErrors,
       }, { status })
     ]
   }
