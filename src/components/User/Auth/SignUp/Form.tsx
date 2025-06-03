@@ -1,7 +1,8 @@
 "use client"
 
 import BaseInput from "@components/Base/Input"
-import { Button } from "@shadcn/button"
+import ErrorMessage from "@components/Base/ErrorMessage"
+import Button from "@components/Base/Button"
 import useSignUp from "@hooks/user/useSignUp"
 
 import { useForm } from "react-hook-form"
@@ -15,12 +16,15 @@ function SignUpForm() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: {
+      errors,
+      isSubmitting,
+    },
   } = useForm({
     resolver: zodResolver(signUpFormSchema),
   })
 
-  const onSubmit = ({ name, email, password }: z.infer<typeof signUpFormSchema>) => {
+  const onSubmit = async ({ name, email, password }: z.infer<typeof signUpFormSchema>) => {
     console.log({
       name, email, password
     })
@@ -55,10 +59,12 @@ function SignUpForm() {
             placeholder="Enter your password"
             className="placeholder:text-muted-foreground/50" />
         </div>
+
+        <ErrorMessage error={errors.root} />
         <Button
-          type="submit"
+          loading={isSubmitting}
           className="w-full bg-foreground hover:bg-foreground/80">
-          Login
+          Sign Up
         </Button>
       </div>
     </form>
