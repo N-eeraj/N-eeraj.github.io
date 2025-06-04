@@ -1,3 +1,7 @@
+import { use } from "react"
+import { redirect } from "next/navigation"
+import { AuthContext } from "@context/Auth"
+
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { signUpFormSchema } from "@schema/user/auth"
@@ -6,6 +10,15 @@ import request from "@utils/request"
 import type { z } from "zod"
 
 export default function useSignUp() {
+  const {
+    isLoggedIn,
+    setUser,
+  } = use(AuthContext)
+
+  if (isLoggedIn) {
+    redirect("/")
+  }
+
   const {
     register,
     handleSubmit,

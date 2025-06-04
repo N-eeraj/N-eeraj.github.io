@@ -4,16 +4,17 @@ import type { Experience } from "@customTypes/home"
 function ExperienceItem({ role, company, duration }: Experience) {
   return (
     <li className="grid md:grid-cols-2">
-      <strong className="row-span-2 text-lg md:text-xl">
-        {role}
-      </strong>
       <Link
         href={company.website}
         target="_blank"
         rel="noreferrer"
-        className="text-primary md:text-lg md:text-end font-semibold">
+        className="row-span-2 text-lg md:text-xl text-primary font-semibold">
         {company.name}
       </Link>
+      <strong
+        className="md:text-lg md:text-end">
+        {role}
+      </strong>
       <span className="text-sm md:text-end">
         {duration}
       </span>
