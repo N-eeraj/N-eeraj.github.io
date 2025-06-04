@@ -7,7 +7,7 @@ function ErrorMessage({ error }: { error?: FieldError | GlobalError }) {
   if (!error) return
 
   return (
-    <small className="text-destructive">
+    <small className="text-destructive selection:bg-destructive selection:text-foreground">
       {error.message}
     </small>
   )

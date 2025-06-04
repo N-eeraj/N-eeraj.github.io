@@ -8,8 +8,7 @@ import { signUpFormSchema } from "@schema/user/auth"
 
 export async function POST(request: Request) {
   try {
-    const [validatedRequest, error] = await validateRequest(request, signUpFormSchema)
-    if (error) return error
+    const validatedRequest = await validateRequest(request, signUpFormSchema)
 
     const data = await AuthService.signUp(validatedRequest)
 
@@ -19,7 +18,8 @@ export async function POST(request: Request) {
     })
   } catch (error) {
     return sendErrorResponse({
-      message: error instanceof Error ? error.message : "",
+      message: error instanceof Error ? error.message : "An unknown error occurred",
+      ...(error ?? {}),
     })
   }
 }
