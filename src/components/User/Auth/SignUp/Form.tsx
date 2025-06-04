@@ -5,49 +5,14 @@ import ErrorMessage from "@components/Base/ErrorMessage"
 import Button from "@components/Base/Button"
 import useSignUp from "@hooks/user/useSignUp"
 
-import { useForm } from "react-hook-form"
-import { zodResolver } from "@hookform/resolvers/zod"
-import { signUpFormSchema } from "@schema/user/auth"
-import request from "@utils/request"
-import type { z } from "zod"
-
 function SignUpForm() {
-  useSignUp()
-
   const {
     register,
+    errors,
+    onSubmit,
     handleSubmit,
-    formState: {
-      errors,
-      isSubmitting,
-    },
-    clearErrors,
-    setError,
-  } = useForm({
-    resolver: zodResolver(signUpFormSchema),
-  })
-
-  const onSubmit = async (body: z.infer<typeof signUpFormSchema>) => {
-    clearErrors()
-    try {
-      const data = await request("/api/sign-up", {
-        method: "POST",
-        body,
-      })
-      console.log(data)
-    } catch (error: any) {
-      if (error?.error) {
-        setError("root", error.error)
-      } else if (error?.errors) {
-        Object.entries(error.errors)
-          .forEach(([field, error]) => {
-            setError(field as keyof typeof signUpFormSchema.shape, {
-              message: (error as Array<string>)[0],
-            })
-          })
-      }
-    }
-  }
+    isSubmitting,
+  } = useSignUp()
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

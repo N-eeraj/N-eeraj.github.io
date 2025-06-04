@@ -1,19 +1,22 @@
-import { NextResponse } from "next/server"
 import { signUpFormSchema } from "@schema/user/auth"
 import { validateRequest } from "@serverLib/validation"
+import {
+  sendErrorResponse,
+  sendSuccessResponse,
+} from "@serverLib/responseHandlers"
 
 export async function POST(request: Request) {
   try {
     const [data, error] = await validateRequest(request, signUpFormSchema)
     if (error) return error
-    
-    return Response.json({
+
+    return sendSuccessResponse({
       data,
       message: "Signed Up Successfully",
     })
   } catch (error) {
-    return NextResponse.json({
-      message: (error instanceof Error ? error.message : "Oops! Something went wrong."),
-    }, { status: 500 })
+    return sendErrorResponse({
+      message: error instanceof Error ? error.message : "",
+    })
   }
 }

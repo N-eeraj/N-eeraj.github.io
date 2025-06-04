@@ -3,6 +3,7 @@ import type {
   ZodObject,
   ZodRawShape,
 } from "zod"
+import { sendErrorResponse } from "@serverLib/responseHandlers"
 
 export async function validateRequest<T extends ZodRawShape>(request: Request, schema: ZodObject<T>) {
   let body
@@ -33,9 +34,10 @@ export async function validateRequest<T extends ZodRawShape>(request: Request, s
 
     return [
       null,
-      NextResponse.json({
-        errors: error.formErrors.fieldErrors,
-      }, { status })
+      sendErrorResponse({
+        data: error.formErrors.fieldErrors,
+        status,
+      })
     ]
   }
 
