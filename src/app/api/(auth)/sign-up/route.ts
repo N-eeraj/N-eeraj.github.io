@@ -1,14 +1,17 @@
-import { signUpFormSchema } from "@schema/user/auth"
-import { validateRequest } from "@serverLib/validation"
+import AuthService from "@serverService/AuthService"
+import { validateRequest } from "@server/lib/validation"
 import {
   sendErrorResponse,
   sendSuccessResponse,
-} from "@serverLib/responseHandlers"
+} from "@server/lib/responseHandlers"
+import { signUpFormSchema } from "@schema/user/auth"
 
 export async function POST(request: Request) {
   try {
-    const [data, error] = await validateRequest(request, signUpFormSchema)
+    const [validatedRequest, error] = await validateRequest(request, signUpFormSchema)
     if (error) return error
+
+    const data = await AuthService.signUp(validatedRequest)
 
     return sendSuccessResponse({
       data,

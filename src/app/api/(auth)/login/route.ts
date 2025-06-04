@@ -1,9 +1,9 @@
 import { loginFormSchema } from "@schema/user/auth"
-import { validateRequest } from "@serverLib/validation"
+import { validateRequest } from "@server/lib/validation"
 import {
   sendErrorResponse,
   sendSuccessResponse,
-} from "@serverLib/responseHandlers"
+} from "@server/lib/responseHandlers"
 
 export async function POST(request: Request) {
   try {

@@ -1,9 +1,8 @@
-import { NextResponse } from "next/server"
+import { sendErrorResponse } from "@server/lib/responseHandlers"
 import type {
   ZodObject,
   ZodRawShape,
 } from "zod"
-import { sendErrorResponse } from "@serverLib/responseHandlers"
 
 export async function validateRequest<T extends ZodRawShape>(request: Request, schema: ZodObject<T>) {
   let body
@@ -38,8 +37,8 @@ export async function validateRequest<T extends ZodRawShape>(request: Request, s
         data: error.formErrors.fieldErrors,
         status,
       })
-    ]
+    ] as const
   }
 
-  return [data, null]
+  return [data, null] as const
 }
