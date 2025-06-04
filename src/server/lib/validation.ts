@@ -1,3 +1,4 @@
+import { throwResponseError } from "@server/lib/responseHandlers"
 import type {
   ZodObject,
   ZodRawShape,
@@ -30,10 +31,10 @@ export async function validateRequest<T extends ZodRawShape>(request: Request, s
       status = 400
     }
 
-    throw {
+    throwResponseError({
       data: error.formErrors.fieldErrors,
       status,
-    }
+    })
   }
 
   return data

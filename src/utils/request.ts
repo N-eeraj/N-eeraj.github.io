@@ -1,6 +1,4 @@
-interface RequestOptions extends Omit<RequestInit, 'body'> {
-  body?: Record<string, any> | FormData | BodyInit
-}
+import type { RequestOptions } from "@customTypes/network"
 
 export default async function request(endpoint: string, options: RequestOptions = {}) {
   if (options.method?.toUpperCase() !== "GET" && options.body && !(options.body instanceof FormData)) {

@@ -1,11 +1,5 @@
 import { NextResponse } from "next/server"
-
-interface ResponseArgs {
-  data?: unknown
-  message?: string
-  status?: number
-  headers?: HeadersInit
-}
+import type { ResponseArgs } from "@customTypes/network"
 
 export function sendSuccessResponse({ data, message = "Success", status = 200, headers }: ResponseArgs) {
   return NextResponse.json({
@@ -25,4 +19,8 @@ export function sendErrorResponse({ data, message = "Oops! Something went wrong.
     status,
     headers,
   })
+}
+
+export function throwResponseError(error: ResponseArgs): never {
+  throw error
 }
