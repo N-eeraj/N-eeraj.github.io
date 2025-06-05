@@ -11,11 +11,7 @@ function NavbarLink() {
   return (
     <Link
       href="/"
-      className={clsx(
-        "group relative text-3xl font-semibold tracking-wide",
-        "after:absolute after:bottom-[3px] after:left-0 after:w-11/12 after:h-[3px] after:bg-foreground after:rounded-l-full after:duration-700 after:scale-x-0 after:origin-right",
-        "hover:after:scale-100",
-      )}>
+      className="group relative text-3xl font-semibold tracking-wide">
       <h2 className={geist.className}>
         <span className={clsx(
           "relative group-hover:pr-4 duration-500",

@@ -4,15 +4,14 @@ import crypto from "crypto"
 
 import connectDB from "@server/db"
 import { throwResponseError } from "@server/lib/responseHandlers"
-import { signUpFormSchema } from "@schema/user/auth"
-import type { z } from "zod"
+import type { SignUpFormSchema } from "@customTypes/auth/form"
+import UserModel from "@model/User"
 
 export default class AuthService {
-  static async signUp({ name, email, password }: z.infer<typeof signUpFormSchema>) {
-    const db = await connectDB()
-    const collection = db.collection("users")
+  static async signUp({ name, email, password }: SignUpFormSchema) {
+    await connectDB()
 
-    const isEmailTaken = await collection.countDocuments({ email })
+    const isEmailTaken = await UserModel.countDocuments({ email })
     if (isEmailTaken) {
       throwResponseError({
         data: {
@@ -25,12 +24,14 @@ export default class AuthService {
     const hashedPassword = await bcrypt.hash(password, 10)
     const token = crypto.randomBytes(32).toString("hex")
 
-    const { insertedId } = await collection.insertOne({
+    const newUser = new UserModel({
       name,
       email,
       password: hashedPassword,
       tokens: [token],
     })
+
+    newUser.save()
     
     const cookieStore = await cookies()
     cookieStore.set({
@@ -40,10 +41,6 @@ export default class AuthService {
       path: "/",
     })
 
-    return {
-      _id: insertedId.toString(),
-      name,
-      email,
-    }
+    return newUser.toObject()
   }
 }

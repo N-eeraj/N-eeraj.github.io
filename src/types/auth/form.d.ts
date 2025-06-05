@@ -1,4 +1,9 @@
 import type { PropsWithChildren } from "react"
+import {
+  loginFormSchema,
+  signUpFormSchema,
+} from "@schema/user/auth"
+import type { z } from "zod"
 import type { PropsWithClassName } from "@customTypes/ui"
 
 export interface AuthFormHeaderProps {
@@ -24,3 +29,6 @@ export interface AuthFormProps extends PropsWithClassName {
 export interface ModalProps extends PropsWithChildren {
   modalPath: string
 }
+
+export type SignUpFormSchema = z.infer<typeof signUpFormSchema>
+export type LoginFormSchema = z.infer<typeof loginFormSchema>

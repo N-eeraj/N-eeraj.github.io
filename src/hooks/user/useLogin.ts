@@ -5,8 +5,9 @@ import { AuthContext } from "@context/Auth"
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { loginFormSchema } from "@schema/user/auth"
+
 import request from "@utils/request"
-import type { z } from "zod"
+import type { LoginFormSchema } from "@customTypes/auth/form"
 
 export default function useLogin() {
   const {
@@ -32,7 +33,7 @@ export default function useLogin() {
     resolver: zodResolver(loginFormSchema),
   })
 
-  const onSubmit = async (body: z.infer<typeof loginFormSchema>) => {
+  const onSubmit = async (body: LoginFormSchema) => {
     clearErrors()
     try {
       const data = await request("/api/sign-up", {
@@ -44,7 +45,7 @@ export default function useLogin() {
       if (error?.errors) {
         Object.entries(error.errors)
           .forEach(([field, error]) => {
-            setError(field as keyof typeof loginFormSchema.shape, {
+            setError(field as keyof LoginFormSchema, {
               message: (error as Array<string>)[0],
             })
           })

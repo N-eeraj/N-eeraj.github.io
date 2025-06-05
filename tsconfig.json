@@ -30,6 +30,7 @@
       "@hooks/*": ["./src/hooks/*"],
       "@server/*": ["./src/server/*"],
       "@serverService/*": ["./src/server/service/*"],
+      "@model/*": ["./src/server/model/*"],
       "@shadcn/*": ["./src/components/ui/*"],
       "@context/*": ["./src/context/*"],
       "@lib/*": ["./src/lib/*"],
