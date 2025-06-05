@@ -1,3 +1,7 @@
+import { cookies } from "next/headers"
+import bcrypt from "bcrypt"
+import crypto from "crypto"
+
 import connectDB from "@server/db"
 import { throwResponseError } from "@server/lib/responseHandlers"
 import { signUpFormSchema } from "@schema/user/auth"
@@ -18,9 +22,26 @@ export default class AuthService {
       })
     }
 
-    const { insertedId } = await collection.insertOne({ name, email, password })
+    const hashedPassword = await bcrypt.hash(password, 10)
+    const token = crypto.randomBytes(32).toString("hex")
+
+    const { insertedId } = await collection.insertOne({
+      name,
+      email,
+      password: hashedPassword,
+      tokens: [token],
+    })
+    
+    const cookieStore = await cookies()
+    cookieStore.set({
+      name: "token",
+      value: token,
+      httpOnly: true,
+      path: "/",
+    })
+
     return {
-      _id: insertedId,
+      _id: insertedId.toString(),
       name,
       email,
     }

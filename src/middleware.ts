@@ -1,20 +1,25 @@
-import { NextResponse } from "next/server"
-import type { NextRequest } from "next/server"
+import { cookies } from "next/headers"
+import {
+  NextResponse,
+  type NextRequest,
+} from "next/server"
+
+import { sendErrorResponse } from "@server/lib/responseHandlers"
 
 const privateApiRoutes = [
   "/logout",
 ]
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
 
   if (privateApiRoutes.includes(pathname.replace("/api", ""))) {
-    const token = request.cookies.get("auth-token")
+    const cookieStore = await cookies()
+    const token = cookieStore.get("token")?.value || ""
     if (!token) {
-      return NextResponse.json({
-        error: "Unauthorized",
-      }, {
-        status: 401
+      return sendErrorResponse({
+        message: "Unauthorized",
+        status: 401,
       })
     }
   }
