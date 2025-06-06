@@ -36,6 +36,10 @@ userSchema.set("toObject", {
   }
 })
 
+userSchema.methods.addToken = async function (token: string) {
+  this.tokens.push(token)
+  await this.save()
+}
 
 const UserModel = mongoose.models.user || mongoose.model("user", userSchema)
 

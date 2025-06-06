@@ -35,11 +35,12 @@ export default function useSignUp() {
   const onSubmit = async (body: SignUpFormSchema) => {
     clearErrors()
     try {
-      const data = await request("/api/sign-up", {
+      const { data } = await request("/api/sign-up", {
         method: "POST",
         body,
       })
-      console.log(data)
+      setUser(data)
+      redirect("/")
     } catch (error: any) {
       if (error?.errors) {
         Object.entries(error.errors)

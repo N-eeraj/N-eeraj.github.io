@@ -1,14 +1,16 @@
-import { loginFormSchema } from "@schema/user/auth"
+import AuthService from "@serverService/AuthService"
 import { validateRequest } from "@server/lib/validation"
 import {
   sendErrorResponse,
   sendSuccessResponse,
 } from "@server/lib/responseHandlers"
+import { loginFormSchema } from "@schema/user/auth"
 
 export async function POST(request: Request) {
   try {
-    const [data, error] = await validateRequest(request, loginFormSchema)
-    if (error) return error
+    const validatedRequest = await validateRequest(request, loginFormSchema)
+
+    const data = await AuthService.login(validatedRequest)
 
     return sendSuccessResponse({
       data,
@@ -16,7 +18,8 @@ export async function POST(request: Request) {
     })
   } catch (error) {
     return sendErrorResponse({
-      message: error instanceof Error ? error.message : "",
+      message: error instanceof Error ? error.message : "An unknown error occurred",
+      ...(error ?? {}),
     })
   }
 }

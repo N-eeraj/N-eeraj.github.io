@@ -19,7 +19,6 @@ export default function useLogin() {
     redirect("/")
   }
 
-
   const {
     register,
     handleSubmit,
@@ -36,11 +35,12 @@ export default function useLogin() {
   const onSubmit = async (body: LoginFormSchema) => {
     clearErrors()
     try {
-      const data = await request("/api/sign-up", {
+      const { data } = await request("/api/login", {
         method: "POST",
         body,
       })
-      console.log(data)
+      setUser(data)
+      redirect("/")
     } catch (error: any) {
       if (error?.errors) {
         Object.entries(error.errors)

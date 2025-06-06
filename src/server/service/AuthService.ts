@@ -4,7 +4,10 @@ import crypto from "crypto"
 
 import connectDB from "@server/db"
 import { throwResponseError } from "@server/lib/responseHandlers"
-import type { SignUpFormSchema } from "@customTypes/auth/form"
+import type {
+  SignUpFormSchema,
+  LoginFormSchema,
+} from "@customTypes/auth/form"
 import UserModel from "@model/User"
 
 export default class AuthService {
@@ -28,8 +31,9 @@ export default class AuthService {
       name,
       email,
       password: hashedPassword,
-      tokens: [token],
     })
+
+    newUser.addToken(token)
 
     newUser.save()
     
@@ -42,5 +46,9 @@ export default class AuthService {
     })
 
     return newUser.toObject()
+  }
+
+  static async login({ email, password }: LoginFormSchema) {
+    return {}
   }
 }
