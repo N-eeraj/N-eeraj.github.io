@@ -11,6 +11,20 @@ import type {
 } from "@customTypes/auth/form"
 
 export default class AuthService {
+  private static async setToken(user: any) {
+    const token = crypto.randomBytes(32).toString("hex")
+    const cookieStore = await cookies()
+    cookieStore.set({
+      name: "token",
+      value: token,
+      httpOnly: true,
+      path: "/",
+    })
+
+    user.addToken(token)
+    user.save()
+  }
+
   static async signUp({ name, email, password }: SignUpFormSchema) {
     await connectDB()
 
@@ -25,7 +39,6 @@ export default class AuthService {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10)
-    const token = crypto.randomBytes(32).toString("hex")
 
     const newUser = new UserModel({
       name,
@@ -33,16 +46,7 @@ export default class AuthService {
       password: hashedPassword,
     })
 
-    newUser.addToken(token)
-    newUser.save()
-    
-    const cookieStore = await cookies()
-    cookieStore.set({
-      name: "token",
-      value: token,
-      httpOnly: true,
-      path: "/",
-    })
+    await this.setToken(newUser)
 
     return newUser.toObject()
   }
@@ -52,7 +56,7 @@ export default class AuthService {
 
     const user = await UserModel.findOne({ email })
 
-    const isValidPassword = await bcrypt.compare(password, user?.password)
+    const isValidPassword = await bcrypt.compare(password, user?.password ?? "")
     if (!user || !isValidPassword) {
       throwResponseError({
         message: "Invalid email or password",
@@ -60,17 +64,7 @@ export default class AuthService {
       })
     }
 
-    const token = crypto.randomBytes(32).toString("hex")
-    user.addToken(token)
-    user.save()
-    
-    const cookieStore = await cookies()
-    cookieStore.set({
-      name: "token",
-      value: token,
-      httpOnly: true,
-      path: "/",
-    })
+    await this.setToken(user)
 
     return user.toObject()
   }
