@@ -3,12 +3,12 @@ import bcrypt from "bcrypt"
 import crypto from "crypto"
 
 import connectDB from "@server/db"
+import UserModel from "@model/User"
 import { throwResponseError } from "@server/lib/responseHandlers"
 import type {
   SignUpFormSchema,
   LoginFormSchema,
 } from "@customTypes/auth/form"
-import UserModel from "@model/User"
 
 export default class AuthService {
   static async signUp({ name, email, password }: SignUpFormSchema) {
@@ -34,7 +34,6 @@ export default class AuthService {
     })
 
     newUser.addToken(token)
-
     newUser.save()
     
     const cookieStore = await cookies()
@@ -49,6 +48,30 @@ export default class AuthService {
   }
 
   static async login({ email, password }: LoginFormSchema) {
-    return {}
+    await connectDB()
+
+    const user = await UserModel.findOne({ email })
+
+    const isValidPassword = await bcrypt.compare(password, user?.password)
+    if (!user || !isValidPassword) {
+      throwResponseError({
+        message: "Invalid email or password",
+        status: 401,
+      })
+    }
+
+    const token = crypto.randomBytes(32).toString("hex")
+    user.addToken(token)
+    user.save()
+    
+    const cookieStore = await cookies()
+    cookieStore.set({
+      name: "token",
+      value: token,
+      httpOnly: true,
+      path: "/",
+    })
+
+    return user.toObject()
   }
 }
