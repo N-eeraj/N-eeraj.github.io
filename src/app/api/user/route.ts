@@ -1,4 +1,4 @@
-import AuthService from "@serverService/AuthService"
+import UserService from "@serverService/UserService"
 import {
   sendErrorResponse,
   sendSuccessResponse,
@@ -6,10 +6,10 @@ import {
 
 export async function GET() {
   try {
-    const data = await AuthService.validateToken()
+    const data = await UserService.getUserByToken()
     return sendSuccessResponse({
       data,
-      message: "Validated Token Successfully",
+      message: "Fetched User Details Successfully",
     })
   } catch (error) {
     return sendErrorResponse({

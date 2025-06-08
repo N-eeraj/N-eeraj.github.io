@@ -4,7 +4,9 @@ import crypto from "crypto"
 
 import connectDB from "@server/db"
 import UserModel from "@model/User"
+import UserService from "@serverService/UserService"
 import { throwResponseError } from "@server/lib/responseHandlers"
+
 import { AUTH_COOKIE_MAX_AGE } from "@constants/next"
 import type {
   SignUpFormSchema,
@@ -71,27 +73,16 @@ export default class AuthService {
     return user.toObject()
   }
 
-  static async validateToken() {
-    const cookieStore = await cookies()
-    const token = cookieStore.get("token")?.value || ""
-
-    if (!token) {
-      throwResponseError({
-        message: "Unauthorized",
-        status: 401,
-      })
-    }
-
-    await connectDB()
-    const user = await UserModel.findOne({
-      tokens: token,
+  static async logout() {
+    const {
+      id,
+      token,
+    } = await UserService.getUserByToken()
+    await UserModel.updateOne({ _id: id }, {
+      $pull: { tokens: token },
     })
 
-    if (!user) {
-      throwResponseError({
-        message: "Unauthorized",
-        status: 401,
-      })
-    }
+    const cookieStore = await cookies()
+    cookieStore.delete("token")
   }
 }
