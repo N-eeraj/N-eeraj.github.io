@@ -1,9 +1,8 @@
-import { NextResponse } from "next/server"
+import { sendErrorResponse } from "@server/lib/responseHandlers"
 
 export async function POST() {
-  return NextResponse.json({
-    message: "Api not found"
-  }, {
+  return sendErrorResponse({
+    message: "Api not found",
     status: 404,
   })
 }

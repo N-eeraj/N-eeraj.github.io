@@ -5,13 +5,14 @@ import crypto from "crypto"
 import connectDB from "@server/db"
 import UserModel from "@model/User"
 import { throwResponseError } from "@server/lib/responseHandlers"
+import { AUTH_COOKIE_MAX_AGE } from "@constants/next"
 import type {
   SignUpFormSchema,
   LoginFormSchema,
 } from "@customTypes/auth/form"
 
 export default class AuthService {
-  private static async setToken(user: any) {
+  private static async generateAndSetToken(user: any) {
     const token = crypto.randomBytes(32).toString("hex")
     const cookieStore = await cookies()
     cookieStore.set({
@@ -19,6 +20,7 @@ export default class AuthService {
       value: token,
       httpOnly: true,
       path: "/",
+      maxAge: AUTH_COOKIE_MAX_AGE,
     })
 
     user.addToken(token)
@@ -46,7 +48,7 @@ export default class AuthService {
       password: hashedPassword,
     })
 
-    await this.setToken(newUser)
+    await this.generateAndSetToken(newUser)
 
     return newUser.toObject()
   }
@@ -64,8 +66,32 @@ export default class AuthService {
       })
     }
 
-    await this.setToken(user)
+    await this.generateAndSetToken(user)
 
     return user.toObject()
+  }
+
+  static async validateToken() {
+    const cookieStore = await cookies()
+    const token = cookieStore.get("token")?.value || ""
+
+    if (!token) {
+      throwResponseError({
+        message: "Unauthorized",
+        status: 401,
+      })
+    }
+
+    await connectDB()
+    const user = await UserModel.findOne({
+      tokens: token,
+    })
+
+    if (!user) {
+      throwResponseError({
+        message: "Unauthorized",
+        status: 401,
+      })
+    }
   }
 }
