@@ -6,7 +6,10 @@ import {
 
 export async function GET() {
   try {
-    const data = await UserService.getUserByToken()
+    const {
+      token,
+      ...data
+    } = await UserService.getUserByToken()
     return sendSuccessResponse({
       data,
       message: "Fetched User Details Successfully",

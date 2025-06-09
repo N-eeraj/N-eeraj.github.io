@@ -1,8 +1,5 @@
 import { use } from "react"
-import {
-  redirect,
-  usePathname,
-} from "next/navigation"
+import { redirect } from "next/navigation"
 import { AuthContext } from "@context/Auth"
 
 import { useForm } from "react-hook-form"
@@ -11,14 +8,9 @@ import { zodResolver } from "@hookform/resolvers/zod"
 import request from "@utils/request"
 import type {
   z,
-  ZodObject,
   ZodRawShape,
 } from "zod"
-
-interface UseAuthParams<T extends ZodRawShape> {
-  schema: ZodObject<T>
-  endpoint: string
-}
+import { UseAuthParams } from "@customTypes/auth"
 
 export default function useAuth<T extends ZodRawShape>({ schema, endpoint }: UseAuthParams<T>) {
   const {

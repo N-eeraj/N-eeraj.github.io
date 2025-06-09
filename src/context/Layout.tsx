@@ -8,22 +8,22 @@ import {
 
 const defaultContextValue = {
   hideThemeToggle: false,
-  showAuthUI: false,
+  showNavAuth: false,
   setHideThemeToggle: (_arg: boolean) => {},
-  setShowAuthUI: (_arg: boolean) => {},
+  setShowNavAuth: (_arg: boolean) => {},
 }
 
 export const LayoutContext = createContext(defaultContextValue)
 
 const LayoutContextProvider = ({ children }: PropsWithChildren) => {
   const [hideThemeToggle, setHideThemeToggle] = useState(defaultContextValue.hideThemeToggle)
-  const [showAuthUI, setShowAuthUI] = useState(defaultContextValue.showAuthUI)
+  const [showNavAuth, setShowNavAuth] = useState(defaultContextValue.showNavAuth)
 
   const contextValues: typeof defaultContextValue = {
     hideThemeToggle,
-    showAuthUI,
+    showNavAuth,
     setHideThemeToggle,
-    setShowAuthUI,
+    setShowNavAuth,
   }
 
   return (

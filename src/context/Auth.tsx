@@ -7,6 +7,13 @@ import {
   useEffect,
 } from "react"
 
+import request from "@utils/request"
+import {
+  setCookie,
+  resetCookie,
+  getCookie,
+} from "@utils/cookies"
+import { AUTH_COOKIE_MAX_AGE } from "@constants/next"
 import type {
   User,
   AuthContext as AuthContextType,
@@ -24,19 +31,42 @@ export const AuthContext = createContext<AuthContextType>(defaultContextValue)
 function AuthContextProvider({ children }: PropsWithChildren) {
   const [user, setUser] = useState(defaultContextValue.user)
 
+  const clearUser = () => {
+    setUser(null)
+    resetCookie("isLoggedIn")
+  }
+
   useEffect(() => {
     if (user) {
-      console.log("setting user")
-    } else {
-      console.log("unsetting user")
+      setCookie({
+        key: "isLoggedIn",
+        value: "true",
+        maxAge: AUTH_COOKIE_MAX_AGE,
+      })
     }
   }, [user])
+
+  useEffect(() => {
+    const fetchUserIfLoggedIn = async () => {
+      if (!getCookie("isLoggedIn")) return
+await new Promise((resolve) => setTimeout(resolve, 10000)) // Simulate delay
+
+      try {
+        const { data } = await request("/api/user")
+        setUser(data)
+      } catch {
+        clearUser()
+      }
+    }
+
+    fetchUserIfLoggedIn()
+  }, [])
 
   const contextValues = {
     user,
     isLoggedIn: Boolean(user),
     setUser,
-    clearUser: () => setUser(null),
+    clearUser,
   } as AuthContextType
 
   return (

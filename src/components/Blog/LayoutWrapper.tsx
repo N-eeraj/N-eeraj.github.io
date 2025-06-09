@@ -8,15 +8,15 @@ import {
 import { LayoutContext } from "@context/Layout"
 
 function BlogLayoutWrapper({ children }: PropsWithChildren) {
-  const { setShowAuthUI } = use(LayoutContext)
+  const { setShowNavAuth } = use(LayoutContext)
 
 useEffect(() => {
-  setShowAuthUI(true)
+  setShowNavAuth(true)
 
   return () => {
-    setShowAuthUI(false)
+    setShowNavAuth(false)
   }
-}, [setShowAuthUI])
+}, [setShowNavAuth])
 
   return (
     <>
