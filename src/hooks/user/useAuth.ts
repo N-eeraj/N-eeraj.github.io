@@ -1,5 +1,8 @@
 import { use } from "react"
-import { redirect } from "next/navigation"
+import {
+  redirect,
+  usePathname,
+} from "next/navigation"
 import { AuthContext } from "@context/Auth"
 
 import { useForm } from "react-hook-form"

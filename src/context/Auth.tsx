@@ -4,6 +4,7 @@ import {
   useState,
   createContext,
   type PropsWithChildren,
+  useEffect,
 } from "react"
 
 import type {
@@ -22,6 +23,14 @@ export const AuthContext = createContext<AuthContextType>(defaultContextValue)
 
 function AuthContextProvider({ children }: PropsWithChildren) {
   const [user, setUser] = useState(defaultContextValue.user)
+
+  useEffect(() => {
+    if (user) {
+      console.log("setting user")
+    } else {
+      console.log("unsetting user")
+    }
+  }, [user])
 
   const contextValues = {
     user,

@@ -1,5 +1,5 @@
 import NavbarLink from "./Link"
-import AuthUI from "./AuthUI"
+import User from "./User"
 import ThemeToggle from "@components/Theme/Toggle"
 
 function Navbar() {
@@ -7,7 +7,7 @@ function Navbar() {
     <nav className="sticky top-0 flex justify-between items-center px-3 py-2 sm:px-8 md:py-4 bg-background border-b z-10">
       <NavbarLink />
       <ThemeToggle />
-      <AuthUI />
+      <User />
     </nav>
   )
 }

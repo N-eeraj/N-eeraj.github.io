@@ -6,8 +6,7 @@ function BaseButton({ disabled, loading, children, ...props }: ButtonProps) {
   return (
     <Button
       {...props}
-      disabled={loading || disabled}
-      className="w-full bg-foreground hover:bg-foreground/80">
+      disabled={loading || disabled}>
       { loading ?
           <LucideLoader2 className="animate-spin" /> :
           children

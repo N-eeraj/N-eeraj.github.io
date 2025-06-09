@@ -42,7 +42,7 @@ function LoginForm() {
         <ErrorMessage error={errors.root} />
         <Button
           loading={isSubmitting}
-          className="w-full bg-foreground hover:bg-foreground/80">
+          className="w-full bg-white hover:bg-white/90">
           Login
         </Button>
       </div>
