@@ -3,7 +3,8 @@
 import BaseInput from "@components/Base/Input"
 import ErrorMessage from "@components/Base/ErrorMessage"
 import Button from "@components/Base/Button"
-import useSignUp from "@hooks/user/useSignUp"
+import useAuth from "@hooks/user/useAuth"
+import { signUpFormSchema } from "@schema/user/auth"
 
 function SignUpForm() {
   const {
@@ -12,7 +13,10 @@ function SignUpForm() {
     onSubmit,
     handleSubmit,
     isSubmitting,
-  } = useSignUp()
+    } = useAuth({
+      schema: signUpFormSchema,
+      endpoint: "/api/sign-up",
+    })
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>

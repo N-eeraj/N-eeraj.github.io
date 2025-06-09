@@ -3,7 +3,8 @@
 import BaseInput from "@components/Base/Input"
 import ErrorMessage from "@components/Base/ErrorMessage"
 import Button from "@components/Base/Button"
-import useLogin from "@hooks/user/useLogin"
+import useAuth from "@hooks/user/useAuth"
+import { loginFormSchema } from "@schema/user/auth"
 
 function LoginForm() {
   const {
@@ -12,7 +13,10 @@ function LoginForm() {
     onSubmit,
     handleSubmit,
     isSubmitting,
-  } = useLogin()
+  } = useAuth({
+    schema: loginFormSchema,
+    endpoint: "/api/login",
+  })
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
