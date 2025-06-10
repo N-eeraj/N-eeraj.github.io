@@ -7,7 +7,7 @@ import {
 export async function GET() {
   try {
     const {
-      token,
+      token: _token,
       ...data
     } = await UserService.getUserByToken()
     return sendSuccessResponse({

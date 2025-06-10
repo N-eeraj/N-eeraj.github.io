@@ -14,7 +14,7 @@ import type {
 } from "@customTypes/auth/form"
 
 export default class AuthService {
-  private static async generateAndSetToken(user: any) {
+  private static async generateAndSetToken(user: InstanceType<typeof UserModel>) {
     const token = crypto.randomBytes(32).toString("hex")
     const cookieStore = await cookies()
     cookieStore.set({

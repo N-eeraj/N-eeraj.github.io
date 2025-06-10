@@ -27,7 +27,7 @@ function DocSelect({ currentTab, className }: DocsSelectProps) {
   const searchParams = useSearchParams()
 
   const handleChange = (tab: RandomDocLabel) => {
-    const params = new URLSearchParams(searchParams.toString())
+    const params = new URLSearchParams(searchParams?.toString())
     params.set("tab", tab)
     router.replace(`${pathname}?${params.toString()}`)
   }

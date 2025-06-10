@@ -24,8 +24,10 @@ function UserMenu() {
         method: "POST",
       })
       clearUser()
-    } catch (error: any) {
-      console.error(error.message)
+    } catch (error: unknown) {
+      if (error && typeof error === "object" && "message" in error) {
+        console.error(error.message)
+      }
     } finally {
       setLoggingOut(false)
     }

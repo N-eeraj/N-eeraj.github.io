@@ -23,8 +23,8 @@ const userSchema = new mongoose.Schema({
 userSchema.set("toObject", {
   transform: function (_doc, ret) {
     const {
-      password,
-      tokens,
+      password: _password,
+      tokens: _tokens,
       __v,
       _id,
       ...data

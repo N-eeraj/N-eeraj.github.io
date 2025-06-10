@@ -1,5 +1,5 @@
 export interface RequestOptions extends Omit<RequestInit, 'body'> {
-  body?: Record<string, any> | FormData | BodyInit
+  body?: Record<string, unknown> | FormData | BodyInit
 }
 
 export interface ResponseArgs {

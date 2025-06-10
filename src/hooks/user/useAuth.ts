@@ -2,7 +2,11 @@ import { use } from "react"
 import { redirect } from "next/navigation"
 import { AuthContext } from "@context/Auth"
 
-import { useForm } from "react-hook-form"
+import {
+  useForm,
+  type Path,
+  type ErrorOption,
+} from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 
 import request from "@utils/request"
@@ -44,16 +48,18 @@ export default function useAuth<T extends ZodRawShape>({ schema, endpoint }: Use
       })
       setUser(data)
       redirect("/")
-    } catch (error: any) {
-      if (error?.errors) {
-        Object.entries(error.errors)
-          .forEach(([field, error]) => {
-            setError(field as keyof typeof error, {
-              message: (error as Array<string>)[0],
+    } catch (error: unknown) {
+      if (error && typeof error === "object") {
+        if ("errors" in error && error.errors) {
+          Object.entries(error.errors)
+            .forEach(([field, error]) => {
+              setError(field as Path<z.infer<typeof schema>>, {
+                message: (error as Array<string>)[0],
+              })
             })
-          })
-      } else if (error?.message) {
-        setError("root", error)
+        } else if ("message" in error && error.message) {
+          setError("root", error as ErrorOption)
+        }
       }
     }
   }
