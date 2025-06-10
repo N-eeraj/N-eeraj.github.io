@@ -1,8 +1,4 @@
-interface CookieOptions {
-  key: string
-  value: string
-  maxAge?: number
-}
+import type { CookieOptions } from "@customTypes/utils"
 
 export function setCookie({ key, value, maxAge }: CookieOptions) {
   document.cookie = `${key}=${value};path=/;max-age=${maxAge}`

@@ -22,6 +22,7 @@ import type {
 const defaultContextValue: AuthContextType = {
   user: null,
   isLoggedIn: false,
+  isLoadingUser: false,
   setUser: (_user: User) => {},
   clearUser: () => {},
 }
@@ -30,6 +31,7 @@ export const AuthContext = createContext<AuthContextType>(defaultContextValue)
 
 function AuthContextProvider({ children }: PropsWithChildren) {
   const [user, setUser] = useState(defaultContextValue.user)
+  const [isLoadingUser, setIsLoadingUser] = useState(false)
 
   const clearUser = () => {
     setUser(null)
@@ -49,13 +51,14 @@ function AuthContextProvider({ children }: PropsWithChildren) {
   useEffect(() => {
     const fetchUserIfLoggedIn = async () => {
       if (!getCookie("isLoggedIn")) return
-await new Promise((resolve) => setTimeout(resolve, 10000)) // Simulate delay
-
       try {
+        setIsLoadingUser(true)
         const { data } = await request("/api/user")
         setUser(data)
       } catch {
         clearUser()
+      } finally {
+        setIsLoadingUser(false)
       }
     }
 
@@ -65,6 +68,7 @@ await new Promise((resolve) => setTimeout(resolve, 10000)) // Simulate delay
   const contextValues = {
     user,
     isLoggedIn: Boolean(user),
+    isLoadingUser,
     setUser,
     clearUser,
   } as AuthContextType

@@ -2,6 +2,8 @@ import {
   use,
   useState,
 } from "react"
+import { Skeleton } from "@shadcn/skeleton"
+
 import Button from "@components/Base/Button"
 import { AuthContext } from "@context/Auth"
 import request from "@utils/request"
@@ -11,6 +13,7 @@ function UserMenu() {
 
   const {
     user,
+    isLoadingUser,
     clearUser,
   } = use(AuthContext)
 
@@ -30,15 +33,23 @@ function UserMenu() {
 
   return (
     <div className="flex items-center gap-x-2">
-      <span>
-        {user?.name}
-      </span>
-      <Button
-        variant="ghost"
-        loading={loggingOut}
-        onClick={logoutUser}>
-        Logout
-      </Button>
+      {isLoadingUser ?
+        <>
+          <Skeleton className="w-40 h-6 bg-zinc-800" />
+          <Skeleton className="w-[46px] h-5 mx-4 my-2 bg-zinc-800 delay-300" />
+        </> :
+        <>
+          <span>
+            {user?.name}
+          </span>
+          <Button
+            variant="ghost"
+            loading={loggingOut}
+            onClick={logoutUser}>
+            Logout
+          </Button>
+        </>
+      }
     </div>
   )
 }

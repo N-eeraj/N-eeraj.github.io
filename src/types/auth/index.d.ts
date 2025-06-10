@@ -9,6 +9,7 @@ export interface User {
 export interface AuthContextBase<UserValueType extends User | null> {
   user: UserValueType
   isLoggedIn: UserValueType extends User ? true : false
+  isLoadingUser: boolean
   setUser: (_user: User) => void
   clearUser: () => void
 }
