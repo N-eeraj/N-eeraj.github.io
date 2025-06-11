@@ -4,15 +4,20 @@ import UserModel from "@model/User"
 import { throwResponseError } from "@server/lib/responseHandlers"
 
 export default class UserService {
-  static async getUserByToken() {
+  private static isStrictCheck(isStrict: boolean) {
+    if (!isStrict) return null
+    return throwResponseError({
+      message: "Unauthorized",
+      status: 401,
+    })
+  }
+
+  static async fetchUser({ isStrict = false } = {}) {
     const cookieStore = await cookies()
     const token = cookieStore.get("token")?.value || ""
 
     if (!token) {
-      throwResponseError({
-        message: "Unauthorized",
-        status: 401,
-      })
+      return this.isStrictCheck(isStrict)
     }
 
     await connectDB()
@@ -21,10 +26,7 @@ export default class UserService {
     })
 
     if (!user) {
-      throwResponseError({
-        message: "Unauthorized",
-        status: 401,
-      })
+      return this.isStrictCheck(isStrict)
     }
 
     return {

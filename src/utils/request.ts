@@ -6,6 +6,14 @@ export default async function request(endpoint: string, options: RequestOptions 
   }
   const response = await fetch(`${endpoint}`, options as RequestInit)
   const data = await response.json()
-  if (!response.ok) throw data
+  if (!response.ok) {
+    if (response.status === 401) {
+      if (endpoint === "/api/user") return
+      if (endpoint !== "/api/login") {
+        location.href = "/login"
+      }
+    }
+    throw data
+  }
   return data
 }

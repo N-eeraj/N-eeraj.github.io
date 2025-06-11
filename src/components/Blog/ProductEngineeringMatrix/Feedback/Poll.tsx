@@ -1,13 +1,8 @@
-import { use } from "react"
+import request from "@utils/request"
 import { WEBSITE } from "@constants/enVariables"
 
-async function fetchData() {
-  const res = await fetch(`${WEBSITE}/api/blog/product-engineering-matrix`)
-  return await res.json()
-}
-
-function Poll() {
-  const data = use(fetchData())
+async function Poll() {
+  const data = await request(`${WEBSITE}/api/blog/product-engineering-matrix`, { cache: "no-store" })
 
   return (
     <div>

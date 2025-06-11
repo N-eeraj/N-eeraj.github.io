@@ -77,7 +77,7 @@ export default class AuthService {
     const {
       id,
       token,
-    } = await UserService.getUserByToken()
+    } = await UserService.fetchUser({ isStrict: true })
     await UserModel.updateOne({ _id: id }, {
       $pull: { tokens: token },
     })

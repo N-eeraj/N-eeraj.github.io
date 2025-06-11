@@ -9,7 +9,7 @@ export async function GET() {
     const {
       token: _token,
       ...data
-    } = await UserService.getUserByToken()
+    } = await UserService.fetchUser({ isStrict: true })
     return sendSuccessResponse({
       data,
       message: "Fetched User Details Successfully",
