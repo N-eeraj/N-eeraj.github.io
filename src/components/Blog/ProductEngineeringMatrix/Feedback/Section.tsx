@@ -1,6 +1,4 @@
-import { Suspense } from "react"
-import Fallback from "./Fallback"
-import Poll from "./Poll"
+import { Poll } from "@components/Blog/ProductEngineeringMatrix/Feedback"
 import blog from "@blogData/product-engineering-matrix.json"
 
 function Feedback() {
@@ -10,9 +8,7 @@ function Feedback() {
         {blog.feedback.title}
       </h2>
 
-      <Suspense fallback={<Fallback />}>
-        <Poll />
-      </Suspense>
+      <Poll />
     </section>
   )
 }

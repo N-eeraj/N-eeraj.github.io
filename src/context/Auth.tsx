@@ -31,7 +31,7 @@ export const AuthContext = createContext<AuthContextType>(defaultContextValue)
 
 function AuthContextProvider({ children }: PropsWithChildren) {
   const [user, setUser] = useState(defaultContextValue.user)
-  const [isLoadingUser, setIsLoadingUser] = useState(false)
+  const [isLoadingUser, setIsLoadingUser] = useState(true)
 
   const clearUser = () => {
     setUser(null)
@@ -50,7 +50,10 @@ function AuthContextProvider({ children }: PropsWithChildren) {
 
   useEffect(() => {
     const fetchUserIfLoggedIn = async () => {
-      if (!getCookie("isLoggedIn")) return
+      if (!getCookie("isLoggedIn")) {
+        setIsLoadingUser(false)
+        return
+      }
       try {
         setIsLoadingUser(true)
         const { data } = await request("/api/user")

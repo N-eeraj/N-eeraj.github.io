@@ -4,6 +4,8 @@ import { throwResponseError } from "@server/lib/responseHandlers"
 
 export default class BlogService {
   static async getBlogData(slug: string) {
+    const { id } = await UserService.fetchUser() ?? {}
+
     switch(slug) {
       case "product-engineering-matrix":
         return null
