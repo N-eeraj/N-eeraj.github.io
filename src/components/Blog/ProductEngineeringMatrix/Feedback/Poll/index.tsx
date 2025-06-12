@@ -9,6 +9,7 @@ import {
   Loading,
   Error,
   Votes,
+  Option,
 } from "@components/Blog/ProductEngineeringMatrix/Feedback"
 
 import {
@@ -33,6 +34,7 @@ function Poll() {
 
   return (
     <div className="space-y-3 md:space-y-4">
+      {/* votes */}
       <ul className="flex h-10 md:h-12 rounded-full overflow-hidden">
         <Votes
           value={redPercentage}
@@ -42,41 +44,17 @@ function Poll() {
           className="justify-end bg-sky-500" />
       </ul>
 
+      {/* options */}
       <ul className="flex h-48">
         <li className="flex-1">
-          <label
-            tabIndex={0}
-            className="relative group size-full flex flex-col justify-center items-center gap-y-4 hover:bg-background focus:bg-background cursor-pointer">
-            <div className="absolute size-full group-hover:bg-red-500/10 group-focus:bg-red-500/10 duration-300" />
-            <input
-              type="radio"
-              className="hidden"
-              value="red"
-              name="poll"
-              onChange={handleChange} />
-              <div className="w-6 h-18 bg-red-500 rounded-full group-hover:scale-110 group-focus:scale-110 rotate-12 group-hover:-rotate-0 group-focus:-rotate-0 duration-500" />
-              <span className="text-sm md:text-base text-red-500 pointer-fine:opacity-0 group-hover:opacity-100 group-focus:opacity-100 scale-95 group-hover:scale-100 group-focus:scale-100 translate-y-2 group-hover:translate-y-0 group-focus:translate-y-0 duration-300">
-                Choose the red pill
-              </span>
-          </label>
+          <Option
+            value="red"
+            onChange={handleChange} />
         </li>
-
         <li className="flex-1">
-          <label
-            tabIndex={0}
-            className="relative group size-full flex flex-col justify-center items-center gap-y-4 hover:bg-background focus:bg-background cursor-pointer">
-            <div className="absolute size-full group-hover:bg-sky-500/10 group-focus:bg-sky-500/10 duration-300" />
-            <input
-              type="radio"
-              className="hidden"
-              value="blue"
-              name="poll"
-              onChange={handleChange} />
-              <div className="w-6 h-18 bg-sky-500 rounded-full group-hover:scale-110 group-focus:scale-110 -rotate-12 group-hover:rotate-0 group-focus:rotate-0 duration-500" />
-              <span className="text-sm md:text-base text-sky-500 pointer-fine:opacity-0 group-hover:opacity-100 group-focus:opacity-100 scale-95 group-hover:scale-100 group-focus:scale-100 translate-y-2 group-hover:translate-y-0 group-focus:translate-y-0 duration-300">
-                Choose the blue pill
-              </span>
-          </label>
+          <Option
+            value="blue"
+            onChange={handleChange} />
         </li>
       </ul>
     </div>
