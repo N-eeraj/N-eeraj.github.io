@@ -2,6 +2,7 @@ import type { PropsWithChildren, ReactNode } from "react"
 import type { Viewport } from "next"
 
 import ThemeProvider from "@components/Theme/Provider"
+import QueryProvider from "@components/QueryProvider"
 import LayoutContextProvider from "@context/Layout"
 import AuthContextProvider from "@context/Auth"
 import { Toaster } from "@shadcn/sonner"
@@ -30,15 +31,17 @@ export default function RootLayout({ children, modal }: PropsWithChildren & { mo
         href="/favicon.svg" />
 
       <body>
-        <ThemeProvider>
-          <AuthContextProvider>
-            <LayoutContextProvider>
-              {children}
-            </LayoutContextProvider>
-            {modal}
-          </AuthContextProvider>
-          <Toaster />
-        </ThemeProvider>
+        <QueryProvider>
+          <ThemeProvider>
+            <AuthContextProvider>
+              <LayoutContextProvider>
+                {children}
+              </LayoutContextProvider>
+              {modal}
+            </AuthContextProvider>
+            <Toaster />
+          </ThemeProvider>
+        </QueryProvider>
       </body>
     </html>
   )

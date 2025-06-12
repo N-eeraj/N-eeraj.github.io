@@ -13,7 +13,7 @@ import {
   resetCookie,
   getCookie,
 } from "@utils/cookies"
-import { AUTH_COOKIE_MAX_AGE } from "@constants/next"
+import { AUTH_COOKIE_MAX_AGE } from "@constants/time"
 import type {
   User,
   AuthContext as AuthContextType,

@@ -1,6 +1,8 @@
-function Error() {
+function Error({ error }: { error: Error }) {
   return (
-    <div>Error</div>
+    <div>
+      {error.message}
+    </div>
   )
 }
 
