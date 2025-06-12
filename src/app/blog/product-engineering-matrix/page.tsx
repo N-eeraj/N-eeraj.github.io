@@ -26,7 +26,7 @@ function BlogsHome() {
       <MatrixTheme />
       <MatrixRain />
 
-      <main className="max-w-2xl mx-auto p-4 sm:py-6 sm:pb-10 overflow-y-auto">
+      <main className="max-w-2xl mx-auto p-4 sm:pt-6 sm:pb-10 md:pb-12 overflow-y-auto">
         <Header />
 
         <article className="space-y-8 sm:space-y-10">
