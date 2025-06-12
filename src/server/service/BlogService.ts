@@ -3,12 +3,19 @@ import UserService from "@serverService/UserService"
 import { throwResponseError } from "@server/lib/responseHandlers"
 
 export default class BlogService {
-  static async getBlogData(slug: string) {
+  static async productEngineeringMatrix() {
     const { id } = await UserService.fetchUser() ?? {}
 
+    return {
+      red: 30,
+      blue: 70,
+    }
+  }
+
+  static async getBlogData(slug: string) {
     switch(slug) {
       case "product-engineering-matrix":
-        return null
+        return await this.productEngineeringMatrix()
       default:
         throwResponseError({
           message: "Blog not found",
