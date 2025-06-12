@@ -9,7 +9,7 @@ import {
   GITHUB_USER_CONTENT_BASE_URL,
 } from "@constants/urls/github"
 import { GITHUB_USERNAME } from "@constants/enVariables"
-import { REVALIDATE_DAILY } from "@constants/next"
+import { REVALIDATE_DAILY } from "@constants/time"
 
 import LANGUAGE_COLORS from "@data/github/colors.json"
 

@@ -4,7 +4,7 @@ import {
   NPM_PACKAGE_API_URL,
   NPM_WEEKLY_DOWNLOADS_API_URL,
 } from "@constants/urls/npm"
-import { REVALIDATE_DAILY } from "@constants/next"
+import { REVALIDATE_DAILY } from "@constants/time"
 
 export default class NpmPackage {
   name: string

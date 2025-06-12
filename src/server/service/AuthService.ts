@@ -7,7 +7,7 @@ import UserModel from "@model/User"
 import UserService from "@serverService/UserService"
 import { throwResponseError } from "@server/lib/responseHandlers"
 
-import { AUTH_COOKIE_MAX_AGE } from "@constants/next"
+import { AUTH_COOKIE_MAX_AGE } from "@constants/time"
 import type {
   SignUpFormSchema,
   LoginFormSchema,

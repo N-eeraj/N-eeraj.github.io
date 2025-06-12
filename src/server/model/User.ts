@@ -17,20 +17,16 @@ const userSchema = new mongoose.Schema({
   tokens: {
     type: Array(String),
     required: true,
-  }
+  },
+}, {
+  timestamps: true,
 })
 
 userSchema.set("toObject", {
-  transform: function (_doc, ret) {
-    const {
-      password: _password,
-      tokens: _tokens,
-      __v,
-      _id,
-      ...data
-    } = ret
+  transform: function (_doc, { _id, email, name }) {
     return {
-      ...data,
+      email,
+      name,
       id: _id.toString(),
     }
   }

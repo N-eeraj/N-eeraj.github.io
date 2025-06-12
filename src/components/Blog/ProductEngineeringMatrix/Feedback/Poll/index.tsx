@@ -14,11 +14,15 @@ function Poll() {
 
   if (blogResponses.isFetching) return <Loading />
   if (blogResponses.error) return <Error error={blogResponses.error} />
-  if (!blogResponses.data) return
 
   return (
     <div>
-      <p>{JSON.stringify(blogResponses.data)}</p>
+      <input
+        type="radio"
+        name="poll" />
+      <input
+        type="radio"
+        name="poll" />
     </div>
   )
 }
