@@ -5,6 +5,7 @@ import {
   QUERY_STALE_TIME,
   REVALIDATE_HOURLY,
 } from "@constants/time"
+import { PollData } from "@customTypes/blog/productEngineeringMatrix"
 
 export function useFetch() {
   const {
@@ -21,9 +22,10 @@ export function useFetch() {
   })
 
   const {
-    red,
-    blue,
-  } = data
+    red = 0,
+    blue = 0,
+    userVote,
+  } = data as PollData ?? {}
   const redPercentage =  red * 100 / (red + blue)
   const bluePercentage =  blue * 100 / (red + blue)
 
@@ -32,5 +34,6 @@ export function useFetch() {
     fetchError: error,
     redPercentage,
     bluePercentage,
+    userVote,
   }
 }

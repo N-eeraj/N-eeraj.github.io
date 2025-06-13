@@ -22,6 +22,7 @@ function Poll() {
     fetchError,
     redPercentage,
     bluePercentage,
+    userVote,
   } = useFetch()
   const [selectedOption, setSelectedOption] = useState<string | null>(null)
 
@@ -49,11 +50,13 @@ function Poll() {
         <li className="flex-1">
           <Option
             value="red"
+            isSelected={userVote === "red"}
             onChange={handleChange} />
         </li>
         <li className="flex-1">
           <Option
             value="blue"
+            isSelected={userVote === "blue"}
             onChange={handleChange} />
         </li>
       </ul>
