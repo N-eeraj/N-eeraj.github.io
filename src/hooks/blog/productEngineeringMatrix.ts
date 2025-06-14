@@ -1,3 +1,9 @@
+import {
+  useState,
+  useEffect,
+  type ChangeEvent,
+} from "react"
+
 import { useQuery } from "@tanstack/react-query"
 import request from "@utils/request"
 import { WEBSITE } from "@constants/enVariables"
@@ -26,8 +32,9 @@ export function useFetch() {
     blue = 0,
     userVote,
   } = data as PollData ?? {}
-  const redPercentage =  red * 100 / (red + blue)
-  const bluePercentage =  blue * 100 / (red + blue)
+  const total = (red + blue) || 1
+  const redPercentage =  red * 100 / total
+  const bluePercentage =  blue * 100 / total
 
   return {
     isFetching,
@@ -35,5 +42,22 @@ export function useFetch() {
     redPercentage,
     bluePercentage,
     userVote,
+  }
+}
+
+export function useSubmit() {
+  const [selectedOption, setSelectedOption] = useState<string | null>(null)
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSelectedOption(event.target.value)
+  }
+
+  useEffect(() => {
+    console.log(selectedOption)
+  }, [selectedOption])
+
+  return {
+    selectedOption,
+    handleChange,
   }
 }
