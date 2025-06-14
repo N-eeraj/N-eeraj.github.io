@@ -14,7 +14,7 @@ import type {
   z,
   ZodRawShape,
 } from "zod"
-import { UseAuthParams } from "@customTypes/auth"
+import type { UseAuthParams } from "@customTypes/auth"
 
 export default function useAuth<T extends ZodRawShape>({ schema, endpoint }: UseAuthParams<T>) {
   const {

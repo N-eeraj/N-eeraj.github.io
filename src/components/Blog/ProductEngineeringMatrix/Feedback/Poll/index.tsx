@@ -5,6 +5,7 @@ import {
   Error,
   Votes,
   Option,
+  Confirmation,
 } from "@components/Blog/ProductEngineeringMatrix/Feedback"
 
 import {
@@ -29,7 +30,9 @@ function Poll() {
 
   const {
     selectedOption,
-    handleChange,
+    clearSelection,
+    handleSelectionChange,
+    submitSelection,
   } = useSubmit()
 
   if (isFetching) return <Loading />
@@ -46,7 +49,7 @@ function Poll() {
             <Option
               value={option}
               isSelected={(userVote ?? selectedOption) === option}
-              onChange={handleChange} />
+              onChange={handleSelectionChange} />
           </li>
         ))}
       </ul>
@@ -62,6 +65,11 @@ function Poll() {
             className="justify-end bg-sky-500" />
         </ul>
       )}
+
+      <Confirmation
+        selection={selectedOption}
+        onCancel={clearSelection}
+        onConfirm={submitSelection} />
     </div>
   )
 }

@@ -11,7 +11,10 @@ import {
   QUERY_STALE_TIME,
   REVALIDATE_HOURLY,
 } from "@constants/time"
-import { PollData } from "@customTypes/blog/productEngineeringMatrix"
+import type {
+  Option,
+  PollData,
+} from "@customTypes/blog/productEngineeringMatrix"
 
 export function useFetch() {
   const {
@@ -46,18 +49,20 @@ export function useFetch() {
 }
 
 export function useSubmit() {
-  const [selectedOption, setSelectedOption] = useState<string | null>(null)
+  const [selectedOption, setSelectedOption] = useState<Option | null>(null)
 
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(event.target.value)
+  const handleSelectionChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSelectedOption(event.target.value as Option | null)
   }
 
-  useEffect(() => {
-    console.log(selectedOption)
-  }, [selectedOption])
+  const clearSelection = () => setSelectedOption(null)
+
+  const submitSelection = () => {}
 
   return {
     selectedOption,
-    handleChange,
+    handleSelectionChange,
+    clearSelection,
+    submitSelection,
   }
 }

@@ -40,6 +40,7 @@ function Option({ value, isSelected = false, onChange }: OptionProps) {
         className="hidden"
         name="poll"
         value={value}
+        checked={isSelected}
         onChange={onChange} />
         <div className={clsx(
           "w-6 h-18 rounded-full duration-500",
