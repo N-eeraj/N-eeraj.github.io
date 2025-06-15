@@ -34,6 +34,7 @@ export async function validateRequest<T extends ZodRawShape>(request: Request, s
     throwResponseError({
       data: error.formErrors.fieldErrors,
       status,
+      message: "Validation Error",
     })
   }
 

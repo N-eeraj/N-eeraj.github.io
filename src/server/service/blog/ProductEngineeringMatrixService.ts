@@ -7,6 +7,10 @@ import type {
 } from "@customTypes/blog/productEngineeringMatrix"
 
 export default class ProductEngineeringMatrixService {
+  static get schema() {
+    return 
+  }
+
   private static async getCount(): Promise<PollData> {
     const blogData = await BlogModel.aggregate([
       { $match: { blog: "product-engineering-matrix" } },

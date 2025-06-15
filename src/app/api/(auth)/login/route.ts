@@ -9,7 +9,6 @@ import { loginFormSchema } from "@schema/user/auth"
 export async function POST(request: Request) {
   try {
     const validatedRequest = await validateRequest(request, loginFormSchema)
-
     const data = await AuthService.login(validatedRequest)
 
     return sendSuccessResponse({
