@@ -30,9 +30,10 @@ function Poll() {
 
   const {
     selectedOption,
-    clearSelection,
     handleSelectionChange,
+    clearSelection,
     submitSelection,
+    isSubmitting,
   } = useSubmit()
 
   if (isFetching) return <Loading />
@@ -68,6 +69,7 @@ function Poll() {
 
       <Confirmation
         selection={selectedOption}
+        loading={isSubmitting}
         onCancel={clearSelection}
         onConfirm={submitSelection} />
     </div>

@@ -1,10 +1,15 @@
 import {
   useState,
-  useEffect,
   type ChangeEvent,
 } from "react"
 
-import { useQuery } from "@tanstack/react-query"
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query"
+import { toast } from "sonner"
+
 import request from "@utils/request"
 import { WEBSITE } from "@constants/enVariables"
 import {
@@ -49,6 +54,8 @@ export function useFetch() {
 }
 
 export function useSubmit() {
+  const queryClient = useQueryClient()
+
   const [selectedOption, setSelectedOption] = useState<Option | null>(null)
 
   const handleSelectionChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -57,12 +64,35 @@ export function useSubmit() {
 
   const clearSelection = () => setSelectedOption(null)
 
-  const submitSelection = () => {}
+  const {
+    mutate,
+    isPending,
+  } = useMutation({
+    mutationFn: async () => {
+      await request(`${WEBSITE}/api/blog/product-engineering-matrix`, {
+        method: "post",
+        body: { option: selectedOption }
+      })
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({
+        queryKey: ["product-engineering-matrix-poll"],
+      })
+    },
+    onError: (error) => {
+      toast.error("Oops! Failed to submit your selection", {
+        description: error?.message ?? "Something went wrong",
+        richColors: true,
+      })
+      clearSelection()
+    },
+  })
 
   return {
     selectedOption,
     handleSelectionChange,
     clearSelection,
-    submitSelection,
+    submitSelection: mutate,
+    isSubmitting: isPending,
   }
 }

@@ -8,15 +8,18 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@shadcn/alert-dialog"
+import { LucideLoader2 } from "lucide-react"
+
 import type { Option } from "@customTypes/blog/productEngineeringMatrix"
 
 interface ConfirmationProps {
   selection: Option | null
+  loading: boolean
   onCancel: () => void
   onConfirm: () => void
 }
 
-function Confirmation({ selection, onCancel, onConfirm }: ConfirmationProps) {
+function Confirmation({ selection, loading, onCancel, onConfirm }: ConfirmationProps) {
   return (
     <AlertDialog open={!!selection}>
       <AlertDialogContent>
@@ -36,12 +39,22 @@ function Confirmation({ selection, onCancel, onConfirm }: ConfirmationProps) {
             }
           </AlertDialogDescription>
         </AlertDialogHeader>
+
         <AlertDialogFooter>
-          <AlertDialogCancel onClick={onCancel}>
+          <AlertDialogCancel
+            disabled={loading}
+            className="hover:bg-primary/10 dark:hover:bg-primary/20"
+            onClick={onCancel}>
             Cancel
           </AlertDialogCancel>
-          <AlertDialogAction onClick={onConfirm}>
-            Continue
+          <AlertDialogAction
+            disabled={loading}
+            onClick={onConfirm}>
+            {
+              loading ?
+              <LucideLoader2 className="animate-spin" /> :
+              "Continue"
+            }
           </AlertDialogAction>
         </AlertDialogFooter>
       </AlertDialogContent>
