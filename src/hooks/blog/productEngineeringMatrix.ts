@@ -11,11 +11,8 @@ import {
 import { toast } from "sonner"
 
 import request from "@utils/request"
+import { POLL_QUERY_KEY } from "@constants/blogs/productEngineeringMatrix"
 import { WEBSITE } from "@constants/enVariables"
-import {
-  QUERY_STALE_TIME,
-  REVALIDATE_HOURLY,
-} from "@constants/time"
 import type {
   Option,
   PollData,
@@ -27,12 +24,11 @@ export function useFetch() {
     data,
     error,
   } = useQuery({
-    queryKey: ["product-engineering-matrix-poll"],
+    queryKey: [POLL_QUERY_KEY],
     queryFn: async () => {
-      const { data } = await request(`${WEBSITE}/api/blog/product-engineering-matrix`, REVALIDATE_HOURLY)
+      const { data } = await request(`${WEBSITE}/api/blog/product-engineering-matrix`)
       return data
     },
-    staleTime: QUERY_STALE_TIME,
   })
 
   const {
@@ -76,7 +72,7 @@ export function useSubmit() {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: ["product-engineering-matrix-poll"],
+        queryKey: [POLL_QUERY_KEY],
       })
     },
     onError: (error) => {

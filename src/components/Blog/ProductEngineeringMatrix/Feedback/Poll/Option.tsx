@@ -1,20 +1,6 @@
 import clsx from "clsx"
 import { OptionProps } from "@customTypes/blog/productEngineeringMatrix"
-
-const valueClassesMap = {
-  red: {
-    background: "group-hover:bg-red-500/10 group-focus:bg-red-500/10",
-    activeBackground: "bg-red-500/20 group-hover:bg-red-500/20 group-focus:bg-red-500/20",
-    pill: "bg-red-500 rotate-[20deg]",
-    text: "text-red-500",
-  },
-  blue: {
-    background: "group-hover:bg-sky-500/10 group-focus:bg-sky-500/10",
-    activeBackground: "bg-sky-500/20 group-hover:bg-sky-500/20 group-focus:bg-sky-500/20",
-    pill: "bg-sky-500 -rotate-[20deg]",
-    text: "text-sky-500",
-  },
-} as const
+import { POLL_OPTION_CLASS_MAP } from "@constants/blogs/productEngineeringMatrix"
 
 function Option({ value, isSelected = false, onChange }: OptionProps) {
   const {
@@ -22,7 +8,7 @@ function Option({ value, isSelected = false, onChange }: OptionProps) {
     activeBackground,
     pill,
     text,
-  } = valueClassesMap[value]
+  } = POLL_OPTION_CLASS_MAP[value]
 
   return (
     <label

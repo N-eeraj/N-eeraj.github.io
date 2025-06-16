@@ -5,3 +5,5 @@ export interface CookieOptions {
   value: string
   maxAge?: number
 }
+
+export type MaybePromise<T> = T | Promise<T>

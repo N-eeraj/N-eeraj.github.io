@@ -1,4 +1,5 @@
 import type { ChangeEventHandler } from "react"
+import { OPTIONS } from "@constants/blogs/productEngineeringMatrix"
 import type { BaseImageProps } from "@customTypes/ui"
 import type { TextBlockProps } from "@customTypes/blog"
 
@@ -10,7 +11,7 @@ export interface ComparisonBlockProps {
   }>
 }
 
-export type Option = "red" | "blue"
+export type Option = typeof OPTIONS[number]
 
 export interface OptionProps {
   value: Option
