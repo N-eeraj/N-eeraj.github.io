@@ -14,6 +14,7 @@ function makeQueryClient() {
     defaultOptions: {
       queries: {
         staleTime: QUERY_STALE_TIME,
+        retry: false,
       },
     },
   })

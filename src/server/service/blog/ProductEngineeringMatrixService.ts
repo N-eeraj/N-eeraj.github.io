@@ -1,14 +1,15 @@
 import connectDB from "@server/db"
 import UserService from "@serverService/UserService"
+import BlogServiceHelper from "@server/helpers/BlogHelper"
 import BlogModel from "@model/Blog"
 import type {
   Option,
   PollData,
 } from "@customTypes/blog/productEngineeringMatrix"
 
-export default class ProductEngineeringMatrixService {
+export default class ProductEngineeringMatrixService extends BlogServiceHelper {
   static get schema() {
-    return 
+    return null
   }
 
   private static async getCount(): Promise<PollData> {
@@ -31,7 +32,7 @@ export default class ProductEngineeringMatrixService {
     return userOption?.toObject().option
   }
 
-  static async getData(): Promise<PollData> {
+  static override async getData(): Promise<PollData> {
     await connectDB()
 
     const [blogData, userVote] = await Promise.all([

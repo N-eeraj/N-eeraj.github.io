@@ -16,7 +16,8 @@ export async function GET(_request: Request, { params }:  { params: Promise<{ sl
       })
     }
 
-    const data = await BlogService.getBlogData(slug)
+    const blogInstance = BlogService.getInstance(slug)
+    const data = await blogInstance.getData()
 
     return sendSuccessResponse({
       data,
@@ -40,7 +41,8 @@ export async function POST(request: Request, { params }:  { params: Promise<{ sl
       })
     }
 
-    const schema = BlogService.schema(slug)
+    const blogInstance = BlogService.getInstance(slug)
+    const schema = blogInstance.schema
     const validatedRequest = await (schema ? validateRequest(request, schema) : request.json())
     console.log(validatedRequest)
 
