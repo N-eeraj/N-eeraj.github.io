@@ -12,12 +12,7 @@ import {
   useFetch,
   useSubmit,
 } from "@hooks/blog/productEngineeringMatrix"
-import type { Option as OptionType } from "@customTypes/blog/productEngineeringMatrix"
-
-const options: Array<OptionType> = [
-  "red",
-  "blue",
-]
+import { OPTIONS } from "@constants/blogs/productEngineeringMatrix"
 
 function Poll() {
   const {
@@ -43,7 +38,7 @@ function Poll() {
     <div className="space-y-3 md:space-y-4">
       {/* options */}
       <ul className="flex h-48">
-        {options.map((option) => (
+        {OPTIONS.map((option) => (
           <li
             key={option}
             className="flex-1">

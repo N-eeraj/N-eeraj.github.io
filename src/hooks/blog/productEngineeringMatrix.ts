@@ -17,6 +17,7 @@ import type {
   Option,
   PollData,
 } from "@customTypes/blog/productEngineeringMatrix"
+import type { MutationError } from "@customTypes/network"
 
 export function useFetch() {
   const {
@@ -74,13 +75,14 @@ export function useSubmit() {
       queryClient.invalidateQueries({
         queryKey: [POLL_QUERY_KEY],
       })
+      clearSelection()
     },
-    onError: (error) => {
+    onError: ({ message, errors }: MutationError) => {
+      const errorMessage = Array.isArray(errors?.option) ? errors.option[0] : message ?? "Something went wrong"
       toast.error("Oops! Failed to submit your selection", {
-        description: error?.message ?? "Something went wrong",
+        description: errorMessage,
         richColors: true,
       })
-      clearSelection()
     },
   })
 

@@ -8,3 +8,7 @@ export interface ResponseArgs {
   status?: number
   headers?: HeadersInit
 }
+
+export interface MutationError extends Error {
+  errors?: Record<string | number | symbol, unknown>
+}

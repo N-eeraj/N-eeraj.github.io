@@ -24,3 +24,18 @@ export interface PollData {
   blue: number
   userVote?: Option
 }
+
+export interface PollOptionClass {
+  background: string
+  activeBackground: string
+  pill: string
+  text: string
+}
+
+export interface ConfirmationMessage {
+  text: string
+  class: string
+}
+
+export type PollOptionClassMap = Record<Option, PollOptionClass>
+export type ConfirmationMessageMap = Record<Option, ConfirmationMessage>
