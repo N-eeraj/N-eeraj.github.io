@@ -44,7 +44,7 @@ function Poll() {
             className="flex-1">
             <Option
               value={option}
-              isSelected={(userVote ?? selectedOption) === option}
+              isSelected={userVote === option}
               onChange={handleSelectionChange} />
           </li>
         ))}

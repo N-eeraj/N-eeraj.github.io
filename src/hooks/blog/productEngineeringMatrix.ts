@@ -79,7 +79,7 @@ export function useSubmit() {
     },
     onError: ({ message, errors }: MutationError) => {
       const errorMessage = Array.isArray(errors?.option) ? errors.option[0] : message ?? "Something went wrong"
-      toast.error("Oops! Failed to submit your selection", {
+      toast.error("Oops! Failed to submit your response", {
         description: errorMessage,
         richColors: true,
       })

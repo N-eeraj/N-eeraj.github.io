@@ -17,7 +17,7 @@ export async function GET(_request: Request, { params }:  { params: Promise<{ sl
     }
 
     const blogInstance = BlogService.getInstance(slug)
-    const data = await blogInstance.getData()
+    const data = await blogInstance.get()
 
     return sendSuccessResponse({
       data,
@@ -42,12 +42,14 @@ export async function POST(request: Request, { params }:  { params: Promise<{ sl
     }
 
     const blogInstance = BlogService.getInstance(slug)
-    const schema = blogInstance.schema
+    const schema = blogInstance.postSchema
     const validatedRequest = await (schema ? validateRequest(request, schema) : request.json())
-    console.log(validatedRequest)
+    const data = await blogInstance.post(validatedRequest)
 
     return sendSuccessResponse({
+      data,
       message: "Saved Response Successfully",
+      status: 201,
     })
   } catch (error) {
     return sendErrorResponse({

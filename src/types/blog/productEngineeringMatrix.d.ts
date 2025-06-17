@@ -1,4 +1,7 @@
 import type { ChangeEventHandler } from "react"
+import type { z } from "zod"
+
+import { submitSchema } from "@schema/blogs/productEngineeringMatrix"
 import { OPTIONS } from "@constants/blogs/productEngineeringMatrix"
 import type { BaseImageProps } from "@customTypes/ui"
 import type { TextBlockProps } from "@customTypes/blog"
@@ -12,6 +15,8 @@ export interface ComparisonBlockProps {
 }
 
 export type Option = typeof OPTIONS[number]
+
+export type SubmitSchema = z.infer<typeof submitSchema>
 
 export interface OptionProps {
   value: Option

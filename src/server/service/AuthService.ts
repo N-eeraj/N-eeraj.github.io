@@ -26,7 +26,7 @@ export default class AuthService {
     })
 
     user.addToken(token)
-    user.save()
+    await user.save()
   }
 
   static async signUp({ name, email, password }: SignUpFormSchema) {

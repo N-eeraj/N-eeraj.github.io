@@ -15,6 +15,7 @@ export async function POST(request: Request) {
     return sendSuccessResponse({
       data,
       message: "Signed Up Successfully",
+      status: 201,
     })
   } catch (error) {
     return sendErrorResponse({

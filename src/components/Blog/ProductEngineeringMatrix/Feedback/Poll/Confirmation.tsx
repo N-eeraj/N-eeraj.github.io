@@ -7,6 +7,7 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
+  AlertDialogOverlay,
 } from "@shadcn/alert-dialog"
 import { LucideLoader2 } from "lucide-react"
 
@@ -23,6 +24,7 @@ interface ConfirmationProps {
 function Confirmation({ selection, loading, onCancel, onConfirm }: ConfirmationProps) {
   return (
     <AlertDialog open={!!selection}>
+      <AlertDialogOverlay className="backdrop-blur-xs" />
       {selection && (
         <AlertDialogContent>
           <AlertDialogHeader className="text-start">
