@@ -20,7 +20,7 @@ export type SubmitSchema = z.infer<typeof submitSchema>
 
 export interface OptionProps {
   value: Option
-  isSelected?: boolean
+  userVote?: Option
   onChange: ChangeEventHandler
 }
 

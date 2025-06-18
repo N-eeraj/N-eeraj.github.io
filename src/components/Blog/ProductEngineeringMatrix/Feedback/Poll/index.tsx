@@ -29,7 +29,7 @@ function Poll() {
     clearSelection,
     submitSelection,
     isSubmitting,
-  } = useSubmit()
+  } = useSubmit(userVote)
 
   if (isFetching) return <Loading />
   if (fetchError) return <Error error={fetchError} />
@@ -44,7 +44,7 @@ function Poll() {
             className="flex-1">
             <Option
               value={option}
-              isSelected={userVote === option}
+              userVote={userVote}
               onChange={handleSelectionChange} />
           </li>
         ))}

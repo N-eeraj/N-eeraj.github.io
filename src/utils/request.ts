@@ -10,7 +10,7 @@ export default async function request(endpoint: string, options: RequestOptions 
     if (response.status === 401) {
       if (endpoint === "/api/user") return
       if (endpoint !== "/api/login") {
-        location.href = "/login"
+        location.href = `/login?redirect-to=${location.pathname}`
       }
     }
     throw data

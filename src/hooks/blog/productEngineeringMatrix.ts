@@ -2,6 +2,7 @@ import {
   useState,
   type ChangeEvent,
 } from "react"
+import { useRouter } from "next/navigation"
 
 import {
   useQuery,
@@ -50,7 +51,8 @@ export function useFetch() {
   }
 }
 
-export function useSubmit() {
+export function useSubmit(userVote?: Option) {
+  const router = useRouter()
   const queryClient = useQueryClient()
 
   const [selectedOption, setSelectedOption] = useState<Option | null>(null)
@@ -67,7 +69,7 @@ export function useSubmit() {
   } = useMutation({
     mutationFn: async () => {
       await request(`${WEBSITE}/api/blog/product-engineering-matrix`, {
-        method: "post",
+        method: userVote ? "PATCH" : "POST",
         body: { option: selectedOption }
       })
     },

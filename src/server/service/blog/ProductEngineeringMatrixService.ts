@@ -53,7 +53,7 @@ export default class ProductEngineeringMatrixService extends BlogServiceHelper {
   static async post({ option }: SubmitSchema) {
     await connectDB()
 
-    const { id: userId } = await UserService.fetchUser()
+    const { id: userId } = await UserService.fetchUser({ isStrict: true })
 
     const existingResponse = await BlogModel.findOne({
       blog: PRODUCT_ENGINEERING_MATRIX,

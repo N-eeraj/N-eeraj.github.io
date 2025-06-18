@@ -2,13 +2,16 @@ import clsx from "clsx"
 import { OptionProps } from "@customTypes/blog/productEngineeringMatrix"
 import { POLL_OPTION_CLASS_MAP } from "@constants/blogs/productEngineeringMatrix"
 
-function Option({ value, isSelected = false, onChange }: OptionProps) {
+function Option({ value, userVote, onChange }: OptionProps) {
   const {
     background,
     activeBackground,
     pill,
     text,
   } = POLL_OPTION_CLASS_MAP[value]
+
+  const isSelected = userVote === value
+  const anotherSelected = userVote && !isSelected
 
   return (
     <label
@@ -38,9 +41,12 @@ function Option({ value, isSelected = false, onChange }: OptionProps) {
           text,
           !isSelected && "pointer-fine:opacity-0 group-hover:opacity-100 group-focus:opacity-100 scale-95 group-hover:scale-100 group-focus:scale-100 translate-y-2 group-hover:translate-y-0 group-focus:translate-y-0",
         )}>
-          {isSelected ?
+          { isSelected ?
             `You chose the ${value} pill`:
-            `Choose the ${value} pill`
+            ( anotherSelected ?
+              `Switch to ${value} pill`:
+              `Choose the ${value} pill`
+            )
           }
         </span>
     </label>
