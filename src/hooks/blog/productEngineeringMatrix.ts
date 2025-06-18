@@ -1,8 +1,12 @@
 import {
+  use,
   useState,
   type ChangeEvent,
 } from "react"
-import { useRouter } from "next/navigation"
+import {
+  useRouter,
+  usePathname,
+} from "next/navigation"
 
 import {
   useQuery,
@@ -11,7 +15,9 @@ import {
 } from "@tanstack/react-query"
 import { toast } from "sonner"
 
+import { AuthContext } from "@context/Auth"
 import request from "@utils/request"
+import { BLOG_SLUG } from "@constants/blogs"
 import { POLL_QUERY_KEY } from "@constants/blogs/productEngineeringMatrix"
 import { WEBSITE } from "@constants/enVariables"
 import type {
@@ -28,7 +34,7 @@ export function useFetch() {
   } = useQuery({
     queryKey: [POLL_QUERY_KEY],
     queryFn: async () => {
-      const { data } = await request(`${WEBSITE}/api/blog/product-engineering-matrix`)
+      const { data } = await request(`${WEBSITE}/api/blog/${BLOG_SLUG.PRODUCT_ENGINEERING_MATRIX}`)
       return data
     },
   })
@@ -52,13 +58,19 @@ export function useFetch() {
 }
 
 export function useSubmit(userVote?: Option) {
-  const router = useRouter()
   const queryClient = useQueryClient()
+  const router = useRouter()
+  const pathName = usePathname()
+  const { isLoggedIn } = use(AuthContext)
 
   const [selectedOption, setSelectedOption] = useState<Option | null>(null)
 
   const handleSelectionChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSelectedOption(event.target.value as Option | null)
+    if (isLoggedIn) {
+      setSelectedOption(event.target.value as Option | null)
+    } else {
+      router.push(`/login?redirect-to=${pathName}`)
+    }
   }
 
   const clearSelection = () => setSelectedOption(null)
@@ -68,7 +80,7 @@ export function useSubmit(userVote?: Option) {
     isPending,
   } = useMutation({
     mutationFn: async () => {
-      await request(`${WEBSITE}/api/blog/product-engineering-matrix`, {
+      await request(`${WEBSITE}/api/blog/${BLOG_SLUG.PRODUCT_ENGINEERING_MATRIX}`, {
         method: userVote ? "PATCH" : "POST",
         body: { option: selectedOption }
       })

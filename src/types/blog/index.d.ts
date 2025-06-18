@@ -1,5 +1,8 @@
 import type { ReactNode } from "react"
 import type { DateYMD } from "@customTypes/utils"
+import { BLOG_SLUG } from "@constants/blogs"
+
+export type BlogSlug = `${BLOG_SLUG}`
 
 export interface CoverImage {
   src: string
@@ -28,3 +31,6 @@ export interface TextBlockProps {
   className?: string
 }
 
+export interface BlogParams {
+  params: Promise<{ slug?: BlogSlug }>
+}

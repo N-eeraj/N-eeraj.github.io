@@ -25,8 +25,7 @@ export default class AuthService {
       maxAge: AUTH_COOKIE_MAX_AGE,
     })
 
-    user.addToken(token)
-    await user.save()
+    await user.addToken(token)
   }
 
   static async signUp({ name, email, password }: SignUpFormSchema) {

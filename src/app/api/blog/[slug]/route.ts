@@ -5,8 +5,9 @@ import {
   throwResponseError,
 } from "@server/lib/responseHandlers"
 import { validateRequest } from "@server/lib/validation"
+import type { BlogParams } from "@customTypes/blog"
 
-export async function GET(_request: Request, { params }:  { params: Promise<{ slug?: string }>}) {
+export async function GET(_request: Request, { params }:  BlogParams) {
   try {
     const { slug } = await params
     if (!slug) {
@@ -31,7 +32,7 @@ export async function GET(_request: Request, { params }:  { params: Promise<{ sl
   }
 }
 
-export async function POST(request: Request, { params }:  { params: Promise<{ slug?: string }>}) {
+export async function POST(request: Request, { params }:  BlogParams) {
   try {
     const { slug } = await params
     if (!slug) {

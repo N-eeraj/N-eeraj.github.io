@@ -3,13 +3,15 @@ import UserService from "@serverService/UserService"
 import BlogServiceHelper from "@server/helpers/BlogHelper"
 import { throwResponseError } from "@server/lib/responseHandlers"
 import BlogModel from "@model/Blog"
-import { PRODUCT_ENGINEERING_MATRIX } from "@constants/blogs/slugs"
+import { BLOG_SLUG } from "@constants/blogs"
 import type {
   Option,
   PollData,
   SubmitSchema,
 } from "@customTypes/blog/productEngineeringMatrix"
 import { submitSchema } from "@schema/blogs/productEngineeringMatrix"
+
+const PRODUCT_ENGINEERING_MATRIX = BLOG_SLUG.PRODUCT_ENGINEERING_MATRIX
 
 export default class ProductEngineeringMatrixService extends BlogServiceHelper {
   private static async getCount(): Promise<PollData> {

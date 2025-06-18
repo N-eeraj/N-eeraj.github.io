@@ -1,14 +1,12 @@
 import ProductEngineeringMatrixService from "@serverService/blog/ProductEngineeringMatrixService"
 import BlogServiceHelper from "@server/helpers/BlogHelper"
 import { throwResponseError } from "@server/lib/responseHandlers"
-import {
-  PRODUCT_ENGINEERING_MATRIX,
-} from "@constants/blogs/slugs"
+import { BLOG_SLUG } from "@constants/blogs"
 
 export default class BlogService {
   static getInstance(slug: string): BlogServiceHelper {
     switch(slug) {
-      case PRODUCT_ENGINEERING_MATRIX:
+      case BLOG_SLUG.PRODUCT_ENGINEERING_MATRIX:
         return new ProductEngineeringMatrixService()
       default:
         throwResponseError({
