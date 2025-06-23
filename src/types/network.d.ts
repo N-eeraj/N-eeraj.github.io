@@ -1,4 +1,6 @@
-export interface RequestOptions extends Omit<RequestInit, 'body'> {
+export type RestMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE"
+
+export interface RequestOptions extends Omit<RequestInit, "body"> {
   body?: Record<string, unknown> | FormData | BodyInit
 }
 
