@@ -78,4 +78,13 @@ export default class ProductEngineeringMatrixService {
     await response.save()
     return response.toObject()
   }
+
+  static get patchSchema() {
+    return submitSchema
+  }
+
+  static async patch({ option }: SubmitSchema) {
+    await connectDB()
+    console.log(option) 
+  }
 }

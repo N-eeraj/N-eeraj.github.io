@@ -1,4 +1,4 @@
-import BlogService from "@serverService/blog/BlogService"
+import BlogServiceHelper from "@serverService/blog/BlogServiceHelper"
 import {
   sendErrorResponse,
   sendSuccessResponse,
@@ -17,8 +17,8 @@ export async function GET(_request: Request, { params }:  BlogParams) {
       })
     }
 
-    const blogInstance = BlogService.getInstance(slug)
-    const data = await blogInstance.get()
+    const BlogService = BlogServiceHelper.getService(slug)
+    const data = await BlogService.get()
 
     return sendSuccessResponse({
       data,
@@ -42,15 +42,43 @@ export async function POST(request: Request, { params }:  BlogParams) {
       })
     }
 
-    const blogInstance = BlogService.getInstance(slug)
-    const schema = blogInstance.postSchema
+    const BlogService = BlogServiceHelper.getService(slug)
+    const schema = BlogService.postSchema
     const validatedRequest = await (schema ? validateRequest(request, schema) : request.json())
-    const data = await blogInstance.post(validatedRequest)
+    const data = await BlogService.post(validatedRequest)
 
     return sendSuccessResponse({
       data,
       message: "Saved Response Successfully",
       status: 201,
+    })
+  } catch (error) {
+    return sendErrorResponse({
+      message: error instanceof Error ? error.message : "An unknown error occurred",
+      ...(error ?? {}),
+    })    
+  }
+}
+
+export async function PATCH(request: Request, { params }:  BlogParams) {
+  try {
+    const { slug } = await params
+    if (!slug) {
+      throwResponseError({
+        message: "Blog not found",
+        status: 404,
+      })
+    }
+
+    const BlogService = BlogServiceHelper.getService(slug)
+    const schema = BlogService.patchSchema
+    const validatedRequest = await (schema ? validateRequest(request, schema) : request.json())
+    const data = await BlogService.patch(validatedRequest)
+
+    return sendSuccessResponse({
+      data,
+      message: "Updated Response Successfully",
+      status: 200,
     })
   } catch (error) {
     return sendErrorResponse({
