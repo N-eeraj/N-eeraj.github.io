@@ -1,6 +1,5 @@
 import connectDB from "@server/db"
 import UserService from "@serverService/UserService"
-import BlogServiceHelper from "@server/helpers/BlogHelper"
 import { throwResponseError } from "@server/lib/responseHandlers"
 import BlogModel from "@model/Blog"
 import { BLOG_SLUG } from "@constants/blogs"
@@ -13,7 +12,7 @@ import { submitSchema } from "@schema/blogs/productEngineeringMatrix"
 
 const PRODUCT_ENGINEERING_MATRIX = BLOG_SLUG.PRODUCT_ENGINEERING_MATRIX
 
-export default class ProductEngineeringMatrixService extends BlogServiceHelper {
+export default class ProductEngineeringMatrixService {
   private static async getCount(): Promise<PollData> {
     const blogData = await BlogModel.aggregate([
       { $match: { blog: PRODUCT_ENGINEERING_MATRIX } },

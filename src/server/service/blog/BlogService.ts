@@ -1,13 +1,12 @@
 import ProductEngineeringMatrixService from "@serverService/blog/ProductEngineeringMatrixService"
-import BlogServiceHelper from "@server/helpers/BlogHelper"
 import { throwResponseError } from "@server/lib/responseHandlers"
 import { BLOG_SLUG } from "@constants/blogs"
 
 export default class BlogService {
-  static getInstance(slug: string): BlogServiceHelper {
+  static getInstance(slug: string) {
     switch(slug) {
       case BLOG_SLUG.PRODUCT_ENGINEERING_MATRIX:
-        return new ProductEngineeringMatrixService()
+        return ProductEngineeringMatrixService
       default:
         throwResponseError({
           message: "Blog not found",
