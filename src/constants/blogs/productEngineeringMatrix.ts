@@ -14,13 +14,13 @@ export const POLL_OPTION_CLASS_MAP = {
   red: {
     background: "group-hover:bg-red-500/10 group-focus:bg-red-500/10",
     activeBackground: "bg-red-500/20 group-hover:bg-red-500/20 group-focus:bg-red-500/20",
-    pill: "bg-red-500 rotate-[20deg]",
+    pill: "bg-gradient-to-br from-red-400 to-red-700 rotate-[20deg] after:left-0.75",
     text: "text-red-500",
   },
   blue: {
     background: "group-hover:bg-sky-500/10 group-focus:bg-sky-500/10",
     activeBackground: "bg-sky-500/20 group-hover:bg-sky-500/20 group-focus:bg-sky-500/20",
-    pill: "bg-sky-500 -rotate-[20deg]",
+    pill: "bg-gradient-to-bl from-sky-400 to-sky-700 -rotate-[20deg] after:right-0.75",
     text: "text-sky-500",
   },
 } as const satisfies PollOptionClassMap

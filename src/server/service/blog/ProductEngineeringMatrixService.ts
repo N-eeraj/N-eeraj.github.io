@@ -55,7 +55,7 @@ export default class ProductEngineeringMatrixService {
 
     return {
       ...blogData,
-      userVote: existingResponse.option,
+      userVote: existingResponse?.option ?? null,
     }
   }
 
