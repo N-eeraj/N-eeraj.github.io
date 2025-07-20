@@ -1,4 +1,6 @@
-export type RestMethod = "GET" | "POST" | "PUT" | "PATCH" | "DELETE"
+import { REST_METHODS } from "@constants/network"
+
+export type RestMethod = typeof REST_METHODS[number]
 
 export interface RequestOptions extends Omit<RequestInit, "body"> {
   body?: Record<string, unknown> | FormData | BodyInit

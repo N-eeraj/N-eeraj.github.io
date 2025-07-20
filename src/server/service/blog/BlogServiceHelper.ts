@@ -1,15 +1,16 @@
 import ProductEngineeringMatrixService from "@serverService/blog/ProductEngineeringMatrixService"
 import { throwResponseError } from "@server/lib/responseHandlers"
 import { BLOG_SLUG } from "@constants/blogs"
+import { REST_METHODS } from "@constants/network"
 import { RestMethod } from "@customTypes/network"
 
 export default class BlogServiceHelper {
   private static addProxy(Service: ReturnType<typeof BlogServiceHelper.getServiceClass>) {
     const proxyHandler: ProxyHandler<typeof Service> = {
       get(Service, property: string | symbol) {
-        if (!(property in Service)) {
+        if (!(property in Service) && REST_METHODS.includes((property as string).toUpperCase() as RestMethod)) {
           throwResponseError({
-            message: `Blog doesn't have a ${property as string} property`,
+            message: `Blog doesn't have a ${property as string} action`,
             status: 405,
           })
         }

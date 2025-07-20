@@ -44,7 +44,7 @@ export async function POST(request: Request, { params }:  BlogParams) {
 
     const BlogService = BlogServiceHelper.getService(slug)
     const schema = BlogService.postSchema
-    const validatedRequest = await (schema ? validateRequest(request, schema) : request.json())
+    const validatedRequest = await validateRequest(request, schema)
     const data = await BlogService.post(validatedRequest)
 
     return sendSuccessResponse({
@@ -72,7 +72,7 @@ export async function PATCH(request: Request, { params }:  BlogParams) {
 
     const BlogService = BlogServiceHelper.getService(slug)
     const schema = BlogService.patchSchema
-    const validatedRequest = await (schema ? validateRequest(request, schema) : request.json())
+    const validatedRequest = await validateRequest(request, schema)
     const data = await BlogService.patch(validatedRequest)
 
     return sendSuccessResponse({

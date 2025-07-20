@@ -18,6 +18,8 @@ export async function validateRequest<T extends ZodRawShape>(request: Request, s
     body = {}
   }
 
+  if (!schema) return body
+
   const {
     success,
     data,
