@@ -93,7 +93,7 @@ export function useSubmit(userVote?: Option) {
     },
     onError: ({ message, errors }: MutationError) => {
       const errorMessage = Array.isArray(errors?.option) ? errors.option[0] : message ?? "Something went wrong"
-      toast.error("Oops! Failed to submit your response", {
+      toast.error(`Oops! Failed to ${userVote ? "update" : "submit"} your response`, {
         description: errorMessage,
         richColors: true,
       })

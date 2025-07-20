@@ -24,34 +24,7 @@ export default class ProductEngineeringMatrixService {
     }, {})
   }
 
-  private static async getUserData(): Promise<Option | undefined> {
-    const { id } = await UserService.fetchUser() ?? {}
-    const userOption = await BlogModel.findOne({
-      userId: id,
-      blog: PRODUCT_ENGINEERING_MATRIX,
-    }, { option: 1 })
-    return userOption?.toObject().option
-  }
-
-  static async get(): Promise<PollData> {
-    await connectDB()
-
-    const [blogData, userVote] = await Promise.all([
-      this.getCount(),
-      this.getUserData(),
-    ])
-
-    return {
-      ...blogData,
-      userVote,
-    }
-  }
-
-  static get postSchema() {
-    return submitSchema
-  }
-
-  static async post({ option }: SubmitSchema) {
+  static async getUserResponse() {
     await connectDB()
 
     const { id: userId } = await UserService.fetchUser({ isStrict: true })
@@ -60,6 +33,41 @@ export default class ProductEngineeringMatrixService {
       blog: PRODUCT_ENGINEERING_MATRIX,
       userId,
     })
+
+    return {
+      existingResponse,
+      userId,
+    }
+  }
+
+  static async get(): Promise<PollData> {
+    await connectDB()
+
+    const [
+      blogData,
+      {
+        existingResponse,
+      },
+    ] = await Promise.all([
+      this.getCount(),
+      this.getUserResponse(),
+    ])
+
+    return {
+      ...blogData,
+      userVote: existingResponse.option,
+    }
+  }
+
+  static get postSchema() {
+    return submitSchema
+  }
+
+  static async post({ option }: SubmitSchema) {
+    const {
+      userId,
+      existingResponse,
+    } = await this.getUserResponse()
 
     if (existingResponse) {
       throwResponseError({
@@ -84,7 +92,21 @@ export default class ProductEngineeringMatrixService {
   }
 
   static async patch({ option }: SubmitSchema) {
-    await connectDB()
-    console.log(option) 
+    const {
+      userId,
+      existingResponse,
+    } = await this.getUserResponse()
+
+    if (!existingResponse) {
+      throwResponseError({
+        message: "No response to update",
+        status: 404,
+      })
+    }
+
+    existingResponse.set({ option })
+    await existingResponse.save()
+
+    return existingResponse.toObject()
   }
 }
