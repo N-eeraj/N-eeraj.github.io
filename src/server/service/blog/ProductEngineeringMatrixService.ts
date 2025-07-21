@@ -4,7 +4,6 @@ import { throwResponseError } from "@server/lib/responseHandlers"
 import BlogModel from "@model/Blog"
 import { BLOG_SLUG } from "@constants/blogs"
 import type {
-  Option,
   PollData,
   SubmitSchema,
 } from "@customTypes/blog/productEngineeringMatrix"
@@ -24,10 +23,11 @@ export default class ProductEngineeringMatrixService {
     }, {})
   }
 
-  static async getUserResponse() {
+  static async getUserResponse({ isStrict = true } = {}) {
     await connectDB()
 
-    const { id: userId } = await UserService.fetchUser({ isStrict: true })
+    const { id: userId } = await UserService.fetchUser({ isStrict }) ?? {}
+    if (!userId) return {}
 
     const existingResponse = await BlogModel.findOne({
       blog: PRODUCT_ENGINEERING_MATRIX,
@@ -50,7 +50,7 @@ export default class ProductEngineeringMatrixService {
       },
     ] = await Promise.all([
       this.getCount(),
-      this.getUserResponse(),
+      this.getUserResponse({ isStrict: false }),
     ])
 
     return {
@@ -93,7 +93,6 @@ export default class ProductEngineeringMatrixService {
 
   static async patch({ option }: SubmitSchema) {
     const {
-      userId,
       existingResponse,
     } = await this.getUserResponse()
 

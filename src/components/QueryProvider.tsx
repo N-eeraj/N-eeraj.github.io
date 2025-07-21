@@ -31,9 +31,9 @@ function getQueryClient() {
   }
 }
 
-function QueryProvider({ children }: PropsWithChildren) {
-  const queryClient = getQueryClient()
+export const queryClient = getQueryClient()
 
+function QueryProvider({ children }: PropsWithChildren) {
   return (
     <QueryClientProvider client={queryClient}>
       {children}

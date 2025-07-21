@@ -32,7 +32,10 @@ export function useFetch() {
     data,
     error,
   } = useQuery({
-    queryKey: [POLL_QUERY_KEY],
+    queryKey: [
+      "blog",
+      POLL_QUERY_KEY,
+    ],
     queryFn: async () => {
       const { data } = await request(`${WEBSITE}/api/blog/${BLOG_SLUG.PRODUCT_ENGINEERING_MATRIX}`)
       return data

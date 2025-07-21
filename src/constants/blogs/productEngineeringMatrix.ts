@@ -15,13 +15,13 @@ export const POLL_OPTION_CLASS_MAP = {
     background: "group-hover:bg-red-500/10 group-focus:bg-red-500/10",
     activeBackground: "bg-red-500/20 group-hover:bg-red-500/20 group-focus:bg-red-500/20",
     pill: "bg-gradient-to-br from-red-400 to-red-700 rotate-[20deg] after:left-0.75",
-    text: "text-red-500",
+    text: "text-red-500 selection:bg-red-500 selection:text-red-900",
   },
   blue: {
     background: "group-hover:bg-sky-500/10 group-focus:bg-sky-500/10",
     activeBackground: "bg-sky-500/20 group-hover:bg-sky-500/20 group-focus:bg-sky-500/20",
     pill: "bg-gradient-to-bl from-sky-400 to-sky-700 -rotate-[20deg] after:right-0.75",
-    text: "text-sky-500",
+    text: "text-sky-500 selection:bg-sky-500 selection:text-sky-900",
   },
 } as const satisfies PollOptionClassMap
 
