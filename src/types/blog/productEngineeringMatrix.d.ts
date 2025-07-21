@@ -3,7 +3,10 @@ import type { z } from "zod"
 
 import { submitSchema } from "@schema/blogs/productEngineeringMatrix"
 import { OPTIONS } from "@constants/blogs/productEngineeringMatrix"
-import type { BaseImageProps } from "@customTypes/ui"
+import type {
+  BaseImageProps,
+  PropsWithClassName,
+} from "@customTypes/ui"
 import type { TextBlockProps } from "@customTypes/blog"
 
 export interface ComparisonBlockProps {
@@ -21,7 +24,12 @@ export type SubmitSchema = z.infer<typeof submitSchema>
 export interface OptionProps {
   value: Option
   userVote?: Option
+  isLoading: boolean
   onChange: ChangeEventHandler
+}
+
+export interface VotesProps extends PropsWithClassName {
+  value: number
 }
 
 export interface PollData {

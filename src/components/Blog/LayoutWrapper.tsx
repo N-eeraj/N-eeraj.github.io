@@ -8,6 +8,7 @@ import {
 import { queryClient } from "@components/QueryProvider"
 import { LayoutContext } from "@context/Layout"
 import { AuthContext } from "@context/Auth"
+import { BLOG_QUERY_KEY } from "@constants/blogs"
 
 function BlogLayoutWrapper({ children }: PropsWithChildren) {
   const {
@@ -35,7 +36,7 @@ function BlogLayoutWrapper({ children }: PropsWithChildren) {
   useEffect(() => {
     if (isLoadingUser) return
     queryClient.invalidateQueries({
-      queryKey: ["blog"]
+      queryKey: [BLOG_QUERY_KEY]
     })
   }, [
     isLoggedIn,

@@ -1,7 +1,7 @@
 import clsx from "clsx"
-import { PropsWithClassName } from "@customTypes/ui"
+import type { VotesProps } from "@customTypes/blog/productEngineeringMatrix"
 
-function Votes({ value, className }: { value: number } & PropsWithClassName) {
+function Votes({ value, className }: VotesProps) {
   const percentage = `${parseFloat(value.toFixed(2))}%`
 
   return (

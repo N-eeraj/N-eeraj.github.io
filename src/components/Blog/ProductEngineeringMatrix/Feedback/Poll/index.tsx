@@ -1,7 +1,6 @@
 "use client"
 
 import {
-  Loading,
   Error,
   Votes,
   Option,
@@ -12,6 +11,7 @@ import {
   useFetch,
   useSubmit,
 } from "@hooks/blog/productEngineeringMatrix"
+import clsx from "clsx"
 import { OPTIONS } from "@constants/blogs/productEngineeringMatrix"
 
 function Poll() {
@@ -31,13 +31,12 @@ function Poll() {
     isSubmitting,
   } = useSubmit(userVote)
 
-  if (isFetching) return <Loading />
   if (fetchError) return <Error error={fetchError} />
 
   return (
-    <div className="space-y-3 md:space-y-4">
+    <div className="flex flex-col items-center gap-y-3 md:gap-y-4">
       {/* options */}
-      <ul className="flex h-48">
+      <ul className="flex w-full h-48">
         {OPTIONS.map((option) => (
           <li
             key={option}
@@ -45,21 +44,34 @@ function Poll() {
             <Option
               value={option}
               userVote={userVote}
+              isLoading={isFetching}
               onChange={handleSelectionChange} />
           </li>
         ))}
       </ul>
 
       {/* votes */}
-      {!!(redPercentage + bluePercentage) && (
-        <ul className="flex h-10 md:h-12 rounded-full overflow-hidden">
-          <Votes
-            value={redPercentage}
-            className="bg-red-500" />
-          <Votes
-            value={bluePercentage}
-            className="justify-end bg-sky-500" />
-        </ul>
+      <ul className={clsx(
+        "flex h-10 md:h-12",
+        isFetching ? "w-10 md:w-12 animate-spin" : "w-full",
+      )}>
+        <Votes
+          value={isFetching ? 50 : redPercentage}
+          className={clsx(
+            "rounded-l-full",
+            isFetching ? "[&_*]:hidden border-l-3 border-b-2 border-l-red-500 border-b-red-500" : "bg-gradient-to-r from-red-500 to-red-600"
+          )} />
+        <Votes
+          value={isFetching ? 50 : bluePercentage}
+          className={clsx(
+            "rounded-r-full",
+            isFetching ? "[&_*]:hidden border-r-3 border-t-2 border-r-sky-500 border-t-sky-500" : "justify-end bg-gradient-to-l from-sky-500 to-sky-600"
+          )} />
+      </ul>
+      {isFetching && (
+        <span className="text-xs sm:text-sm">
+          Loading Poll
+        </span>
       )}
 
       <Confirmation

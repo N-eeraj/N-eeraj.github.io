@@ -17,7 +17,10 @@ import { toast } from "sonner"
 
 import { AuthContext } from "@context/Auth"
 import request from "@utils/request"
-import { BLOG_SLUG } from "@constants/blogs"
+import {
+  BLOG_SLUG,
+  BLOG_QUERY_KEY,
+} from "@constants/blogs"
 import { POLL_QUERY_KEY } from "@constants/blogs/productEngineeringMatrix"
 import { WEBSITE } from "@constants/enVariables"
 import type {
@@ -33,7 +36,7 @@ export function useFetch() {
     error,
   } = useQuery({
     queryKey: [
-      "blog",
+      BLOG_QUERY_KEY,
       POLL_QUERY_KEY,
     ],
     queryFn: async () => {
@@ -90,7 +93,10 @@ export function useSubmit(userVote?: Option) {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: [POLL_QUERY_KEY],
+        queryKey: [
+          BLOG_QUERY_KEY,
+          POLL_QUERY_KEY,
+        ],
       })
       clearSelection()
     },
