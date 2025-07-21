@@ -10,7 +10,10 @@ import { LayoutContext } from "@context/Layout"
 import { AuthContext } from "@context/Auth"
 
 function BlogLayoutWrapper({ children }: PropsWithChildren) {
-  const { setShowNavAuth } = use(LayoutContext)
+  const {
+    setShowNavAuth,
+    setRedirectOnLogin,
+  } = use(LayoutContext)
   const {
     isLoggedIn,
     isLoadingUser,
@@ -18,11 +21,16 @@ function BlogLayoutWrapper({ children }: PropsWithChildren) {
 
   useEffect(() => {
     setShowNavAuth(true)
+    setRedirectOnLogin(true)
 
     return () => {
       setShowNavAuth(false)
+      setRedirectOnLogin(false)
     }
-  }, [setShowNavAuth])
+  }, [
+    setShowNavAuth,
+    setRedirectOnLogin,
+  ])
 
   useEffect(() => {
     if (isLoadingUser) return

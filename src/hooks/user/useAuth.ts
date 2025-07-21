@@ -1,5 +1,8 @@
 import { use } from "react"
-import { redirect } from "next/navigation"
+import {
+  redirect,
+  useSearchParams,
+} from "next/navigation"
 import { AuthContext } from "@context/Auth"
 
 import {
@@ -22,8 +25,11 @@ export default function useAuth<T extends ZodRawShape>({ schema, endpoint }: Use
     setUser,
   } = use(AuthContext)
 
+  const searchParams = useSearchParams()
+  const redirectOnAuth = searchParams?.get("redirect-to") ?? "/"
+
   if (isLoggedIn) {
-    redirect("/")
+    redirect(redirectOnAuth)
   }
 
   const {
@@ -47,7 +53,7 @@ export default function useAuth<T extends ZodRawShape>({ schema, endpoint }: Use
         body,
       })
       setUser(data)
-      redirect("/")
+      // redirect(redirectOnAuth)
     } catch (error: unknown) {
       if (error && typeof error === "object") {
         if ("errors" in error && error.errors) {

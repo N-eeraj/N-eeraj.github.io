@@ -8,9 +8,13 @@ import UserMenu from "./Menu"
 
 import { LayoutContext } from "@context/Layout"
 import { AuthContext } from "@context/Auth"
+import { usePathname } from "next/navigation"
 
 function User() {
-  const { showNavAuth } = use(LayoutContext)
+  const {
+    showNavAuth,
+    redirectOnLogin,
+  } = use(LayoutContext)
   if (!showNavAuth) return
 
   const { isLoggedIn } = use(AuthContext)
@@ -21,9 +25,12 @@ function User() {
     )
   }
 
+  const pathname = usePathname()
+  const loginPath = `/login${redirectOnLogin ? `?redirect-to=${pathname}` : ""}`
+
   return (
     <Link
-      href="/login"
+      href={loginPath}
       scroll={false}>
       <Button variant="ghost">
         Login
