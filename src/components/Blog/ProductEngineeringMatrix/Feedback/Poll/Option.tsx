@@ -35,7 +35,7 @@ function Option({ value, userVote, isLoading, onChange }: OptionProps) {
         onChange={onChange} />
         <div className={clsx(
           "group relative w-8 h-18 rounded-full duration-500",
-          "after:absolute after:bg-white/40 after:rounded-full after:duration-500 after:origin-top",
+          "after:absolute after:bg-gradient-to-b after:from-white/60 after:to-white/30 after:rounded-full after:duration-500 after:origin-top",
           pill,
           isSelected ? "scale-110 !rotate-0 after:top-1/12 after:w-5/12 after:h-3/4 " : "group-hover:scale-110 group-focus:scale-110 group-hover:rotate-0 group-focus:rotate-0 after:top-1/6 group-hover:after:top-1/12 after:w-1/3 group-hover:after:w-5/12 after:h-2/3 group-hover:after:h-3/4",
           isLoading && "scale-75 opacity-50",

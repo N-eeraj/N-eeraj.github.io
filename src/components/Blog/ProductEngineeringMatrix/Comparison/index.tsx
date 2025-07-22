@@ -12,7 +12,7 @@ function ComparisonBlock({ image, comparison }: ComparisonBlockProps) {
           width={448}
           height={0}
           quality={100}
-          className="w-full max-w-md h-auto mx-auto my-2 sm:my-5"
+          className="w-full max-w-md h-auto mx-auto my-2 sm:my-5 mix-blend-lighten"
           style={{ height: "auto" }} />
       )}
 

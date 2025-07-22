@@ -4,15 +4,19 @@ import RandomNumber from "@n-eeraj/random/RandomNumber"
 import {
   FONT_SIZE,
   FONT_COLOR,
+  FONT_COLOR_SPLASH_SCREEN,
   BACKGROUND_COLOR,
   MATRIX_CHARACTERS,
   ANIMATION_INTERVAL,
   SPLASH_SCREEN_DURATION,
 } from "./constants"
 
+type FontColor = typeof FONT_COLOR_SPLASH_SCREEN | typeof FONT_COLOR
+
 export default class MatrixRainAnimation {
   private drops: Array<number> = []
   private ctx: CanvasRenderingContext2D | null
+  private fontColor: FontColor = FONT_COLOR_SPLASH_SCREEN
 
   constructor(private canvas: HTMLCanvasElement) {
     this.ctx = canvas.getContext("2d")
@@ -28,7 +32,7 @@ export default class MatrixRainAnimation {
   
     for (let column = 0; column < this.drops.length; column++) {
       // draw random character
-      this.ctx.fillStyle = FONT_COLOR
+      this.ctx.fillStyle = this.fontColor
       const randomCharacter = RandomList.choice(MATRIX_CHARACTERS)
       if (randomCharacter) {
         this.ctx.fillText(randomCharacter, column * FONT_SIZE, this.drops[column] * FONT_SIZE)
@@ -44,7 +48,10 @@ export default class MatrixRainAnimation {
   animateCanvas() {
     // change from splash-screen to background
     const timeOut = window.setTimeout(
-      () => this.canvas && this.canvas.classList.replace("z-10", "-z-10"),
+      () => {
+        this.canvas && this.canvas.classList.replace("z-10", "-z-10")
+        this.fontColor = FONT_COLOR
+      },
       SPLASH_SCREEN_DURATION
     )
 
