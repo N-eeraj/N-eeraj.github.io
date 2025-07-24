@@ -58,23 +58,25 @@ function Poll() {
         </ul>
 
         {/* votes */}
-        <ul className={clsx(
-          "flex h-10 md:h-12",
-          isFetching ? "w-10 md:w-12 animate-spin" : "w-full",
-        )}>
-          <Votes
-            value={isFetching ? 50 : redPercentage}
-            className={clsx(
-              "rounded-l-full",
-              isFetching ? "[&_*]:hidden border-l-3 border-b-2 border-l-red-500 border-b-red-500" : "bg-gradient-to-r from-red-500 to-red-600"
-            )} />
-          <Votes
-            value={isFetching ? 50 : bluePercentage}
-            className={clsx(
-              "rounded-r-full",
-              isFetching ? "[&_*]:hidden border-r-3 border-t-2 border-r-sky-500 border-t-sky-500" : "justify-end bg-gradient-to-l from-sky-500 to-sky-600"
-            )} />
-        </ul>
+        {(isFetching || !!(redPercentage + bluePercentage)) && (
+          <ul className={clsx(
+            "flex h-10 md:h-12",
+            isFetching ? "w-10 md:w-12 animate-spin" : "w-full rounded-full overflow-hidden",
+          )}>
+            <Votes
+              value={isFetching ? 50 : redPercentage}
+              className={clsx(
+                "rounded-l-full",
+                isFetching ? "[&_*]:hidden border-l-3 border-b-2 border-l-red-500 border-b-red-500" : "bg-gradient-to-r from-red-500 to-red-600"
+              )} />
+            <Votes
+              value={isFetching ? 50 : bluePercentage}
+              className={clsx(
+                "rounded-r-full",
+                isFetching ? "[&_*]:hidden border-r-3 border-t-2 border-r-sky-500 border-t-sky-500" : "justify-end bg-gradient-to-l from-sky-500 to-sky-600"
+              )} />
+          </ul>
+        )}
         {isFetching && (
           <span className="text-xs sm:text-sm">
             Loading Poll
