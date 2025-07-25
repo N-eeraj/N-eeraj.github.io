@@ -11,6 +11,8 @@ import { AuthContext } from "@context/Auth"
 import { usePathname } from "next/navigation"
 
 function User() {
+  const pathname = usePathname()
+
   const {
     showNavAuth,
     redirectOnLogin,
@@ -25,7 +27,6 @@ function User() {
     )
   }
 
-  const pathname = usePathname()
   const loginPath = `/login${redirectOnLogin ? `?redirect-to=${pathname}` : ""}`
 
   return (

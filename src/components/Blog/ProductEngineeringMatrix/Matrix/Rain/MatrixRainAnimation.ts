@@ -49,7 +49,9 @@ export default class MatrixRainAnimation {
     // change from splash-screen to background
     const timeOut = window.setTimeout(
       () => {
-        this.canvas && this.canvas.classList.replace("z-10", "-z-10")
+        if (this.canvas) {
+          this.canvas.classList.replace("z-10", "-z-10")
+        }
         this.fontColor = FONT_COLOR
       },
       SPLASH_SCREEN_DURATION

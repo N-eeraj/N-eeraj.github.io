@@ -7,7 +7,7 @@ import { NEXT_GTAG_ID } from "@constants/enVariables"
 
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
+    gtag: (...args: unknown[]) => void
   }
 }
 
