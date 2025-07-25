@@ -1,4 +1,7 @@
-import type { PropsWithChildren, ReactNode } from "react"
+import {
+  type PropsWithChildren,
+  type ReactNode,
+} from "react"
 import type { Viewport } from "next"
 
 import ThemeProvider from "@components/Theme/Provider"
@@ -12,6 +15,7 @@ import METADATA from "@metadata/global"
 import "@styles/tailwind.css"
 import "@styles/global.css"
 import "@styles/variables.css"
+import GTG from "./GTG"
 
 export const metadata = METADATA
 
@@ -29,6 +33,7 @@ export default function RootLayout({ children, modal }: PropsWithChildren & { mo
         type="image/x-icon"
         rel="icon"
         href="/favicon.svg" />
+      <GTG />
 
       <body>
         <QueryProvider>

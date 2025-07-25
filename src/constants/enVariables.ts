@@ -7,4 +7,6 @@ export const GITHUB_USERNAME = process.env.NEXT_PUBLIC_GITHUB_USERNAME as string
 export const LINKED_USERNAME = process.env.NEXT_PUBLIC_LINKED_USERNAME as string
 export const NPM_USERNAME = process.env.NEXT_PUBLIC_NPM_USERNAME as string
 
+export const NEXT_GTAG_ID = process.env.NEXT_PUBLIC_GTAG_ID as string
+
 export const DATABASE = process.env.DATABASE as string
