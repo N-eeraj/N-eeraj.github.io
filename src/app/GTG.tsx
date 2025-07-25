@@ -1,8 +1,4 @@
-"use client"
-
-import { useEffect } from "react"
 import Script from "next/script"
-import { usePathname } from "next/navigation"
 import { NEXT_GTAG_ID } from "@constants/enVariables"
 
 declare global {
@@ -12,17 +8,6 @@ declare global {
 }
 
 function GTG() {
-  const pathname = usePathname()
-
-  useEffect(() => {
-    if (typeof window.gtag === "function") {
-      window.gtag("config", NEXT_GTAG_ID, {
-        page_path: pathname,
-        user_id: "USER_ID_HERE",
-      })
-    }
-  }, [pathname])
-
   return (
     <>
       <Script
@@ -33,9 +18,10 @@ function GTG() {
         id="ga-init"
         strategy="afterInteractive">
         {`
-          window.dataLayer = window.dataLayer || []
-          function gtag(){dataLayer.push(arguments)}
-          gtag("js", new Date())
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag("js", new Date());
+          gtag("config", ${NEXT_GTAG_ID});
         `}
       </Script>
     </>
