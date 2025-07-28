@@ -47,7 +47,7 @@ function AuthModal({ modalPath, children }: ModalProps) {
       <DialogOverlay className="backdrop-blur-sm" />
       <DialogContent
         aria-describedby={undefined}
-        className="w-11/12 !max-w-md p-0 border-0 [&>button]:hidden">
+        className="w-11/12 !max-w-md p-0 border-0 [&>button]:hidden rounded-xl">
         <DialogTitle className="hidden">
           Auth Modal
         </DialogTitle>

@@ -9,9 +9,10 @@ import { Input } from "@shadcn/input"
 import { Label } from "@shadcn/label"
 import { Button } from "@shadcn/button"
 import { Icon } from "@iconify/react"
+import clsx from "clsx"
 import type { InputProps } from "@customTypes/ui/input"
 
-function BaseInput({ label, type, error, ...props }: InputProps) {
+function BaseInput({ label, type, error, className, ...props }: InputProps) {
   const id = useId()
   const [showPassword, setShowPassword] = useState(false)
   const currentType = showPassword ? "text" : type
@@ -28,6 +29,10 @@ function BaseInput({ label, type, error, ...props }: InputProps) {
 
       <Input
         {...props}
+        className={clsx(
+          "focus:ring-1 focus-visible:ring-1",
+          className,
+        )}
         id={id}
         type={currentType} />
 

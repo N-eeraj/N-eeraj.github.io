@@ -27,7 +27,7 @@ function LoginForm() {
             error={errors.email}
             label="Email"
             placeholder="johndoe@email.com"
-            className="placeholder:text-muted-foreground/50" />
+            className="bg-white placeholder:text-muted-foreground/50" />
         </div>
         <div className="grid gap-2">
           <BaseInput
@@ -36,13 +36,13 @@ function LoginForm() {
             label="Password"
             type="password"
             placeholder="Enter your password"
-            className="placeholder:text-muted-foreground/50" />
+            className="bg-white placeholder:text-muted-foreground/50" />
         </div>
 
         <ErrorMessage error={errors.root} />
         <Button
           loading={isSubmitting}
-          className="w-full bg-white hover:bg-white/90">
+          className="w-full bg-foreground hover:bg-foreground/90">
           Login
         </Button>
       </div>
