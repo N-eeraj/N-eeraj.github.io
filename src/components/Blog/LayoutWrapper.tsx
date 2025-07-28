@@ -14,6 +14,7 @@ function BlogLayoutWrapper({ children }: PropsWithChildren) {
   const {
     setShowNavAuth,
     setRedirectOnLogin,
+    setShowScrollProgress,
   } = use(LayoutContext)
   const {
     isLoggedIn,
@@ -23,14 +24,17 @@ function BlogLayoutWrapper({ children }: PropsWithChildren) {
   useEffect(() => {
     setShowNavAuth(true)
     setRedirectOnLogin(true)
+    setShowScrollProgress(true)
 
     return () => {
       setShowNavAuth(false)
       setRedirectOnLogin(false)
+      setShowScrollProgress(false)
     }
   }, [
     setShowNavAuth,
     setRedirectOnLogin,
+    setShowScrollProgress,
   ])
 
   useEffect(() => {

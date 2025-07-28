@@ -10,6 +10,12 @@ const compat = new FlatCompat({
 })
 
 const eslintConfig = [
+  {
+    ignores: [
+      "src/components/magicui/**",
+      "src/components/ui/**",
+    ],
+  },
   ...compat.config({
     extends: [
       "next/core-web-vitals",
@@ -24,7 +30,7 @@ const eslintConfig = [
         },
       ],
     },
-  })
+  }),
 ]
 
 export default eslintConfig
