@@ -1,3 +1,5 @@
+"use client"
+
 import { useEffect } from "react"
 import Script from "next/script"
 import { usePathname } from "next/navigation"
@@ -10,8 +12,6 @@ declare global {
 }
 
 function GoogleAnalyticsTag() {
-  if (!NEXT_GTAG_ID) return null
-
   const pathname = usePathname()
 
   useEffect(() => {
@@ -20,6 +20,8 @@ function GoogleAnalyticsTag() {
       page_path: pathname,
     })
   }, [pathname])
+
+  if (!NEXT_GTAG_ID) return null
 
   return (
     <>
