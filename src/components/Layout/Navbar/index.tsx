@@ -1,6 +1,7 @@
 import NavbarLink from "./Link"
 import User from "./User"
 import ThemeToggle from "@components/Theme/Toggle"
+import { ScrollProgress } from "@magicui/scroll-progress"
 
 function Navbar() {
   return (
@@ -8,6 +9,7 @@ function Navbar() {
       <NavbarLink />
       <ThemeToggle />
       <User />
+      <ScrollProgress className="absolute top-full from-cyan-500 via-unset to-blue-500" />
     </nav>
   )
 }

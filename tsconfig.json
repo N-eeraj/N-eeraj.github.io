@@ -32,6 +32,7 @@
       "@serverService/*": ["./src/server/service/*"],
       "@model/*": ["./src/server/model/*"],
       "@shadcn/*": ["./src/components/ui/*"],
+      "@magicui/*": ["./src/components/magicui/*"],
       "@context/*": ["./src/context/*"],
       "@lib/*": ["./src/lib/*"],
       "@utils/*": ["./src/utils/*"],
