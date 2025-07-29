@@ -8,7 +8,7 @@ function Blogs() {
       </h3>
       <ul className="text-primary">
         <li>
-          <Link href="/blog/product-engineering-matrix">
+          <Link href="/blogs/product-engineering-matrix">
             The Product Engineering Matrix
           </Link>
         </li>

@@ -42,7 +42,7 @@
       "@customTypes/*": ["./src/types/*"],
       "@data/*": ["./src/assets/data/*"],
       "@keywords/*": ["./src/assets/data/keywords/*"],
-      "@blogData/*": ["./src/assets/data/blog/*"],
+      "@blogData/*": ["./src/assets/data/blogs/*"],
       "@metadata/*": ["./src/constants/metadata/*"]
     }
   },

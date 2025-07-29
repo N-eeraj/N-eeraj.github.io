@@ -1,7 +1,7 @@
 import type {
   ConfirmationMessageMap,
   PollOptionClassMap,
-} from "@customTypes/blog/productEngineeringMatrix"
+} from "@customTypes/blogs/productEngineeringMatrix"
 
 export const OPTIONS = [
   "red",
