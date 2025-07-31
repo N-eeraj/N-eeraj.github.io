@@ -13,9 +13,9 @@ const {
 function Backend() {
   return (
     <section>
-      <h2 className="blog-sub-title">
+      <h3 className="blog-sub-title">
         {title}
-      </h2>
+      </h3>
 
       <TextBlock
         content={introduction}

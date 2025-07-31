@@ -25,7 +25,7 @@
         {
           "platform": "frontend",
           "title": "JavaScript for the browser",
-          "content": "Vanilla JavaScript was initially used for basic DOM manipulation to add interactivity. Developers then turned to libraries like [jQuery](https://jquery.com) to write less code and do more. As web apps grew complex, frameworks like [Angular](https://angular.dev) and [React](https://react.dev) introduced the SPA model. While great for apps, SPAs weren't ideal for websites. To address this, meta-frameworks like [Next.js](https://nextjs.org) (React) and [Nuxt.js](https://nuxt.com) (Vue) introduced SSG and SSR, enabling high-performance, SEO-friendly websites with modern JavaScript frameworks. Among the many front-end frameworks, React has emerged as the most popular choice among developers."
+          "content": "Vanilla JavaScript was initially used for basic DOM manipulation to add interactivity. Developers then turned to libraries like jQuery to write less code and do more. As web apps grew complex, frameworks like Angular and [React](https://react.dev) introduced the SPA model. While great for apps, SPAs weren't ideal for websites. To address this, meta-frameworks like [Next.js](https://nextjs.org) (React) and [Nuxt.js](https://nuxt.com) (Vue) introduced SSG and SSR, enabling high-performance, SEO-friendly websites with modern JavaScript frameworks. Among the many front-end frameworks, React has emerged as the most popular choice among developers."
         },
         {
           "platform": "backend",
@@ -103,7 +103,7 @@
         },
         {
           "title": "Libraries & Frameworks",
-          "content": "Need a specific feature? Chances are [npm](https://www.npmjs.com) has a package for it. Prefer JavaScript but not a fan of Node? You can try alternatives like [Deno](https://deno.com) or [Bun](https://bun.sh). Don’t like Express.js? Explore frameworks like [Fastify](https://fastify.dev), [Hono](https://hono.dev), or Nest.js. In contrast, Go offers fewer but more focused frameworks, such as [Gin](https://gin-gonic.com) and [Fiber](https://gofiber.io). While JavaScript’s wide range of choices is powerful, it can also lead to decision fatigue."
+          "content": "Need a specific feature? Chances are [npm](https://www.npmjs.com) has a package for it. Prefer JavaScript but not a fan of Node? You can try alternatives like [Deno](https://deno.com) or [Bun](https://bun.sh). Don’t like Express.js? Explore frameworks like Fastify, Hono, or Nest.js. In contrast, Go offers fewer but more focused frameworks, such as Gin and Fiber. While JavaScript’s wide range of choices is powerful, it can also lead to decision fatigue."
         },
         {
           "title": "Performance",
@@ -241,7 +241,7 @@
           "src": "/blogs/product-engineering-matrix/section/conclusion/alternates.svg",
           "alt": "Collage of logos; Kotlin, Swift, NativeScript, Xamarin, Laravel, Django, Rocket, .Net, Angular, Svelte, Solid, Astro."
         },
-        "content": "These aren’t the only frameworks and libraries out there. For backend development, [Laravel](https://laravel.com) and [Django](https://www.djangoproject.com) are both solid, mature options. On the frontend, Angular still powers many enterprise apps, while Svelte stands out for its exceptional performance. For native apps, [Kotlin for Android](https://developer.android.com/kotlin) and [Swift for iOS](https://developer.apple.com/swift) offer the best performance. There are plenty of other frameworks and technologies available, each with its own strengths depending on your project’s needs. As engineers, it’s crucial to stay flexible-experiment with different tools and focus on what solves the problem, rather than getting stuck on one solution."
+        "content": "These aren’t the only frameworks and libraries out there. For backend development, Laravel and Django are both solid, mature options. On the frontend, Angular still powers many enterprise apps, while Svelte stands out for its exceptional performance. For native apps, Kotlin for Android and Swift for iOS offer the best performance. There are plenty of other frameworks and technologies available, each with its own strengths depending on your project’s needs. As engineers, it’s crucial to stay flexible-experiment with different tools and focus on what solves the problem, rather than getting stuck on one solution."
       }
     }
   },

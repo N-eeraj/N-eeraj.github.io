@@ -12,9 +12,9 @@ const {
 function Frontend() {
   return (
     <section>
-      <h2 className="blog-sub-title">
+      <h3 className="blog-sub-title">
         {title}
-      </h2>
+      </h3>
 
       {Object.entries(introduction).map(([key, content]) => (
         <TextBlock

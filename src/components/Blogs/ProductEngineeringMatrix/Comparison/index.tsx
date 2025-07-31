@@ -21,9 +21,9 @@ function ComparisonBlock({ image, comparison }: ComparisonBlockProps) {
           <li
             key={index}
             className="space-y-1">
-            <h3 className="blog-section-sub-title">
+            <strong className="blog-section-sub-title">
               {title}
-            </h3>
+            </strong>
 
             <TextBlock
               content={content}

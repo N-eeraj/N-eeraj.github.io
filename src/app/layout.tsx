@@ -33,6 +33,10 @@ export default function RootLayout({ children, modal }: PropsWithChildren & { mo
         type="image/x-icon"
         rel="icon"
         href="/favicon.svg" />
+        <link 
+          rel="apple-touch-icon" 
+          href="/favicon.svg" 
+          sizes="180x180" />
 
       <GoogleAnalyticsTag />
 

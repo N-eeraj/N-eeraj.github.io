@@ -5,14 +5,15 @@ import {
 } from "@constants/enVariables"
 import keywords from "@keywords/home.json"
 
+const TITLE = `${NAME} | Full Stack Developer | Web & Software Solutions`
 const DESCRIPTION = `Explore ${NAME}'s portfolio, showcasing a range of work that highlights skills in development and problem-solving with a focus on quality and precision.`
 
 const METADATA: Metadata = {
   metadataBase: new URL(WEBSITE),
-  title: NAME,
+  title: TITLE,
   description: DESCRIPTION,
   openGraph: {
-    title: NAME,
+    title: TITLE,
     description: DESCRIPTION,
     type: "website",
     images: [
@@ -20,7 +21,7 @@ const METADATA: Metadata = {
     ],
   },
   twitter: {
-    title: NAME,
+    title: TITLE,
     description: DESCRIPTION,
     images: [
       "/favicon.svg",
@@ -30,9 +31,6 @@ const METADATA: Metadata = {
   robots: {
     index: true,
     follow: true,
-  },
-  alternates: {
-    canonical: WEBSITE,
   },
   authors: [
     {
