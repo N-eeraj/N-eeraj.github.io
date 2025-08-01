@@ -15,7 +15,7 @@ import {
 } from "@tanstack/react-query"
 import { toast } from "sonner"
 
-import { AuthContext } from "@context/Auth"
+import { UserContext } from "@context/User"
 import request from "@utils/request"
 import {
   BLOG_SLUG,
@@ -67,7 +67,7 @@ export function useSubmit(userVote?: Option) {
   const queryClient = useQueryClient()
   const router = useRouter()
   const pathName = usePathname()
-  const { isLoggedIn } = use(AuthContext)
+  const { isLoggedIn } = use(UserContext)
 
   const [selectedOption, setSelectedOption] = useState<Option | null>(null)
 

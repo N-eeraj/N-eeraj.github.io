@@ -11,7 +11,7 @@ import { AUTH_COOKIE_MAX_AGE } from "@constants/time"
 import type {
   SignUpFormSchema,
   LoginFormSchema,
-} from "@customTypes/auth/form"
+} from "@auth/types/form"
 
 export default class AuthService {
   private static async generateAndSetToken(user: InstanceType<typeof UserModel>) {

@@ -43,6 +43,7 @@
       "@data/*": ["./src/assets/data/*"],
       "@keywords/*": ["./src/assets/data/keywords/*"],
       "@metadata/*": ["./src/constants/metadata/*"],
+      "@auth/*": ["./src/app/(auth)/*"],
       "@blogs/*": ["./src/app/(blogs)/*"]
     }
   },

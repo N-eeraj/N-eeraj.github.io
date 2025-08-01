@@ -7,9 +7,12 @@ function Navbar() {
   return (
     <nav className="sticky top-0 flex justify-between items-center px-3 py-2 sm:px-8 md:py-4 bg-background border-b z-10">
       <NavbarLink />
-      <ThemeToggle />
-      <User />
-      <NavScrollProgress />
+
+      <div className="flex items-center gap-x-1 md:gap-x-2">
+        <ThemeToggle />
+        <User />
+        <NavScrollProgress />
+      </div>
     </nav>
   )
 }

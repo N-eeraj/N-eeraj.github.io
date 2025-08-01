@@ -8,7 +8,7 @@ import ThemeProvider from "@components/Theme/Provider"
 import QueryProvider from "@components/QueryProvider"
 import GoogleAnalyticsTag from "@components/Analytics/GoogleTag"
 import LayoutContextProvider from "@context/Layout"
-import AuthContextProvider from "@context/Auth"
+import UserContextProvider from "@context/User"
 import { Toaster } from "@shadcn/sonner"
 
 import METADATA from "@metadata/global"
@@ -33,22 +33,22 @@ export default function RootLayout({ children, modal }: PropsWithChildren & { mo
         type="image/x-icon"
         rel="icon"
         href="/favicon.svg" />
-        <link 
-          rel="apple-touch-icon" 
-          href="/favicon.svg" 
-          sizes="180x180" />
+      <link 
+        rel="apple-touch-icon" 
+        href="/favicon.svg" 
+        sizes="180x180" />
 
       <GoogleAnalyticsTag />
 
       <body>
         <QueryProvider>
           <ThemeProvider>
-            <AuthContextProvider>
+            <UserContextProvider>
               <LayoutContextProvider>
                 {children}
               </LayoutContextProvider>
               {modal}
-            </AuthContextProvider>
+            </UserContextProvider>
             <Toaster />
           </ThemeProvider>
         </QueryProvider>

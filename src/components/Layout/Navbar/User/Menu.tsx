@@ -5,7 +5,7 @@ import {
 import { Skeleton } from "@shadcn/skeleton"
 
 import Button from "@components/Base/Button"
-import { AuthContext } from "@context/Auth"
+import { UserContext } from "@context/User"
 import request from "@utils/request"
 
 function UserMenu() {
@@ -15,7 +15,7 @@ function UserMenu() {
     user,
     isLoadingUser,
     clearUser,
-  } = use(AuthContext)
+  } = use(UserContext)
 
   const logoutUser = async () => {
     try {

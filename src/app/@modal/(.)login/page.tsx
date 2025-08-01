@@ -1,5 +1,5 @@
-import LoginForm from "@components/User/Auth/Login"
-import AuthModal from "@components/User/Auth/Modal"
+import LoginForm from "@auth/components/Login"
+import AuthModal from "@auth/components/Modal"
 
 function Login() {
   return (

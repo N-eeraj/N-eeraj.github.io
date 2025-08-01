@@ -7,7 +7,7 @@ import Button from "@components/Base/Button"
 import UserMenu from "./Menu"
 
 import { LayoutContext } from "@context/Layout"
-import { AuthContext } from "@context/Auth"
+import { UserContext } from "@context/User"
 import { usePathname } from "next/navigation"
 
 function User() {
@@ -19,7 +19,7 @@ function User() {
   } = use(LayoutContext)
   if (!showNavAuth) return
 
-  const { isLoggedIn } = use(AuthContext)
+  const { isLoggedIn } = use(UserContext)
 
   if (isLoggedIn) {
     return (
