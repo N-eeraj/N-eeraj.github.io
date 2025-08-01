@@ -7,7 +7,7 @@ import {
 } from "react"
 import { queryClient } from "@components/QueryProvider"
 import { LayoutContext } from "@context/Layout"
-import { AuthContext } from "@context/Auth"
+import { UserContext } from "@context/User"
 import { BLOG_QUERY_KEY } from "@blogs/constants/"
 
 function BlogLayoutWrapper({ children }: PropsWithChildren) {
@@ -19,7 +19,7 @@ function BlogLayoutWrapper({ children }: PropsWithChildren) {
   const {
     isLoggedIn,
     isLoadingUser,
-  } = use(AuthContext)
+  } = use(UserContext)
 
   useEffect(() => {
     setShowNavAuth(true)

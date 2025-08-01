@@ -1,5 +1,5 @@
-import SignUpForm from "@components/User/Auth/SignUp"
-import AuthModal from "@components/User/Auth/Modal"
+import SignUpForm from "@auth/components/SignUp"
+import AuthModal from "@auth/components/Modal"
 
 function SignUp() {
   return (

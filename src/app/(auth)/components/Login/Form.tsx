@@ -1,0 +1,53 @@
+"use client"
+
+import BaseInput from "@components/Base/Input"
+import ErrorMessage from "@components/Base/ErrorMessage"
+import Button from "@components/Base/Button"
+import useAuth from "@auth/hooks/useAuth"
+import { loginFormSchema } from "@auth/schemas/login"
+
+function LoginForm() {
+  const {
+    register,
+    errors,
+    onSubmit,
+    handleSubmit,
+    isSubmitting,
+  } = useAuth({
+    schema: loginFormSchema,
+    endpoint: "/api/login",
+  })
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="flex flex-col gap-6">
+        <div className="grid gap-2">
+          <BaseInput
+            {...register("email")}
+            error={errors.email}
+            label="Email"
+            placeholder="johndoe@email.com"
+            className="bg-white placeholder:text-muted-foreground/50" />
+        </div>
+        <div className="grid gap-2">
+          <BaseInput
+            {...register("password")}
+            error={errors.password}
+            label="Password"
+            type="password"
+            placeholder="Enter your password"
+            className="bg-white placeholder:text-muted-foreground/50" />
+        </div>
+
+        <ErrorMessage error={errors.root} />
+        <Button
+          loading={isSubmitting}
+          className="w-full bg-foreground hover:bg-foreground/90">
+          Login
+        </Button>
+      </div>
+    </form>
+  )
+}
+
+export default LoginForm
