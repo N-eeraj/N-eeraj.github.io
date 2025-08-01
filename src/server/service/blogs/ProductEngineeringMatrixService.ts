@@ -2,12 +2,12 @@ import connectDB from "@server/db"
 import UserService from "@serverService/UserService"
 import { throwResponseError } from "@server/lib/responseHandlers"
 import BlogModel from "@model/Blog"
-import { BLOG_SLUG } from "@constants/blogs"
+import { BLOG_SLUG } from "@blogs/constants/"
 import type {
   PollData,
   SubmitSchema,
-} from "@customTypes/blogs/productEngineeringMatrix"
-import { submitSchema } from "@schema/blogs/productEngineeringMatrix"
+} from "@blogs/types/productEngineeringMatrix"
+import { submitSchema } from "@blogs/schemas/productEngineeringMatrix"
 
 const PRODUCT_ENGINEERING_MATRIX = BLOG_SLUG.PRODUCT_ENGINEERING_MATRIX
 

@@ -1,6 +1,6 @@
 import ProductEngineeringMatrixService from "@serverService/blogs/ProductEngineeringMatrixService"
 import { throwResponseError } from "@server/lib/responseHandlers"
-import { BLOG_SLUG } from "@constants/blogs"
+import { BLOG_SLUG } from "@blogs/constants/"
 import { REST_METHODS } from "@constants/network"
 import { RestMethod } from "@customTypes/network"
 

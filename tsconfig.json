@@ -42,8 +42,8 @@
       "@customTypes/*": ["./src/types/*"],
       "@data/*": ["./src/assets/data/*"],
       "@keywords/*": ["./src/assets/data/keywords/*"],
-      "@blogData/*": ["./src/assets/data/blogs/*"],
-      "@metadata/*": ["./src/constants/metadata/*"]
+      "@metadata/*": ["./src/constants/metadata/*"],
+      "@blogs/*": ["./src/app/(blogs)/*"]
     }
   },
   "include": [
