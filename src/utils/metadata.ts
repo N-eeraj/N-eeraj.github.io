@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import type { BlogDetails } from "@customTypes/blogs"
+import type { BlogDetails } from "@blogs/types"
 
 export function generateBlogMetadata({ title, description, coverImage }: BlogDetails, keywords: Array<string>): Metadata {
   return {
