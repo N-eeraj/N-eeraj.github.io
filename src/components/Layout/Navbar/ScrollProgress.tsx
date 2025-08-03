@@ -2,7 +2,7 @@
 
 import { use } from "react"
 import { ScrollProgress } from "@magicui/scroll-progress"
-import { LayoutContext } from "@context/Layout"
+import { LayoutContext } from "@contexts/Layout"
 
 function NavScrollProgress() {
   const { showScrollProgress } = use(LayoutContext)

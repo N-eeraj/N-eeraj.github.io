@@ -3,7 +3,7 @@ import {
   redirect,
   useSearchParams,
 } from "next/navigation"
-import { UserContext } from "@context/User"
+import { UserContext } from "@contexts/User"
 
 import {
   useForm,

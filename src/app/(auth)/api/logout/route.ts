@@ -1,4 +1,4 @@
-import AuthService from "@serverService/AuthService"
+import AuthService from "@auth/services/AuthService"
 import {
   sendErrorResponse,
   sendSuccessResponse,

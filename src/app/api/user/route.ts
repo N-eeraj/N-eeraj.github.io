@@ -1,4 +1,4 @@
-import UserService from "@serverService/UserService"
+import UserService from "@services/UserService"
 import {
   sendErrorResponse,
   sendSuccessResponse,

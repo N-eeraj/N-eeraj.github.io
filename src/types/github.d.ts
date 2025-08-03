@@ -1,4 +1,4 @@
-import githubRepoDetailsSchema from "@schema/github/repoDetails"
+import githubRepoDetailsSchema from "@schemas/github/repoDetails"
 import type { z } from "zod"
 import type {
   GithubRepoDetails,

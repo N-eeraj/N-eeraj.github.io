@@ -1,6 +1,6 @@
 import { cookies } from "next/headers"
 import connectDB from "@server/db"
-import UserModel from "@model/User"
+import UserModel from "@models/User"
 import { throwResponseError } from "@server/lib/responseHandlers"
 
 export default class UserService {

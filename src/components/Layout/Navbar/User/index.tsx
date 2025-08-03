@@ -6,8 +6,8 @@ import Link from "next/link"
 import Button from "@components/Base/Button"
 import UserMenu from "./Menu"
 
-import { LayoutContext } from "@context/Layout"
-import { UserContext } from "@context/User"
+import { LayoutContext } from "@contexts/Layout"
+import { UserContext } from "@contexts/User"
 import { usePathname } from "next/navigation"
 
 function User() {

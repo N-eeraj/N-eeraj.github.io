@@ -6,8 +6,8 @@ import {
   type PropsWithChildren,
 } from "react"
 import { queryClient } from "@components/QueryProvider"
-import { LayoutContext } from "@context/Layout"
-import { UserContext } from "@context/User"
+import { LayoutContext } from "@contexts/Layout"
+import { UserContext } from "@contexts/User"
 import { BLOG_QUERY_KEY } from "@blogs/constants/"
 
 function BlogLayoutWrapper({ children }: PropsWithChildren) {

@@ -1,6 +1,6 @@
 import type { z } from "zod"
 
-import npmDetailsSchema from "@schema/npm"
+import npmDetailsSchema from "@schemas/npm"
 import GithubRepo from "@lib/Github"
 import NpmPackage from "@lib/Npm"
 
