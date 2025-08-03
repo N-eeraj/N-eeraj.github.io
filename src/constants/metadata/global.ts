@@ -6,7 +6,7 @@ import {
 import keywords from "@keywords/home.json"
 
 const TITLE = `${NAME} | Full Stack Developer | Web & Software Solutions`
-const DESCRIPTION = `Explore ${NAME}'s portfolio, showcasing a range of work that highlights skills in development and problem-solving with a focus on quality and precision.`
+const DESCRIPTION = `Explore ${NAME}'s website to explore a portfolio of development expertise, problem-solving skills, and quality-driven work, along with insightful blogs.`
 
 const METADATA: Metadata = {
   metadataBase: new URL(WEBSITE),

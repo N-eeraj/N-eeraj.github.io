@@ -7,6 +7,7 @@ const {
   paragraphs: {
     introduction,
     platforms,
+    closing,
   },
 } = blog.redPill
 
@@ -44,6 +45,8 @@ function RedPill() {
               className="blog-section-content" />
           </div>
         ))}
+
+        <TextBlock content={closing} />
       </div>
     </section>
   )
