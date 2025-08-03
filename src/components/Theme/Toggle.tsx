@@ -4,7 +4,7 @@ import { use } from "react"
 import { useTheme } from "next-themes"
 
 import { Button } from "@shadcn/button"
-import { LayoutContext } from "@context/Layout"
+import { LayoutContext } from "@contexts/Layout"
 import {
   Sun,
   Moon,

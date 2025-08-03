@@ -3,8 +3,8 @@ import bcrypt from "bcrypt"
 import crypto from "crypto"
 
 import connectDB from "@server/db"
-import UserModel from "@model/User"
-import UserService from "@serverService/UserService"
+import UserModel from "@models/User"
+import UserService from "@services/UserService"
 import { throwResponseError } from "@server/lib/responseHandlers"
 
 import { AUTH_COOKIE_MAX_AGE } from "@constants/time"

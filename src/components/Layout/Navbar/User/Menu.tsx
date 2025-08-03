@@ -5,7 +5,7 @@ import {
 import { Skeleton } from "@shadcn/skeleton"
 
 import Button from "@components/Base/Button"
-import { UserContext } from "@context/User"
+import { UserContext } from "@contexts/User"
 import request from "@utils/request"
 
 function UserMenu() {

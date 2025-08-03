@@ -4,7 +4,7 @@ import {
   use,
   useEffect,
 } from "react"
-import { LayoutContext } from "@context/Layout"
+import { LayoutContext } from "@contexts/Layout"
 
 function MatrixTheme() {
   const { setHideThemeToggle } = use(LayoutContext)

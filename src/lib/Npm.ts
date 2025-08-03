@@ -1,4 +1,4 @@
-import npmDetailsSchema from "@schema/npm"
+import npmDetailsSchema from "@schemas/npm"
 import {
   NPM_BASE_URL,
   NPM_PACKAGE_API_URL,

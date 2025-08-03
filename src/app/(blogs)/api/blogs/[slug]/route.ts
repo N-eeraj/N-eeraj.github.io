@@ -1,4 +1,4 @@
-import BlogServiceHelper from "@serverService/blogs/BlogServiceHelper"
+import BlogServiceHelper from "@blogs/services/BlogServiceHelper"
 import {
   sendErrorResponse,
   sendSuccessResponse,

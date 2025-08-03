@@ -15,7 +15,7 @@ import {
 } from "@tanstack/react-query"
 import { toast } from "sonner"
 
-import { UserContext } from "@context/User"
+import { UserContext } from "@contexts/User"
 import request from "@utils/request"
 import {
   BLOG_SLUG,

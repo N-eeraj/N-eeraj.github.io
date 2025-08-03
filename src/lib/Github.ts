@@ -1,7 +1,7 @@
 import languageColorSchema, {
   type Language,
-} from "@schema/github/languages"
-import githubRepoDetailsSchema from "@schema/github/repoDetails"
+} from "@schemas/github/languages"
+import githubRepoDetailsSchema from "@schemas/github/repoDetails"
 
 import {
   GITHUB_BASE_URL,

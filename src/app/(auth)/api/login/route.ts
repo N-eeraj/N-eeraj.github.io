@@ -1,4 +1,4 @@
-import AuthService from "@serverService/AuthService"
+import AuthService from "@auth/services/AuthService"
 import { validateRequest } from "@server/lib/validation"
 import {
   sendErrorResponse,

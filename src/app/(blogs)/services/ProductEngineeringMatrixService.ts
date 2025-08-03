@@ -1,7 +1,7 @@
 import connectDB from "@server/db"
-import UserService from "@serverService/UserService"
+import UserService from "@services/UserService"
 import { throwResponseError } from "@server/lib/responseHandlers"
-import BlogModel from "@model/Blog"
+import BlogModel from "@models/Blog"
 import { BLOG_SLUG } from "@blogs/constants/"
 import type {
   PollData,
