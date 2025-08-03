@@ -1,7 +1,7 @@
 {
   "title": "The Product Engineering Matrix",
   "subTitle": "Build with Go/Vue/Flutter or Stick with Node/React/React Native",
-  "description": "Comparing two modern powerful full-stack ecosystems: Go + Vue + Flutter vs Node + React + React Native, exploring their strengths, trade-offs, and use cases that shape the product engineering decisions.",
+  "description": "Compare two full-stack solutions: Go + Vue + Flutter vs Node + React + React Native, exploring their strengths, trade-offs, and use cases.",
   "coverImage": {
     "src": "/blogs/product-engineering-matrix/cover.webp",
     "alt": "Morpheus offering a red pill for Go, Vue, and Flutter; and a blue pill for Node, React, and React Native."
