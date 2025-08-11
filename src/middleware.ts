@@ -7,28 +7,33 @@ import normalizeIp from "@utils/normalizeIp"
 import { sendErrorResponse } from "@server/lib/responseHandlers"
 
 const rateLimiter = new Map()
-const REQUEST_LIMIT = 1
- 
+const REQUEST_LIMIT = 60
+const RATE_LIMITER_WINDOW = 60_000 // 1 minute
+
 export default async function middleware(request: NextRequest) {
+  if (request.url.includes("too-many-requests")) {
+    return NextResponse.next()
+  }
+
   const ip = normalizeIp(request)
-  const trackedRequests = rateLimiter.get(ip)
+  let trackedRequests = rateLimiter.get(ip)
+  const now = Date.now()
   if (trackedRequests) {
-    console.log(trackedRequests)
+    rateLimiter.set(ip, trackedRequests.filter((trackedTime: number) => trackedTime > now - RATE_LIMITER_WINDOW))
+    trackedRequests = rateLimiter.get(ip)
     if (trackedRequests.length > REQUEST_LIMIT) {
-      if (!request.url.includes("too-many-requests")) {
-        if (request.nextUrl.pathname.startsWith("/api")) {
-          return sendErrorResponse({
-            status: 429,
-            message: "Too Many Requests"
-          })
-        } else {
-          return NextResponse.redirect(new URL("/too-many-requests", request.url))
-        }
+      if (request.nextUrl.pathname.startsWith("/api")) {
+        return sendErrorResponse({
+          status: 429,
+          message: "Too Many Requests"
+        })
+      } else {
+        return NextResponse.redirect(new URL("/too-many-requests", request.url))
       }
     }
-    trackedRequests.push(Date.now())
+    trackedRequests.push(now)
   } else {
-    rateLimiter.set(ip, [Date.now()])
+    rateLimiter.set(ip, [now])
   }
 
   return NextResponse.next()
