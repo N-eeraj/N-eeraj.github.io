@@ -4,7 +4,7 @@ import {
 } from "next/server"
 import RateLimiter from "@utils/RateLimiter"
 
-const rateLimiter = new RateLimiter(3)
+const rateLimiter = new RateLimiter()
 
 export default async function middleware(request: NextRequest) {
   if (request.url.includes("too-many-requests")) {
