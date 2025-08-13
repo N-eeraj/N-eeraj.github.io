@@ -7,9 +7,9 @@ import { CardFooter } from "@shadcn/card"
 import type { AuthFormFooterProps } from "@auth/types/form"
 
 function AuthFormFooter({ footerText, segue }: AuthFormFooterProps) {
+  const searchParams = useSearchParams()
   if (!(footerText || segue)) return
 
-  const searchParams = useSearchParams()
   const queryParams = Object.fromEntries(searchParams.entries())
   const segueLink = `${(segue?.link ?? "")}?${new URLSearchParams(queryParams).toString()}`
 
