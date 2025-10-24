@@ -15,7 +15,7 @@
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -23,35 +23,80 @@
       }
     ],
     "paths": {
-      "~/*": ["./*"],
-      "@/*": ["./src/*"],
-      "@app/*": ["./src/app/*"],
-      "@components/*": ["./src/components/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@server/*": ["./src/server/*"],
-      "@services/*": ["./src/server/services/*"],
-      "@models/*": ["./src/server/models/*"],
-      "@shadcn/*": ["./src/components/ui/*"],
-      "@magicui/*": ["./src/components/magicui/*"],
-      "@contexts/*": ["./src/contexts/*"],
-      "@lib/*": ["./src/lib/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@schemas/*": ["./src/schemas/*"],
-      "@constants/*": ["./src/constants/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@customTypes/*": ["./src/types/*"],
-      "@data/*": ["./src/assets/data/*"],
-      "@keywords/*": ["./src/assets/data/keywords/*"],
-      "@metadata/*": ["./src/constants/metadata/*"],
-      "@auth/*": ["./src/app/(auth)/*"],
-      "@blogs/*": ["./src/app/(blogs)/*"]
+      "~/*": [
+        "./*"
+      ],
+      "@/*": [
+        "./src/*"
+      ],
+      "@app/*": [
+        "./src/app/*"
+      ],
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@hooks/*": [
+        "./src/hooks/*"
+      ],
+      "@server/*": [
+        "./src/server/*"
+      ],
+      "@services/*": [
+        "./src/server/services/*"
+      ],
+      "@models/*": [
+        "./src/server/models/*"
+      ],
+      "@shadcn/*": [
+        "./src/components/ui/*"
+      ],
+      "@magicui/*": [
+        "./src/components/magicui/*"
+      ],
+      "@contexts/*": [
+        "./src/contexts/*"
+      ],
+      "@lib/*": [
+        "./src/lib/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@schemas/*": [
+        "./src/schemas/*"
+      ],
+      "@constants/*": [
+        "./src/constants/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
+      "@customTypes/*": [
+        "./src/types/*"
+      ],
+      "@data/*": [
+        "./src/assets/data/*"
+      ],
+      "@keywords/*": [
+        "./src/assets/data/keywords/*"
+      ],
+      "@metadata/*": [
+        "./src/constants/metadata/*"
+      ],
+      "@auth/*": [
+        "./src/app/(auth)/*"
+      ],
+      "@blogs/*": [
+        "./src/app/(blogs)/*"
+      ]
     }
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"

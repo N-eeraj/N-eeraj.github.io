@@ -31,6 +31,4 @@ export interface TextBlockProps {
   className?: string
 }
 
-export interface BlogParams {
-  params: Promise<{ slug?: BlogSlug }>
-}
+export type BlogParams = RouteContext<"/api/blogs/[slug]">

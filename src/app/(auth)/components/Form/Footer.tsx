@@ -20,6 +20,7 @@ function AuthFormFooter({ footerText, segue }: AuthFormFooterProps) {
           {footerText}
         </small>
       )}
+
       {segue && (
         <Link
           href={segueLink}
