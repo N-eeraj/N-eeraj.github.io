@@ -5,7 +5,7 @@ import {
 } from "@constants/enVariables"
 import keywords from "@keywords/home.json"
 
-const TITLE = `${NAME} | Full Stack Developer | Web & Software Solutions`
+const TITLE = `${NAME} | Software Developer | Web & Software Solutions`
 const DESCRIPTION = `Explore ${NAME}'s website to explore a portfolio of development expertise, problem-solving skills, and quality-driven work, along with insightful blogs.`
 
 const METADATA: Metadata = {

@@ -13,16 +13,23 @@ function Header() {
         </span>
       </h1>
 
-      <p>
+      <p className="flex flex-wrap">
         I work at&nbsp;
         <Link
           href="https://www.iocod.com"
           target="_blank"
           rel="noreferrer"
-          className="text-primary">
+          className="text-primary whitespace-nowrap">
           IOCOD Infotech
         </Link>
-        &nbsp;as a frontend developer specializing in Vue & Nuxt.
+        &nbsp;as a&nbsp;
+        <span className="whitespace-nowrap">
+          Software Developer
+        </span>
+        ,&nbsp;specializing in&nbsp;
+        <span className="whitespace-nowrap">
+          Frontend Technologies
+        </span>.
       </p>
     </header>
   )

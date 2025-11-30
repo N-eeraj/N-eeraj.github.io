@@ -9,7 +9,7 @@ import {
 
 async function HomePage() {
   return (
-    <main className="flex flex-col gap-y-5 max-w-2xl mx-auto px-4 py-6">
+    <main className="flex flex-col gap-y-5 max-w-3xl mx-auto px-4 py-6">
       <Header />
       <Works />
       <Experience />
