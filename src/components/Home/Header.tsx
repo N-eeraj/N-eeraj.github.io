@@ -20,16 +20,16 @@ function Header() {
           target="_blank"
           rel="noreferrer"
           className="text-primary whitespace-nowrap">
-          IOCOD Infotech
+          IOCOD Infotech&nbsp;
         </Link>
-        &nbsp;as a&nbsp;
+        as a&nbsp;
         <span className="whitespace-nowrap">
-          Software Developer
+          Software Developer,&nbsp;
         </span>
-        ,&nbsp;specializing in&nbsp;
+        specializing in&nbsp;
         <span className="whitespace-nowrap">
-          Frontend Technologies
-        </span>.
+          Frontend Technologies.
+        </span>
       </p>
     </header>
   )
